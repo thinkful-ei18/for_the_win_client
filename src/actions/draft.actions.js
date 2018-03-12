@@ -1,4 +1,4 @@
-import { API_DAILY_BASE_URL} from '../../config'
+import { API_DAILY_BASE_URL} from '../config'
 // https://api.mysportsfeeds.com/v1.2/pull/nba/current/daily_player_stats.json?fordate=20180308&playerstats=2PA,2PM,3PA,3PM,FTA,FTM
 
 
