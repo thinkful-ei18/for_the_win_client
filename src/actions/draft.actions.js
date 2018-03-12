@@ -21,14 +21,16 @@ export const fetchNbaPlayers = () => dispatch => {
   dispatch(fetchNbaPlayersRequest);
   fetch(`${API_DAILY_BASE_URL}?fordate=${today}&playerstats=none`)
     .then(res =>{
+      console.log('RES:', res);
       if(!res.ok) {
         return Promise.reject(res.statusText)
       }
+
       return res.json()
     })
-    // .then(players => {
-    //   dispatch(fetchNbaPlayersSuccess(players))
-    // })
+    .then(players => {
+      dispatch(fetchNbaPlayersSuccess(players))
+    })
     // .catch(err => dispatch(fetchNbaPlayersError(err)))
 }
 
