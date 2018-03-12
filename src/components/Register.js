@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './register.css';
+import './styles/register.css';
 
 
 export default class Register extends Component {

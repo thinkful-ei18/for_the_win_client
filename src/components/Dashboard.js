@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './dashboard.css';
+import './styles/dashboard.css';
 
 
 export default class Dashboard extends Component {
