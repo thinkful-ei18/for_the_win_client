@@ -1,3 +1,12 @@
 .theDraft {
   border: solid #000000 1px;
 }
+
+.playerList {
+  border: solid #000000 1px;
+  padding: 5px;
+}
+
+.availablePlayers {
+  list-style-type: none;
+}

@@ -1,5 +1,4 @@
-import { API_DAILY_BASE_URL} from '../config'
-// https://api.mysportsfeeds.com/v1.2/pull/nba/current/daily_player_stats.json?fordate=20180308&playerstats=2PA,2PM,3PA,3PM,FTA,FTM
+import { API_ACTIVE_PLAYERS_BASE_URL, username, password } from '../config'
 
 
 export const fetchNbaPlayers = () => dispatch => {
@@ -15,23 +14,36 @@ export const fetchNbaPlayers = () => dispatch => {
   if (mm < 10) {
     mm = '0' + mm
   }
-
   today = `${yyyy}${mm}${dd}`
 
+
   dispatch(fetchNbaPlayersRequest);
-  fetch(`${API_DAILY_BASE_URL}?fordate=${today}&playerstats=none`)
-    .then(res =>{
-      console.log('RES:', res);
+  fetch(
+    `${API_ACTIVE_PLAYERS_BASE_URL}?fordate=${today}&playerstats=none`,{
+      headers: {
+      "Authorization": "Basic " + btoa(`${username}:${password}`),
+      "Accept-Encoding": "gzip"
+      }
+    }
+  )
+    .then(res => {
       if(!res.ok) {
         return Promise.reject(res.statusText)
       }
-
       return res.json()
     })
-    .then(players => {
+    .then(res => {
+      const players = res.activeplayers.playerentry.map(obj => {
+        let firstName = obj.player.FirstName;
+        let lastName = obj.player.LastName;
+        return {
+          firstName,
+          lastName
+        };
+      });
       dispatch(fetchNbaPlayersSuccess(players))
     })
-    // .catch(err => dispatch(fetchNbaPlayersError(err)))
+    .catch(err => dispatch(fetchNbaPlayersError(err)))
 }
 
 export const FETCH_NBA_PLAYERS_REQUEST = 'FETCH_NBA_PLAYERS_REQUEST'
