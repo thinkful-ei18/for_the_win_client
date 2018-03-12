@@ -27,4 +27,8 @@ export class TheDraft extends Component {
   }
 }
 
-export default connect()(TheDraft)
+const mapStateToProps= state => ({
+  players:state.players
+})
+
+export default connect(mapStateToProps)(TheDraft)
