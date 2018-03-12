@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Dashboard from './components/Dashboard';
-import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'));
+
+import registerServiceWorker from './registerServiceWorker';
+// import Dashboard from './components/Dashboard';
+import TheDraft from './components/TheDraft';
+import store from './store';
+
+
+import './index.css';
+
+
+ReactDOM.render(
+  <Provider store={store} >
+    <TheDraft /> 
+  </Provider>, 
+  document.getElementById('root')
+);
 registerServiceWorker();
