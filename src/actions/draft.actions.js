@@ -1,50 +1,16 @@
-import { API_ACTIVE_PLAYERS_BASE_URL, username, password } from '../config'
-
 
 export const fetchNbaPlayers = () => dispatch => {
-  let today = new Date();
-  let dd = today.getDate();
-  let mm = today.getMonth() + 1;
-  let yyyy = today.getFullYear();
-
-  if (dd < 10) {
-    dd = '0' + dd
-  }
-
-  if (mm < 10) {
-    mm = '0' + mm
-  }
-  today = `${yyyy}${mm}${dd}`
-
-
+ 
   dispatch(fetchNbaPlayersRequest);
-  fetch(
-    `${API_ACTIVE_PLAYERS_BASE_URL}?fordate=${today}&playerstats=none`,{
-      headers: {
-      "Authorization": "Basic " + btoa(`${username}:${password}`),
-      "Accept-Encoding": "gzip"
-      }
-    }
-  )
+  fetch('/api/players')
     .then(res => {
       if(!res.ok) {
         return Promise.reject(res.statusText)
       }
       return res.json()
     })
-    .then(res => {
-      const players = res.activeplayers.playerentry.map(obj => {
-        let firstName = obj.player.FirstName;
-        let lastName = obj.player.LastName;
-        let playerID = obj.player.ID;
-        return {
-          playerID,
-          firstName,
-          lastName
-        };
-      });
-      dispatch(fetchNbaPlayersSuccess(players))
-    })
+    .then(players => dispatch(fetchNbaPlayersSuccess(players))
+    )
     .catch(err => dispatch(fetchNbaPlayersError(err)))
 }
 
