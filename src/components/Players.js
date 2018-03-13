@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchNbaPlayers } from '../actions/draft.actions';
+import { API_BASE_URL } from '../config'
 
 import './styles/players.css';
 
@@ -16,7 +17,24 @@ export class Players extends Component {
   render() {
 
     const availablePlayers = this.props.players.map((player, index) => (
-      <li key={index} className='playerList'>{player.firstName} {player.lastName}</li>
+      <li 
+        key={index} 
+        onClick={() => {
+          return fetch(`${API_BASE_URL}/user/draft/`, 
+          { method: 'PUT', 
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+              "id": "555555555555555555555555", 
+              "playerID": `${player.playerID}` 
+            })
+          })
+        }} 
+        className='playerList'
+      >
+      {player.firstName} {player.lastName}
+      </li>
     ));
 
     return (
