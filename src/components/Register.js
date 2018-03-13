@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+// import Header from './Header';
+// import RegisterForm from './RegisterForm';
+// import Button from './Button';
+
 import './styles/register.css';
 
 

@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-import { fetchNbaPlayers } from '../actions/draft.actions'
+import Players from './Players';
 
 import './styles/theDraft.css';
 
 
-export class TheDraft extends Component {
-
-  componentDidMount() {
-    this.props.dispatch(fetchNbaPlayers())
-  }
+export default class TheDraft extends Component {
   
   render() {
-
-    const availablePlayers=this.props.players.map((player, index) => (
-      <li key={index} className='playerList'> {player.firstName} {player.lastName}</li>
-    ));
 
     return (
       <div className='theDraft'>
         <h1>Draft your team!</h1>
-        <ul className='availablePlayers'>
-          {availablePlayers}
-        </ul>
+        <Players />
       </div>
     );
   }
 }
-
-const mapStateToProps= state => ({
-  players:state.players
-})
-
-export default connect(mapStateToProps)(TheDraft)
