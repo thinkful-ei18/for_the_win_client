@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReduxForm from 'redu'
 
 import './styles/loginForm.css';
 

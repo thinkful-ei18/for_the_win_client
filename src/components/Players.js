@@ -5,6 +5,7 @@ import { fetchNbaPlayers } from '../actions/draft.actions';
 
 import './styles/players.css';
 
+// in the li add an on click to dispatch an async action to run the put method
 
 export class Players extends Component {
 
@@ -15,7 +16,7 @@ export class Players extends Component {
   render() {
 
     const availablePlayers = this.props.players.map((player, index) => (
-      <li key={index} className='playerList'> {player.firstName} {player.lastName}</li>
+      <li key={index} className='playerList'>{player.firstName} {player.lastName}</li>
     ));
 
     return (

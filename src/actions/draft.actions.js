@@ -36,7 +36,9 @@ export const fetchNbaPlayers = () => dispatch => {
       const players = res.activeplayers.playerentry.map(obj => {
         let firstName = obj.player.FirstName;
         let lastName = obj.player.LastName;
+        let playerID = obj.player.ID;
         return {
+          playerID,
           firstName,
           lastName
         };
