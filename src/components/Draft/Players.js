@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchNbaPlayers } from '../../actions/draft.actions';
 import { fetchAddPlayersToTeam } from '../../actions/draft.actions';
+import { fetchRemovePlayersFromTeam } from '../../actions/draft.actions';
 import { makeSymmDiffFunc } from '../../utils/index';
 
 import './players.css';
@@ -34,6 +35,9 @@ export class Players extends Component {
     const myPlayers = this.props.team.map((player, index) => (
       <li
         key={index}
+        onClick={() => {
+          this.props.dispatch(fetchRemovePlayersFromTeam(player.playerID))
+        }}
         className='myPlayers'
       >
         {player.firstName} {player.lastName}

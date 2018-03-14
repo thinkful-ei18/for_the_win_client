@@ -60,7 +60,7 @@ export const fetchAddPlayersToTeam = player => dispatch => {
       return res.json()
     })
     .then(res => {
-      console.log('RES: ', res)
+      console.log('RES ADD: ', res)
       let team = res.team;
       dispatch(fetchAddPlayersToTeamSuccess(team))}
     )
@@ -81,5 +81,53 @@ export const fetchAddPlayersToTeamSuccess = team => ({
 export const FETCH_ADD_PLAYERS_TO_TEAM_ERROR = 'FETCH_ADD_PLAYERS_TO_TEAM_ERROR'
 export const fetchAddPlayersToTeamError = err => ({
   type: FETCH_ADD_PLAYERS_TO_TEAM_ERROR,
+  err
+})
+
+
+/* ========================= REMOVE PLAYERS FROM A TEAM ========================= */
+
+export const fetchRemovePlayersFromTeam = playerID => dispatch => {
+  dispatch(fetchRemovePlayersFromTeamRequest);
+  fetch(`${DB_BASE_URL}/user/draft/remove`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "id": "555555555555555555555555",
+        "playerID": playerID
+      })
+    })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText)
+      }
+      return res.json()
+    })
+    .then(res => {
+      console.log('RES REMOVE: ', res)
+      let team = res.team;
+      dispatch(fetchRemovePlayersFromTeamSuccess(team))
+    }
+    )
+    .catch(err => dispatch(fetchRemovePlayersFromTeamError(err)))
+}
+
+export const FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST = 'FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST'
+export const fetchRemovePlayersFromTeamRequest = () => ({
+  type: FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST
+})
+
+export const FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_SUCCESS = 'FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_SUCCESS'
+export const fetchRemovePlayersFromTeamSuccess = team => ({
+  type: FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_SUCCESS,
+  team
+})
+
+export const FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_ERROR = 'FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_ERROR'
+export const fetchRemovePlayersFromTeamError = err => ({
+  type: FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_ERROR,
   err
 })

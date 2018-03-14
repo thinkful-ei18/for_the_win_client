@@ -26,5 +26,14 @@ export const draftReducer = (state=initialState, action) => {
     }
   } 
 
+  if (action.type === actions.FETCH_REMOVE_PLAYERS_FROM_TEAM_REQUEST_SUCCESS) {
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      team: action.team
+    }
+  } 
+
   return state;
 } 
