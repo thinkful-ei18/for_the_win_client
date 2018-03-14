@@ -41,7 +41,6 @@ export const fetchNbaPlayersError = err => ({
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 
 export const fetchAddPlayersToTeam = playerID => dispatch => {
-  console.log('PID action: ', playerID);
   dispatch(fetchAddPlayersToTeamRequest);
   fetch(`${DB_BASE_URL}/user/draft/`,
     {
@@ -55,16 +54,13 @@ export const fetchAddPlayersToTeam = playerID => dispatch => {
       })
     })
     .then(res => {
-      console.log('RES: ', res);
       if (!res.ok) {
         return Promise.reject(res.statusText)
       }
-      // let team = ;
       return res.json()
     })
     .then(res => {
       let team = res.team;
-      console.log('TEAM: ', team);
       dispatch(fetchAddPlayersToTeamSuccess(team))}
     )
     .catch(err => dispatch(fetchAddPlayersToTeamError(err)))

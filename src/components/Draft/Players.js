@@ -21,7 +21,6 @@ export class Players extends Component {
         key={index} 
         onClick={() => {
           const playerID = player.playerID;
-          console.log('PID comp: ', playerID);
           this.props.dispatch(fetchAddPlayersToTeam(playerID))
         }} 
         className='playerList'
@@ -30,7 +29,7 @@ export class Players extends Component {
       </li>
     ));
 
-    
+    const myPlayers = this.props.team.map((player, index) => { })
 
     return (
       <div className='players'>
