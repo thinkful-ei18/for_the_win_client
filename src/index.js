@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 
 import registerServiceWorker from './registerServiceWorker';
-// import Dashboard from './components/Dashboard';
-import TheDraft from './components/Draft/TheDraft';
+import Login from './components/Login/Login';
+// import TheDraft from './components/Draft/TheDraft';
 import store from './store';
 
 
@@ -14,7 +14,7 @@ import './index.css';
 
 ReactDOM.render(
   <Provider store={store} >
-    <TheDraft /> 
+    <Login /> 
   </Provider>, 
   document.getElementById('root')
 );

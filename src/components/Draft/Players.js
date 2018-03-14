@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import { fetchNbaPlayers } from '../../actions/draft.actions';
 import { fetchAddPlayersToTeam } from '../../actions/draft.actions';
@@ -44,20 +45,25 @@ export class Players extends Component {
       </li>
     ));
 
-    
 
     return (
-      <div className='players'>
-        <ul className='myPlayers'>
-          {myPlayers}
-        </ul>
-        {this.props.team.length === 5 &&
-          <button>Submit</button>
-        }
-        <ul className='availablePlayers'>
-          {availablePlayers}
-        </ul>
-      </div>
+      <Router>
+        <div className='players'>
+          <ul className='myPlayers'>
+            {myPlayers}
+          </ul>
+          {this.props.team.length === 5 &&
+            <button>
+              <Link to='/home'>
+              Submit
+              </Link>
+            </button>
+          }
+          <ul className='availablePlayers'>
+            {availablePlayers}
+          </ul>
+        </div>
+      </Router>
     );
   }
 }

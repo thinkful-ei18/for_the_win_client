@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles/team.css';
+import './team.css';
 
 
 export default class Team extends Component {
@@ -9,7 +9,7 @@ export default class Team extends Component {
 
     return (
       <div className='team'>
-
+        <h1>Team</h1>
       </div>
     );
   }

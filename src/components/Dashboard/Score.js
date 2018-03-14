@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles/score.css';
+import './score.css';
 
 
 export default class Score extends Component {
@@ -9,7 +9,7 @@ export default class Score extends Component {
 
     return (
       <div className='score'>
-
+        <h1>Score</h1>
       </div>
     );
   }

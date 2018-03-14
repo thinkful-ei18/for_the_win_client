@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles/registerForm.css';
+import './registerForm.css';
 
 
 export default class RegisterForm extends Component {
@@ -9,7 +9,7 @@ export default class RegisterForm extends Component {
 
     return(
       <div className='registerForm'>
-
+        <h1>Register Form</h1>
       </div>
     );
   }

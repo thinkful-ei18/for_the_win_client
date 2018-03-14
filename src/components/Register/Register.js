@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import RegisterForm from './RegisterForm';
 // import Button from './Button';
 
-import './styles/register.css';
+import './register.css';
 
 
 export default class Register extends Component {
@@ -13,7 +13,7 @@ export default class Register extends Component {
 
     return (
       <div className='register'>
-
+        <h1>Register</h1>
       </div>
     );
   }

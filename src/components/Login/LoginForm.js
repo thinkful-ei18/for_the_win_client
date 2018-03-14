@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReduxForm from 'redu'
+// import ReduxForm from 'redux';
 
-import './styles/loginForm.css';
+import './loginForm.css';
 
 
 export default class LoginForm extends Component {
@@ -10,7 +10,7 @@ export default class LoginForm extends Component {
 
     return (
       <div className='loginForm'>
-
+        <h1>Login Form</h1>
       </div>
     );
   }

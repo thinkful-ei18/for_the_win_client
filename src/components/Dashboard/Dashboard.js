@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
-import Score from './Score';
-import Team from './Team';
+// import Header from './Header';
+// import Score from './Score';
+// import Team from './Team';
 
 
-import './styles/dashboard.css';
+import './dashboard.css';
 
 
 export default class Dashboard extends Component {
@@ -14,9 +14,7 @@ export default class Dashboard extends Component {
 
     return(
       <div className='dashboard'>
-        <Header />
-        <Score />
-        <Team />
+        <h1>Dashboard</h1>
       </div>
     );
   }
