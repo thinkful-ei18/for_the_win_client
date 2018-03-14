@@ -1,4 +1,4 @@
-import { DB_BASE_URL } from '../config'
+import { API_BASE_URL } from '../config'
 /**
  * once users receive a jwt, the id inside fetchAddPlayersToTeam needs to reflect the user's id!
  */
@@ -8,7 +8,7 @@ import { DB_BASE_URL } from '../config'
 export const fetchNbaPlayers = () => dispatch => {
  
   dispatch(fetchNbaPlayersRequest);
-  fetch('/api/players')
+  fetch(`${API_BASE_URL}/api/players`)
     .then(res => {
       if(!res.ok) {
         return Promise.reject(res.statusText)
@@ -42,7 +42,7 @@ export const fetchNbaPlayersError = err => ({
 
 export const fetchAddPlayersToTeam = player => dispatch => {
   dispatch(fetchAddPlayersToTeamRequest);
-  fetch(`${DB_BASE_URL}/user/draft/`,
+  fetch(`${API_BASE_URL}/team/add/`,
     {
       method: 'PUT',
       headers: {
@@ -89,7 +89,7 @@ export const fetchAddPlayersToTeamError = err => ({
 
 export const fetchRemovePlayersFromTeam = playerID => dispatch => {
   dispatch(fetchRemovePlayersFromTeamRequest);
-  fetch(`${DB_BASE_URL}/user/draft/remove`,
+  fetch(`${API_BASE_URL}/team/remove`,
     {
       method: 'PUT',
       headers: {
