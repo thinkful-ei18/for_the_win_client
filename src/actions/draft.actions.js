@@ -40,7 +40,7 @@ export const fetchNbaPlayersError = err => ({
 
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 
-export const fetchAddPlayersToTeam = playerID => dispatch => {
+export const fetchAddPlayersToTeam = player => dispatch => {
   dispatch(fetchAddPlayersToTeamRequest);
   fetch(`${DB_BASE_URL}/user/draft/`,
     {
@@ -50,7 +50,7 @@ export const fetchAddPlayersToTeam = playerID => dispatch => {
       },
       body: JSON.stringify({
         "id": "555555555555555555555555",
-        "playerID": playerID
+        "player": player
       })
     })
     .then(res => {
@@ -60,6 +60,7 @@ export const fetchAddPlayersToTeam = playerID => dispatch => {
       return res.json()
     })
     .then(res => {
+      console.log('RES: ', res)
       let team = res.team;
       dispatch(fetchAddPlayersToTeamSuccess(team))}
     )

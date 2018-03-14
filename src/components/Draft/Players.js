@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import { fetchNbaPlayers } from '../../actions/draft.actions';
 import { fetchAddPlayersToTeam } from '../../actions/draft.actions';
+import { makeSymmDiffFunc } from '../../utils/index';
 
 import './players.css';
 
-// in the li add an on click to dispatch an async action to run the put method
 
 export class Players extends Component {
 
@@ -16,12 +16,14 @@ export class Players extends Component {
 
   render() {
 
-    const availablePlayers = this.props.players.map((player, index) => (
+    const getRemainingPlayers = makeSymmDiffFunc((x, y) => x.playerID === y.playerID);
+    const remainingPlayers = getRemainingPlayers(this.props.players, this.props.team);
+
+    const availablePlayers = remainingPlayers.map((player, index) => (
       <li 
         key={index} 
         onClick={() => {
-          const playerID = player.playerID;
-          this.props.dispatch(fetchAddPlayersToTeam(playerID))
+          this.props.dispatch(fetchAddPlayersToTeam(player))
         }} 
         className='playerList'
       >
@@ -29,11 +31,22 @@ export class Players extends Component {
       </li>
     ));
 
-    const myPlayers = this.props.team.map((player, index) => { })
+    const myPlayers = this.props.team.map((player, index) => (
+      <li
+        key={index}
+        className='myPlayers'
+      >
+        {player.firstName} {player.lastName}
+      </li>
+    ));
+
+    
 
     return (
       <div className='players'>
-        {this.props.team}
+        <ul className='myPlayers'>
+          {myPlayers}
+        </ul>
         <ul className='availablePlayers'>
           {availablePlayers}
         </ul>

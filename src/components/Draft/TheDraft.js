@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Players from './Players';
+// import Lineup from './Lineup';
 
 import './theDraft.css';
 
