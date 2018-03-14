@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Players from './Players';
 
-import './styles/theDraft.css';
+import './theDraft.css';
 
 
 export default class TheDraft extends Component {

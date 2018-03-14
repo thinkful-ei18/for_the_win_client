@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchNbaPlayers } from '../actions/draft.actions';
-import { API_BASE_URL } from '../config'
+import { fetchNbaPlayers } from '../../actions/draft.actions';
+import { fetchAddPlayersToTeam } from '../../actions/draft.actions';
 
-import './styles/players.css';
+import './players.css';
 
 // in the li add an on click to dispatch an async action to run the put method
 
@@ -20,16 +20,9 @@ export class Players extends Component {
       <li 
         key={index} 
         onClick={() => {
-          return fetch(`${API_BASE_URL}/user/draft/`, 
-          { method: 'PUT', 
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-              "id": "555555555555555555555555", 
-              "playerID": `${player.playerID}` 
-            })
-          })
+          const playerID = player.playerID;
+          console.log('PID comp: ', playerID);
+          this.props.dispatch(fetchAddPlayersToTeam(playerID))
         }} 
         className='playerList'
       >
@@ -37,8 +30,11 @@ export class Players extends Component {
       </li>
     ));
 
+    
+
     return (
       <div className='players'>
+        {this.props.team}
         <ul className='availablePlayers'>
           {availablePlayers}
         </ul>
@@ -48,7 +44,8 @@ export class Players extends Component {
 }
 
 const mapStateToProps = state => ({
-  players: state.players
+  players: state.players,
+  team: state.team
 })
 
 export default connect(mapStateToProps)(Players)
