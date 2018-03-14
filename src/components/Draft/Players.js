@@ -51,6 +51,9 @@ export class Players extends Component {
         <ul className='myPlayers'>
           {myPlayers}
         </ul>
+        {this.props.team.length === 5 &&
+          <button>Submit</button>
+        }
         <ul className='availablePlayers'>
           {availablePlayers}
         </ul>
