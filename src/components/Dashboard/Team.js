@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { fetchRosterStats } from '../../actions/stats.actions';
 import './team.css';
 
 
 export class Team extends Component {
 
+  componentDidMount() {
+    this.props.dispatch(fetchRosterStats())
+  }
   render() {
 
-    const myTeam = this.props.team.map(player => (
+    const myTeam = this.props.team.map((player, index) => (
       <div>
-        <p className='rosterPlayer'>{player.firstName} {player.lastName}</p>
+        <p key={index} className='rosterPlayer'>{player.firstName} {player.lastName}</p>
       </div>
     ));
 
