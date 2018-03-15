@@ -15,7 +15,7 @@ export const fetchTeam = () => dispatch => {
       return res.json()
     })
     .then(team => {
-      console.log('TEAM: ', team);
+      console.log('ACT TEAM: ', team);
       dispatch(fetchTeamSuccess(team))
     }
     )

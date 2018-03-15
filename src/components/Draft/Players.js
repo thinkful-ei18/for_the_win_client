@@ -67,8 +67,8 @@ export class Players extends Component {
 }
 
 const mapStateToProps = state => ({
-  players: state.players,
-  team: state.team
+  players: state.draftReducer.players,
+  team: state.draftReducer.team
 })
 
 export default connect(mapStateToProps)(Players)

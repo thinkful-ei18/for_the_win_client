@@ -10,29 +10,32 @@ import './team.css';
 export class Team extends Component {
 
   componentDidMount() {
+    console.log('comp did mount');
     this.props.dispatch(fetchTeam());
     // this.props.dispatch(fetchRosterStats());
   }
 
   render() {
+    console.log('COMP TEAM: ', this.props);
+
 
     const myTeam = this.props.team.map((player, index) => (
-      <div>
         <p key={index} className='rosterPlayer'>{player.firstName} {player.lastName}</p>
-      </div>
     ));
 
     return (
       <div className='team'>
         <h1>Team</h1>
-        {myTeam}
+        <div>
+          {myTeam}
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  team: state.team
+  team: state.teamReducer.team
 })
 
 export default connect(mapStateToProps)(Team)
