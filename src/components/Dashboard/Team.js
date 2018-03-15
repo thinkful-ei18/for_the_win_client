@@ -10,13 +10,14 @@ import './team.css';
 export class Team extends Component {
 
   componentDidMount() {
-    console.log('comp did mount');
     this.props.dispatch(fetchTeam());
+    let playerIDs = this.props.team.map(player => player.playerID)
+    console.log('player IDs: ', playerIDs);
     // this.props.dispatch(fetchRosterStats());
   }
 
   render() {
-    console.log('COMP TEAM: ', this.props);
+    console.log('COMP TEAM: ', this.props.team);
 
 
     const myTeam = this.props.team.map((player, index) => (

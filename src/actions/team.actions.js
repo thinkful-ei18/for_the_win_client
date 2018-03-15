@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config'
+import { fetchIndividualStats } from './stats.actions'
 
 // REMOVE HARD CODED ID'S!!!
 
@@ -15,8 +16,11 @@ export const fetchTeam = () => dispatch => {
     })
     .then(team => {
       dispatch(fetchTeamSuccess(team))
-    }
-    )
+      return team
+    })
+    .then(team => {
+      dispatch(fetchIndividualStats(team[0].playerID))
+    })
     .catch(err => dispatch(fetchTeamError(err)))
 }
 

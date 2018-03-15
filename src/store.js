@@ -2,12 +2,12 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 import { draftReducer } from './reducers/draft.reducers';
-// import { statsReducer } from './reducers/stats.reducers';
+import { statsReducer } from './reducers/statsReducer';
 import { teamReducer } from './reducers/team.reducers';
 
 const rootReducer = combineReducers({
   draftReducer,
-  // statsReducer,
+  statsReducer,
   teamReducer
 });
 
