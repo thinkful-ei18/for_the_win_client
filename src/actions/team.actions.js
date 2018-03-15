@@ -5,7 +5,6 @@ import { API_BASE_URL } from '../config'
 /* ========================= FETCH USER'S TEAM ========================= */
 
 export const fetchTeam = () => dispatch => {
-  console.log('inside fetch team')
   dispatch(fetchTeamRequest);
   fetch(`${API_BASE_URL}/team/`)
     .then(res => {
@@ -15,7 +14,6 @@ export const fetchTeam = () => dispatch => {
       return res.json()
     })
     .then(team => {
-      console.log('ACT TEAM: ', team);
       dispatch(fetchTeamSuccess(team))
     }
     )
