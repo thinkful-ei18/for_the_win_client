@@ -2,14 +2,21 @@
   border: solid #000000 1px;
 }
 
-.roster, .playerStats {
-   /* display: inline-block; */
-   /* display: flex;
-   justify-content:space-around; */
+.roster, .playerStats, .descriptions {
+  list-style-type: none;
 }
 
-.playerStats, .descriptions {
-  list-style-type: none;
+/* .playerStats, .roster {
+   display: inline-block;
+   display: flex;
+   justify-content:space-around;
+   float: left;
+}  */
+
+.player {
+  padding: 10px;
+  padding-right: 25px;
+  width: 70px;
 }
 
 .playerName, .gameDay, .offense, .defense, .points, .title {

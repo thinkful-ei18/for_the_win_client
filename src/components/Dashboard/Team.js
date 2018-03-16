@@ -17,8 +17,8 @@ export class Team extends Component {
 
   render() {
     const myTeam = this.props.team.map((player, index) => (
-      <ul classname='roster'>
-        <li key={index} className='playerName'>{player.firstName} {player.lastName}</li>
+      <ul key={index} className='roster'>
+        <li className='player'>{player.firstName} {player.lastName}</li>
       </ul>
     ));
 
@@ -53,8 +53,8 @@ export class Team extends Component {
             <li className='title'>BLK</li>
             <li className='title'>PTS</li>
           </ul>
-          {playerStats}
           {myTeam}
+          {playerStats}
         </div>
       </div>
     );
