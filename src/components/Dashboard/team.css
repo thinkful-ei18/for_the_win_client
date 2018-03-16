@@ -1,3 +1,13 @@
 .team {
   border: solid #000000 1px;
 }
+
+.playerStats {
+  list-style-type: none;
+}
+
+.playerName, .offense, .defense, .points {
+  display: inline-block;
+  padding: 10px;
+  padding-right: 25px;
+}

@@ -3,51 +3,34 @@ import { API_BASE_URL } from '../config'
 
 /* ========================= FETCH ALL STATS ========================= */
 
-// export const fetchRosterStats = () => dispatch => {
+export const fetchRosterStats = team => dispatch => {
+  dispatch(fetchRosterStatsRequest);
 
-//   dispatch(fetchRosterStatsRequest);
-//   fetch(`${API_BASE_URL}/api/stats`)
-//     .then(res => {
-//       if (!res.ok) {
-//         return Promise.reject(res.statusText)
-//       }
-//       return res.json()
-//     })
-//     .then(stats => {
-//       console.log('STATS: ', stats);
-//       dispatch(fetchRosterStatsSuccess(stats))}
-//     )
-//     .catch(err => dispatch(fetchRosterStatsError(err)))
-// }
+  let playerIDs = team.map(player => player.playerID)
 
-export const fetchIndividualStats = playerID => {
+  return playerIDs.forEach(playerID => {
+    dispatch(fetchIndividualStats(playerID))
+  })
+
+}
+
+export const fetchIndividualStats = playerID => dispatch => {
+  
   return fetch(`${API_BASE_URL}/api/stats?player=${playerID}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
-  })
-  .then(res => {
-    if (!res.ok) {
-      return Promise.reject(res.statusText)
-    }
-    return res.json()
-  })
+    })
+    .then(res => res.json() )
     .then(logs => {
       let stats = logs.slice(-1)[0];
-      console.log('STATS ACT: ',stats)
-    });
+      dispatch(fetchRosterStatsSuccess(stats))
+    })
+    .catch(err => dispatch(fetchRosterStatsError(err)) );
 
 };
 
-export const fetchRosterStats = playerIDs => dispatch => {
-  dispatch(fetchRosterStatsRequest);
-
-  return Promise.all(playerIDs.map(playerID => fetchIndividualStats(playerID)))
-    .then(combinedPlayerStats => dispatch(fetchRosterStatsSuccess(combinedPlayerStats)))
-    .catch(err => fetchRosterStatsError(err));
-
-}
 
 export const FETCH_ROSTER_STATS_REQUEST = 'FETCH_ROSTER_STATS_REQUEST'
 export const fetchRosterStatsRequest = () => ({
