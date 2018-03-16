@@ -15,10 +15,10 @@ export const fetchTeam = () => dispatch => {
       }
       return res.json()
     })
-    // .then(team => {
-    //   dispatch(fetchTeamSuccess(team))
-    //   return team
-    // })
+    .then(team => {
+      dispatch(fetchTeamSuccess(team))
+      return team
+    })
     .then(team => {
       dispatch(fetchRosterStats(team))
     })

@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import { fetchRosterStats } from '../../actions/stats.actions';
 import { fetchTeam } from '../../actions/team.actions';
 
 import './team.css';
 
+/**
+ * Figure out how to get stats to pull in alphabetical order...
+ */
 
 export class Team extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchTeam());
-    // let playerIDs = this.props.team.map(player => player.playerID)
-    // console.log('player IDs: ', playerIDs);
-    // this.props.dispatch(fetchRosterStats());
   }
 
   render() {
-    // const myTeam = this.props.team.map((player, index) => (
-    //     <p key={index} className='rosterPlayer'>{player.firstName} {player.lastName}</p>
-    // ));
+    const myTeam = this.props.team.map((player, index) => (
+      <ul classname='roster'>
+        <li key={index} className='playerName'>{player.firstName} {player.lastName}</li>
+      </ul>
+    ));
 
     const playerStats = this.props.stats.map((player, index) => (
       <ul className='playerStats' key ={index}>
@@ -53,6 +54,7 @@ export class Team extends Component {
             <li className='title'>PTS</li>
           </ul>
           {playerStats}
+          {myTeam}
         </div>
       </div>
     );

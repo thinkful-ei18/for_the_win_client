@@ -2,6 +2,12 @@
   border: solid #000000 1px;
 }
 
+.roster, .playerStats {
+   /* display: inline-block; */
+   /* display: flex;
+   justify-content:space-around; */
+}
+
 .playerStats, .descriptions {
   list-style-type: none;
 }
