@@ -2,12 +2,13 @@
   border: solid #000000 1px;
 }
 
-.playerStats {
+.playerStats, .descriptions {
   list-style-type: none;
 }
 
-.playerName, .offense, .defense, .points {
+.playerName, .gameDay, .offense, .defense, .points, .title {
   display: inline-block;
   padding: 10px;
   padding-right: 25px;
+  width: 70px;
 }

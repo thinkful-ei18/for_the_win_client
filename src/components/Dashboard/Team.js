@@ -17,10 +17,6 @@ export class Team extends Component {
   }
 
   render() {
-    console.log('COMP TEAM: ', this.props.team);
-    console.log('TEAM STATS: ', this.props.stats)
-
-
     // const myTeam = this.props.team.map((player, index) => (
     //     <p key={index} className='rosterPlayer'>{player.firstName} {player.lastName}</p>
     // ));
@@ -28,6 +24,7 @@ export class Team extends Component {
     const playerStats = this.props.stats.map((player, index) => (
       <ul className='playerStats' key ={index}>
         <li className='playerName'>{player.firstName} {player.lastName}</li>
+        <li className='gameDay'>{player.dateOfGame}</li>
         <li className='offense'>{player.twoPointers}</li>
         <li className='offense'>{player.threePointers}</li>
         <li className='offense'>{player.freeThrows}</li>
@@ -43,6 +40,18 @@ export class Team extends Component {
       <div className='team'>
         <h1>Team</h1>
         <div>
+          <ul className='descriptions'>
+            <li className='title'>Player Name</li>
+            <li className='title'>Last Game:</li>
+            <li className='title'>2 PTS</li>
+            <li className='title'>3 PTS</li>
+            <li className='title'>FT</li>
+            <li className='title'>AST</li>
+            <li className='title'>REB</li>
+            <li className='title'>STL</li>
+            <li className='title'>BLK</li>
+            <li className='title'>PTS</li>
+          </ul>
           {playerStats}
         </div>
       </div>
