@@ -1,3 +1,12 @@
 .players {
   border: solid #000000 1px;
 }
+
+.playerList {
+  list-style-type: none;
+  display: inline-block;
+  padding: 15px;
+  width: 100px;
+  height:50px;
+  text-align: center;
+}
