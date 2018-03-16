@@ -60,7 +60,6 @@ export const fetchAddPlayersToTeam = player => dispatch => {
       return res.json()
     })
     .then(res => {
-      console.log('RES ADD: ', res)
       let team = res.team;
       dispatch(fetchAddPlayersToTeamSuccess(team))}
     )
@@ -107,7 +106,6 @@ export const fetchRemovePlayersFromTeam = playerID => dispatch => {
       return res.json()
     })
     .then(res => {
-      console.log('RES REMOVE: ', res)
       let team = res.team;
       dispatch(fetchRemovePlayersFromTeamSuccess(team))
     }
