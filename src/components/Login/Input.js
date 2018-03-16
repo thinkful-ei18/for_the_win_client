@@ -6,8 +6,6 @@ import './input.css'
 export default class Input extends Component {
 
   render() {
- 
-    console.log('INPUT PROPS: ', this.props);
 
     const Element = this.props.element || 'input';
 

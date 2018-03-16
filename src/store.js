@@ -5,12 +5,14 @@ import thunk from 'redux-thunk';
 import { draftReducer } from './reducers/draft.reducers';
 import { statsReducer } from './reducers/statsReducer';
 import { teamReducer } from './reducers/team.reducers';
+import { userReducer } from './reducers/userReducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
   draftReducer,
   statsReducer,
-  teamReducer
+  teamReducer,
+  userReducer
 });
 
 // export default createStore(
