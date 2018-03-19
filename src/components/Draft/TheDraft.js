@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 
 import Players from './Players';
 import { checkUserAuth } from '../../actions/userActions';
@@ -6,7 +8,7 @@ import { checkUserAuth } from '../../actions/userActions';
 import './theDraft.css';
 
 
-export default class TheDraft extends Component {
+export class TheDraft extends Component {
   
   componentWillMount() {
     this.props.dispatch(checkUserAuth())
@@ -22,3 +24,9 @@ export default class TheDraft extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  authToken: state.userReducer.authToken
+})
+
+export default connect(mapStateToProps)(TheDraft)
