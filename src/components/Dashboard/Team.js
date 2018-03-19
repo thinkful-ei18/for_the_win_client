@@ -14,8 +14,6 @@ export class Team extends Component {
   }
 
   render() {
-    console.log('STAT PROP: ', this.props.loading);
-    console.log('TEAM PROP: ', this.props.loading2);
     if (this.props.loading) {
       return <Spinner fadeIn='none' />;
     }
