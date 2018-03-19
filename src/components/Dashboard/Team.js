@@ -5,9 +5,6 @@ import { fetchTeam } from '../../actions/team.actions';
 
 import './team.css';
 
-/**
- * Figure out how to get stats to pull in alphabetical order...
- */
 
 export class Team extends Component {
 
@@ -16,14 +13,23 @@ export class Team extends Component {
   }
 
   render() {
-    const myTeam = this.props.team.map((player, index) => (
-      <ul key={index} className='roster'>
-        <li className='player'>{player.firstName} {player.lastName}</li>
-      </ul>
-    ));
 
-    const playerStats = this.props.stats.map((player, index) => (
-      <ul className='playerStats' key ={index}>
+    function compare(a, b) {
+      if (a.firstName < b.firstName)
+        return -1;
+      if (a.firstName > b.firstName)
+        return 1;
+      return 0;
+    }
+
+    const playerStats = this.props.stats.map((player, index) => {
+      if (player.firstName === 'N/A') {
+        let emptyStat = this.props.team.find(teammate => teammate.playerID === player.playerID)
+        player.firstName = emptyStat.firstName
+        player.lastName = emptyStat.lastName
+      }
+
+      return <ul className='playerStats' key ={index}>
         <li className='playerName'>{player.firstName} {player.lastName}</li>
         <li className='gameDay'>{player.dateOfGame}</li>
         <li className='offense'>{player.twoPointers}</li>
@@ -35,7 +41,7 @@ export class Team extends Component {
         <li className='defense'>{player.blocks}</li>
         <li className='points'>{player.totalPoints}</li>
       </ul>
-    ))
+    }).sort(compare)
 
     return (
       <div className='team'>
@@ -53,7 +59,6 @@ export class Team extends Component {
             <li className='title'>BLK</li>
             <li className='title'>PTS</li>
           </ul>
-          {myTeam}
           {playerStats}
         </div>
       </div>
