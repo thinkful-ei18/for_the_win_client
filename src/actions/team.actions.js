@@ -6,9 +6,16 @@ import { fetchRosterStats } from './stats.actions';
 
 /* ========================= FETCH USER'S TEAM ========================= */
 
-export const fetchTeam = () => dispatch => {
+export const fetchTeam = () => (dispatch, getState) => {
+  const authToken = getState().userReducer.authToken;
+
   dispatch(fetchTeamRequest);
-  fetch(`${API_BASE_URL}/team/`)
+  fetch(`${API_BASE_URL}/team/`, { 
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      }
+    })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText)

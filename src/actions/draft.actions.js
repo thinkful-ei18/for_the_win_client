@@ -41,8 +41,6 @@ export const fetchNbaPlayersError = err => ({
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 
 export const fetchAddPlayersToTeam = player => (dispatch, getState) => {
-  console.log('PLAYER: ', player);
-  console.log('GET STATE: ', getState())
   const authToken = getState().userReducer.authToken;
   dispatch(fetchAddPlayersToTeamRequest);
   fetch(`${API_BASE_URL}/team/add/`,
