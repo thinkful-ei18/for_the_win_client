@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-spinkit';
 
 import { fetchTeam } from '../../actions/team.actions';
 
@@ -13,6 +14,18 @@ export class Team extends Component {
   }
 
   render() {
+    console.log('STAT PROP: ', this.props.loading);
+    console.log('TEAM PROP: ', this.props.loading2);
+    if (this.props.loading) {
+      return <Spinner fadeIn='none' />;
+    }
+
+    let errorMessage;
+    if (this.props.error) {
+      errorMessage = (
+        <div className="errorMessage">{this.props.error}</div>
+      );
+    }
 
     function compare(a, b) {
       if (a.firstName < b.firstName)
@@ -59,6 +72,7 @@ export class Team extends Component {
             <li className='title'>BLK</li>
             <li className='title'>PTS</li>
           </ul>
+          {errorMessage}
           {playerStats}
         </div>
       </div>
@@ -68,7 +82,10 @@ export class Team extends Component {
 
 const mapStateToProps = state => ({
   team: state.teamReducer.team,
-  stats: state.statsReducer.stats
+  stats: state.statsReducer.stats,
+  loading: state.statsReducer.loading,
+  loading2: state.teamReducer.loading,
+  error: state.statsReducer.error
 })
 
 export default connect(mapStateToProps)(Team)

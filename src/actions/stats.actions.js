@@ -4,7 +4,7 @@ import { API_BASE_URL } from '../config'
 /* ========================= FETCH ALL STATS ========================= */
 
 export const fetchRosterStats = team => dispatch => {
-  dispatch(fetchRosterStatsRequest);
+  dispatch(fetchRosterStatsRequest());
 
   let playerIDs = team.map(player => player.playerID)
 

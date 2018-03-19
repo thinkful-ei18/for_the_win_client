@@ -1,15 +1,13 @@
 import { API_BASE_URL } from '../config'
-// import { fetchIndividualStats } from './stats.actions';
 import { fetchRosterStats } from './stats.actions';
 
-// REMOVE HARD CODED ID'S!!!
 
 /* ========================= FETCH USER'S TEAM ========================= */
 
 export const fetchTeam = () => (dispatch, getState) => {
   const authToken = getState().userReducer.authToken;
 
-  dispatch(fetchTeamRequest);
+  dispatch(fetchTeamRequest());
   fetch(`${API_BASE_URL}/team/`, { 
       headers: {
         'Content-Type': 'application/json',
