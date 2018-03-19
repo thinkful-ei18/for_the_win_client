@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom';
 
 import Input from './Input';
 import { required, nonEmpty } from './validators';
+import { login } from '../../actions/userActions';
 
 import './loginForm.css';
 
 
 export class LoginForm extends Component {
 
+  login(values) {
+    return this.props.dispatch(login(values.email, values.password))
+  }
+
   render() {
 
     return (
       <div>
-        <form className='loginForm' >
+        <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.login(values))} >
           <fieldset>
 
             <Field

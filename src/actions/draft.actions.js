@@ -41,6 +41,7 @@ export const fetchNbaPlayersError = err => ({
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 
 export const fetchAddPlayersToTeam = player => dispatch => {
+  console.log('PLAYER: ', player);
   dispatch(fetchAddPlayersToTeamRequest);
   fetch(`${API_BASE_URL}/team/add/`,
     {
@@ -49,8 +50,9 @@ export const fetchAddPlayersToTeam = player => dispatch => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "id": "555555555555555555555555",
-        "player": player
+        "playerID": player.playerID,
+        "firstName": player.firstName,
+        "lastName": player.lastName,
       })
     })
     .then(res => {

@@ -1,7 +1,10 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
+import jwtDecode from 'jwt-decode';
+import { saveAuthToken } from '../localStorage';
 
 
+/* ========================= CREATE A NEW USER ========================= */
 export const createUser = values => dispatch => {
   return fetch(`${API_BASE_URL}/register`, {
     method: 'POST',
@@ -51,3 +54,66 @@ export const createUserError = () => ({
   type: CREATE_USER_ERROR
 })
 
+
+/* ========================= LOGIN TO RECEIVE AUTHTOKEN ========================= */
+export const login = (email, password) => dispatch => {
+  dispatch(loginRequest());
+  return (
+    fetch(`${API_BASE_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    })
+    .then(res => res.json())
+    .then(({ authToken }) => {
+      storeAuthToken(authToken, dispatch)})
+    .catch(err => {
+      const { code } = err;
+      const message =
+        code === 401
+          ? 'Incorrect username or password'
+          : 'Unable to login, please try again';
+      dispatch(loginError(err));
+      return Promise.reject(
+        new SubmissionError({
+          _error: message
+        })
+      );
+    })
+  );
+};
+
+const storeAuthToken = (authToken, dispatch) => {
+  const decodedToken = jwtDecode(authToken);
+  dispatch(getAuthToken(authToken));
+  dispatch(loginSuccess(decodedToken.user));
+  saveAuthToken(authToken);
+};
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const loginRequest = () => ({
+  type: LOGIN_REQUEST
+});
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const loginSuccess = currentUser => ({
+  type: LOGIN_SUCCESS,
+  currentUser
+});
+
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const loginError = error => ({
+  type: LOGIN_ERROR,
+  error
+});
+
+export const GET_AUTH_TOKEN = 'GET_AUTH_TOKEN';
+export const getAuthToken = authToken => ({
+  type: GET_AUTH_TOKEN,
+  authToken
+});
