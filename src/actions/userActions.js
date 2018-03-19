@@ -111,9 +111,9 @@ export const loginRequest = () => ({
 });
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const loginSuccess = currentUser => ({
+export const loginSuccess = user => ({
   type: LOGIN_SUCCESS,
-  currentUser
+  user
 });
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';

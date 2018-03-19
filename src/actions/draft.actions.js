@@ -40,14 +40,17 @@ export const fetchNbaPlayersError = err => ({
 
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 
-export const fetchAddPlayersToTeam = player => dispatch => {
+export const fetchAddPlayersToTeam = player => (dispatch, getState) => {
   console.log('PLAYER: ', player);
+  console.log('GET STATE: ', getState())
+  const authToken = getState().userReducer.authToken;
   dispatch(fetchAddPlayersToTeamRequest);
   fetch(`${API_BASE_URL}/team/add/`,
     {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}` 
       },
       body: JSON.stringify({
         "playerID": player.playerID,

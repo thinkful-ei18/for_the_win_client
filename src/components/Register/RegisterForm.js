@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
-import { createUser } from '../../actions/userActions';
+import { createUser, login } from '../../actions/userActions';
 
 import './registerForm.css';
 
@@ -13,6 +13,7 @@ export class RegisterForm extends Component {
 
   register(values) {
     return this.props.dispatch(createUser(values))
+      .then(() => this.props.dispatch(login(values.email, values.password)));
   }
 
   render() {
