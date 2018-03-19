@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles/header.css';
+import './header.css';
 
 
 export default class Header extends Component {
@@ -9,7 +9,8 @@ export default class Header extends Component {
 
     return (
       <div className='header'>
-
+        <h1>For The Win!</h1>
+        <h3>Your next fantasy basketball app</h3>
       </div>
     );
   }

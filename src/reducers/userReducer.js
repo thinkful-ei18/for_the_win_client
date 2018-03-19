@@ -1,15 +1,16 @@
 import * as actions from '../actions/userActions';
 
 const initialState = {
-  loggedIn: false
+  loggedIn: false,
+  user: false
 }
 
 export const userReducer = (state = initialState, action) => {
 
-  if (action.type === actions.USER_CREATED) {
+  if (action.type === actions.CREATE_USER_SUCCESS) {
     return {
       ...state,
-      loggedIn: true
+      user: true
     }
   }
 

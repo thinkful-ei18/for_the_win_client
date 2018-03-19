@@ -1,81 +1,42 @@
 import React, { Component } from 'react';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
 import { API_BASE_URL } from '../../config';
-import { userCreated } from '../../actions/userActions';
+import { createUser } from '../../actions/userActions';
 
 import './registerForm.css';
 
 
 export class RegisterForm extends Component {
 
-  onSubmit(values) {
+  register(values) {
     console.log('USER: ', values)
-    return fetch(`${API_BASE_URL}/team/adduser`, {
-      method: 'POST',
-      body: JSON.stringify(values),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => {
-      console.log('RES: ', res)
-      // if (!res.ok) {
-      //   if (res.headers.has('content-type') && 
-      //   res.headers.get('content-type').startsWith('application/json')) {
-      //     return res.json().then(err => Promise.reject(err));
-      //   }
-
-      //   return Promise.reject({
-      //     code: res.status,
-      //     message: res.statusText
-      //   });
-      // } else 
-      if (res.statusText === "Created") {
-        console.log('this user was created!')
-        this.dispatch(userCreated())
-        
-      }
-    })
-    .catch(err => {
-      console.log('ERR: ', err);
-      const { reason, message, location } = err;
-      if (reason === 'ValidationError') {
-        return Promise.reject(
-          new SubmissionError({
-            [location]: message
-          })
-        );
-      }
-      return Promise.reject(
-        new SubmissionError({
-          _error: 'Error submitting message'
-        })
-      );
-    });
+    return this.props.dispatch(createUser(values))
   }
 
   render() {
 
     console.log('REG PROPS: ', this.props);
-    console.log('STATE: ', this.state);
+    console.log('FORM: ', this.props.form);
 
     let errorMessage;
     if (this.props.submitFailed) {
+      console.log('made it to the error');
       errorMessage = (
-        <div className="message errorMessage">Submit was unsuccessful</div>
+        <div className="message errorMessage">{this.props.error}</div>
       );
     }
 
-    // if(loggedIn) {
-    //   return <Redirect to='/draft' />
-    // }
+    if (this.props.submitSucceeded) {
+      return <Redirect to='/team' />
+    }
 
     return(
-      <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.register(values))}>
         <fieldset>
 
           <Field
@@ -130,6 +91,8 @@ export class RegisterForm extends Component {
           <br>
           </br>
           {errorMessage}
+          <br>
+          </br>
 
           <button
             className='submitButton'
@@ -143,6 +106,10 @@ export class RegisterForm extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => ({
+//   state
+// })
 
 export default reduxForm({
   form: 'register'

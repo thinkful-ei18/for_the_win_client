@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 
+import Header from '../Header';
 import LoginForm from './LoginForm';
 import Register from '../Register/Register';
 import TheDraft from '../Draft/TheDraft';
@@ -9,15 +11,18 @@ import Dashboard from '../Dashboard/Dashboard';
 
 import './login.css';
 
-export default class Login extends Component {
+export class Login extends Component {
 
   render() {
 
+    if (this.props.loggedIn) {
+      return <Redirect to="/dashboard" />;
+    }
+
     return (
       <Router>
-        <div className=''>
-          <h1>For The Win!</h1>
-          <h3>Your next fantasy basketball app</h3>
+        <div className='login'>
+          <Header />
           <main>
               <Route exact path='/' component={LoginForm} />
               <Route exact path='/register' component={Register} />
@@ -29,3 +34,9 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.userReducer.loggedIn
+});
+
+export default connect(mapStateToProps)(Login);
