@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// import Header from './Header';
-// import Score from './Score';
 import Team from './Team';
 
 
 import './dashboard.css';
+import { checkUserAuth } from '../../actions/userActions';
 
 
-export default class Dashboard extends Component {
+export class Dashboard extends Component {
+
+  componentWillMount() {
+    this.props.dispatch(checkUserAuth())
+  }
 
   render() {
 
@@ -20,3 +24,11 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  authToken: state.userReducer.authToken
+})
+
+export default connect(mapStateToProps)(Dashboard)
+
+

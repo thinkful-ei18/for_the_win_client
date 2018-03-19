@@ -1,7 +1,7 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import jwtDecode from 'jwt-decode';
-import { saveAuthToken } from '../localStorage';
+import { saveAuthToken, findAuthToken } from '../localStorage';
 
 
 /* ========================= CREATE A NEW USER ========================= */
@@ -126,4 +126,29 @@ export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
   authToken
+});
+
+
+/* ========================= CHECK IF USER IS AUTHENTICATED ========================= */
+export const checkUserAuth = () => dispatch => {
+  dispatch(checkUserAuthRequest());
+  let authToken = findAuthToken();
+  dispatch(checkUserAuthSuccess(authToken))
+};
+
+
+export const CHECK_USER_AUTH_REQUEST = 'CHECK_USER_AUTH_REQUEST';
+export const checkUserAuthRequest = () => ({
+  type: CHECK_USER_AUTH_REQUEST
+});
+
+export const CHECK_USER_AUTH_SUCCESS = 'CHECK_USER_AUTH_SUCCESS';
+export const checkUserAuthSuccess = authToken => ({
+  type: CHECK_USER_AUTH_SUCCESS,
+  authToken
+}); 
+
+export const CHECK_USER_AUTH_ERROR = 'CHECK_USER_AUTH_ERROR';
+export const checkUserAuthError = () => ({
+  type: CHECK_USER_AUTH_ERROR
 });

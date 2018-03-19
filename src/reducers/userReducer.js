@@ -60,5 +60,12 @@ export const userReducer = (state = initialState, action) => {
     };
   }
 
+  if (action.type === actions.CHECK_USER_AUTH_SUCCESS) {
+    return {
+      ...state,
+      authToken: action.authToken
+    };
+  }
+
   return state;
 } 
