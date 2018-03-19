@@ -21,6 +21,13 @@ export class LoginForm extends Component {
       return <Redirect to='/home' />
     }
 
+    let errorMessage;
+    if (this.props.submitFailed) {
+      errorMessage = (
+        <div className="message errorMessage">{this.props.error}</div>
+      );
+    }
+
     return (
       <div>
         <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.login(values))} >
@@ -46,6 +53,12 @@ export class LoginForm extends Component {
               validate={[required, nonEmpty]}
             />
 
+            <br>
+            </br>
+            {errorMessage}
+            <br>
+            </br>
+            
             <button
               className='submitButton'
               type="submit"
