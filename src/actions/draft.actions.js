@@ -89,16 +89,18 @@ export const fetchAddPlayersToTeamError = err => ({
 
 /* ========================= REMOVE PLAYERS FROM A TEAM ========================= */
 
-export const fetchRemovePlayersFromTeam = playerID => dispatch => {
+export const fetchRemovePlayersFromTeam = playerID => (dispatch, getState) => {
+  const authToken = getState().userReducer.authToken;
+
   dispatch(fetchRemovePlayersFromTeamRequest);
   fetch(`${API_BASE_URL}/team/remove`,
     {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
       },
       body: JSON.stringify({
-        "id": "555555555555555555555555",
         "playerID": playerID
       })
     })
