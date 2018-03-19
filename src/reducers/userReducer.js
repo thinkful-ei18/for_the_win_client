@@ -53,7 +53,7 @@ export const userReducer = (state = initialState, action) => {
     };
   }
   
-  if (action.type === actions.GET_AUTH_TOKEN) {
+  if (action.type === actions.SET_AUTH_TOKEN) {
     return {
       ...state,
       authToken: action.authToken

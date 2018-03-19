@@ -100,7 +100,7 @@ export const login = (email, password) => dispatch => {
 
 const storeAuthToken = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
-  dispatch(getAuthToken(authToken));
+  dispatch(setAuthToken(authToken));
   dispatch(loginSuccess(decodedToken.user));
   saveAuthToken(authToken);
 };
@@ -122,8 +122,8 @@ export const loginError = error => ({
   error
 });
 
-export const GET_AUTH_TOKEN = 'GET_AUTH_TOKEN';
-export const getAuthToken = authToken => ({
-  type: GET_AUTH_TOKEN,
+export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
+export const setAuthToken = authToken => ({
+  type: SET_AUTH_TOKEN,
   authToken
 });

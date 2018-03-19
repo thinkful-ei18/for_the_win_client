@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 import Header from '../Header';
@@ -14,10 +14,6 @@ import './login.css';
 export class Login extends Component {
 
   render() {
-
-    if (this.props.loggedIn) {
-      return <Redirect to="/dashboard" />;
-    }
 
     return (
       <Router>
