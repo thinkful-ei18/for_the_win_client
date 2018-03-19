@@ -92,5 +92,6 @@ export default connect(mapStateToProps)(Team)
 
 /**
  Resources:
- https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript
+ - compare: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript
+ - spinner: https://github.com/KyleAMathews/react-spinkit
  */
