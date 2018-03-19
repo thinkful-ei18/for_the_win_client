@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Input from './Input';
 import { required, nonEmpty } from './validators';
@@ -16,6 +16,10 @@ export class LoginForm extends Component {
   }
 
   render() {
+
+    if (this.props.submitSucceeded) {
+      return <Redirect to='/home' />
+    }
 
     return (
       <div>
