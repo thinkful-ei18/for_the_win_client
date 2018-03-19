@@ -72,3 +72,8 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(Team)
+
+/**
+ Resources:
+ https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript
+ */
