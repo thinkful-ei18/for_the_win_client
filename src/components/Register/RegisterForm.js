@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { reduxForm, Field, SubmissionError } from 'redux-form';
-import { connect } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 
 import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
-import { API_BASE_URL } from '../../config';
 import { createUser } from '../../actions/userActions';
 
 import './registerForm.css';
@@ -14,18 +12,13 @@ import './registerForm.css';
 export class RegisterForm extends Component {
 
   register(values) {
-    console.log('USER: ', values)
     return this.props.dispatch(createUser(values))
   }
 
   render() {
 
-    console.log('REG PROPS: ', this.props);
-    console.log('FORM: ', this.props.form);
-
     let errorMessage;
     if (this.props.submitFailed) {
-      console.log('made it to the error');
       errorMessage = (
         <div className="message errorMessage">{this.props.error}</div>
       );
@@ -106,10 +99,6 @@ export class RegisterForm extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   state
-// })
 
 export default reduxForm({
   form: 'register'
