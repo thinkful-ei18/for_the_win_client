@@ -1,10 +1,9 @@
 .login {
-  background-color: #E3EBE8;
-  border-radius: 8px;
-  width: 750px;
-  margin: 35px auto 0 auto;
+  background-color: #F7F7FF;
+  width: 100%;
   padding: 10px;
-
+  justify-content: center;
+  align-items: center;
 }
 
 fieldset {
@@ -25,4 +24,15 @@ fieldset {
 .registerLink {
   text-align: center;
   color: #B1B695;
+}
+
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .login {
+    width: 90%;
+    margin: 35px auto 0 auto;
+    border-radius: 8px;
+
+  }
 }

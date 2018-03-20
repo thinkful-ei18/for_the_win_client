@@ -7,7 +7,7 @@ import { fetchAddPlayersToTeam } from '../../actions/draft.actions';
 import { fetchRemovePlayersFromTeam } from '../../actions/draft.actions';
 import { makeSymmDiffFunc } from '../../utils/index';
 
-import './players.css';
+import './theDraft.css';
 
 
 export class Players extends Component {
@@ -23,25 +23,31 @@ export class Players extends Component {
 
     const availablePlayers = remainingPlayers.map((player, index) => (
       <li 
-        key={index} 
-        onClick={() => {
-          this.props.dispatch(fetchAddPlayersToTeam(player))
-        }} 
+        key={index}  
         className='playerList'
       >
-      {player.firstName} {player.lastName}
+        <button
+          className='liButton'
+          onClick={() => {
+            this.props.dispatch(fetchAddPlayersToTeam(player))
+          }}>
+          {player.firstName} {player.lastName}
+        </button>
       </li>
     ));
 
     const myPlayers = this.props.team.map((player, index) => (
       <li
         key={index}
-        onClick={() => {
-          this.props.dispatch(fetchRemovePlayersFromTeam(player.playerID))
-        }}
-        className='myPlayers'
+        className='teammate'
       >
-        {player.firstName} {player.lastName}
+        <button
+          className='liButton'
+          onClick={() => {
+            this.props.dispatch(fetchRemovePlayersFromTeam(player.playerID))
+          }}>
+          {player.firstName} {player.lastName}
+        </button>
       </li>
     ));
 
@@ -50,17 +56,20 @@ export class Players extends Component {
         <div className='players'>
           <ul className='myPlayers'>
             {myPlayers}
-          </ul>
-          {this.props.team.length === 10 &&
+            {this.props.team.length === 10 &&
             <Link to='/home'>
-              <button>
+              <button className='playersSubmitButton'>
                 Submit
               </button>
             </Link>
           }
+          </ul>
+      
           <ul className='availablePlayers'>
             {availablePlayers}
           </ul>
+
+          
         </div>
     );
   }

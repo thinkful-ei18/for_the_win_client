@@ -1,12 +1,111 @@
 .theDraft {
-  border: solid #000000 1px;
+  margin-top: 15px;
+  justify-content: space-evenly;
 }
 
-.playerList {
-  border: solid #000000 1px;
-  padding: 5px;
+.info {
+  text-align: center;
+}
+
+.players {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.availablePlayers,
+.myPlayers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.myPlayers {
+  width: 30%;
+  flex-direction: column;
 }
 
 .availablePlayers {
+  width: 70%;
+  justify-content: flex-end;
+}
+
+.playerList, .teammate {
   list-style-type: none;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 3px;
+  height: 40px;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+}
+
+.teammate {
+  border: solid #B1B695 2px;
+  width: 100%;
+}
+
+.playerList {
+  border: solid #D85627 2px;
+  width: 45%;
+}
+
+.liButton {
+  border: none;
+  background-color: transparent;
+}
+
+.playersSubmitButton {
+  text-align: center;
+  border-radius: 5px;
+  margin: 8px 0 0 3px;
+  color: #F7F7FF;
+  width: 100%;
+  height: 30px;
+  background-color: #D85627;
+  font-weight: bold;
+}
+
+
+@media only screen and (min-device-width: 500px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
+
+  .myPlayers {
+    width: 25%;
+  }
+
+  .availablePlayers {
+    width: 75%;
+  }
+
+  .playerList {
+    width: 30%;
+  }
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .myPlayers {
+    width: 15%;
+  }
+
+  .availablePlayers {
+    width: 85%;
+  }
+
+  .playerList {
+    width: 22%;
+  }
+}
+
+@media only screen and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
+  .myPlayers {
+    width: 15%;
+  } 
+  .availablePlayers {
+    width: 85%;
+  } 
+  .playerList {
+    width: 15%;
+  }
 }

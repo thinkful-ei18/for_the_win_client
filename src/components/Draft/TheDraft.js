@@ -18,7 +18,7 @@ export class TheDraft extends Component {
 
     return (
         <div className='theDraft'>
-          <h1>Draft your team!</h1>
+          <p className='info'>Choose 10 players for your fantasy team!</p>
           <Players />
         </div>
     );
