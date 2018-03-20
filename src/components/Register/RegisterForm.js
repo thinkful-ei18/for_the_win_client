@@ -6,7 +6,7 @@ import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
 import { createUser, login } from '../../actions/userActions';
 
-import './registerForm.css';
+import './register.css';
 
 
 export class RegisterForm extends Component {
@@ -89,7 +89,7 @@ export class RegisterForm extends Component {
           </br>
 
           <button
-            className='submitButton'
+            className='regSubmitButton'
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
             REGISTER
