@@ -6,7 +6,7 @@ import Input from './Input';
 import { required, nonEmpty } from './validators';
 import { login } from '../../actions/userActions';
 
-import './loginForm.css';
+import './login.css';
 
 
 export class LoginForm extends Component {
@@ -29,7 +29,7 @@ export class LoginForm extends Component {
     }
 
     return (
-      <div>
+      <div className='loginFormDiv'>
         <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.login(values))} >
           <fieldset>
 
@@ -69,7 +69,7 @@ export class LoginForm extends Component {
           </fieldset>
         </form>
 
-        <p>Don't have an account? Register <Link to="/register">here.</Link></p>
+        <p className='registerLink'>Don't have an account? Register <Link to="/register">here</Link>.</p>
       </div>
     );
   }

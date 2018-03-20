@@ -19,7 +19,7 @@ export class Login extends Component {
       <Router>
         <div className='login'>
           <Header />
-          <main>
+          <main className='main'>
               <Route exact path='/' component={LoginForm} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/team' component={TheDraft} />
