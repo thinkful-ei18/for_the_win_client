@@ -7,7 +7,7 @@ import { API_BASE_URL } from '../config'
 
 export const fetchNbaPlayers = () => dispatch => {
  
-  dispatch(fetchNbaPlayersRequest);
+  dispatch(fetchNbaPlayersRequest());
   fetch(`${API_BASE_URL}/api/players`)
     .then(res => {
       if(!res.ok) {
@@ -42,7 +42,7 @@ export const fetchNbaPlayersError = err => ({
 
 export const fetchAddPlayersToTeam = player => (dispatch, getState) => {
   const authToken = getState().userReducer.authToken;
-  dispatch(fetchAddPlayersToTeamRequest);
+  dispatch(fetchAddPlayersToTeamRequest());
   fetch(`${API_BASE_URL}/team/add/`,
     {
       method: 'PUT',
@@ -92,7 +92,7 @@ export const fetchAddPlayersToTeamError = err => ({
 export const fetchRemovePlayersFromTeam = playerID => (dispatch, getState) => {
   const authToken = getState().userReducer.authToken;
 
-  dispatch(fetchRemovePlayersFromTeamRequest);
+  dispatch(fetchRemovePlayersFromTeamRequest());
   fetch(`${API_BASE_URL}/team/remove`,
     {
       method: 'PUT',
