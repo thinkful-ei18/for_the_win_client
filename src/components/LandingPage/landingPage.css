@@ -1,0 +1,59 @@
+.navBar {
+  background-color: #B1B695;
+  height: 50px;
+}
+
+.loginLink, .registerLink {
+  margin-right: 30px;
+}
+
+.main {
+  height:350px;
+}
+
+.instructions {
+  background-color: #D85627;
+  height: 150px;
+  color: #E3EBE8;
+  width:100%;
+  padding-top: 10px;
+}
+
+.instructionsLi {
+  width: 80%;
+  margin: 0 auto;
+  list-style: none;
+  
+}
+
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar {
+    height: 80px;
+  }
+  
+  .main {
+    height: 700px;
+  }
+
+  .instructions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+
+@media only screen and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar {
+    height: 100px;
+  }
+  
+  .main {
+    height: 750px;
+  }
+}
