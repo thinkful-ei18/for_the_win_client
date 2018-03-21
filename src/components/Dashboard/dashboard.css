@@ -1,5 +1,4 @@
 .dashboard {
-  display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -21,6 +20,7 @@
 
 .descriptions {
   color: #000000;
+  
 }
 
 .playerStats,
@@ -33,10 +33,21 @@
 .offense,
 .defense,
 .points,
-.title {
+.offenseTitle,
+.defenseTitle,
+.pointsTitle {
   display: inline-block;
   padding: 10px;
-  width: 15%;
+  width: 18%;
+  font-size: 13px;
+  text-align: center;
+}
+
+.playerNametitle,
+.gameDayTitle {
+  width: 30%;
+  display: inline-block;
+  padding: 10px;
   font-size: 13px;
 }
 
@@ -45,16 +56,22 @@
   white-space: normal;
   width: 30%;
   display: inline-block;
-  padding: 10px;
+  padding: 0 2px 0 8px;
   font-size: 10px;
 }
 
-.title, .gameDay {
+.playerNametitle,
+.gameDayTitle,
+.offenseTitle,
+.defenseTitle,
+.pointsTitle
+.gameDay {
   white-space: normal;
 }
 
 .gameDay {
   background-color: #E3EBE8;
+  width: 30%;
 }
 
 .offense {
@@ -76,29 +93,28 @@
 MEDIA QUERIES
 ============================*/
 
-/* @media only screen and (min-device-width: 550px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
- .gameDay,
- .offense,
- .defense,
- .points {
-   width: 15%;
- }
 
- .playerName,
- .title {
-   width: 20%;
- }
-} */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
 
+  .team {
+    width: 100%;
+    padding: 0 20px;
+  }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-  .playerName,
-  .gameDay,
   .offense,
   .defense,
   .points,
-  .title {
-    width: 10%;
+  .offenseTitle,
+  .defenseTitle,
+  .pointsTitle {
+    width: 8.75%;
+  }
+
+  .playerName,
+  .playerNametitle,
+  .gameDayTitle,
+  .gameDay {
+    width: 15%;
   }
 
   .scroll {
@@ -106,28 +122,27 @@ MEDIA QUERIES
   }
 }
 
-@media only screen and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
-  .dashboard {
-    width: 80%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+  .team {
+    width: 100%;
+    padding: 0 20px;
   }
-  
-  .playerName,
-  .gameDay,
+
   .offense,
   .defense,
   .points,
-  .title {
+  .offenseTitle,
+  .defenseTitle,
+  .pointsTitle,
+  .playerName,
+  .playerNametitle,
+  .gameDayTitle,
+  .gameDay {
     width: 10%;
   }
 
   .scroll {
     display: none;
-  }
-
-  .team{
-    justify-content: center;
   }
 }

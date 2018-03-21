@@ -54,21 +54,24 @@ export class Team extends Component {
       </ul>
     }).sort(compare)
 
+
+
+
     return (
       <div className='team'>
         <p className='scroll'>Scroll to the right for more stats!</p>
-        <div>
+        <div className='statsDiv'>
           <ul className='descriptions'>
-            <li className='title'>Player Name</li>
-            <li className='title'>Last Game:</li>
-            <li className='title'>2 PTS</li>
-            <li className='title'>3 PTS</li>
-            <li className='title'>FT</li>
-            <li className='title'>AST</li>
-            <li className='title'>REB</li>
-            <li className='title'>STL</li>
-            <li className='title'>BLK</li>
-            <li className='title'>PTS</li>
+            <li className='playerNametitle'>Player Name</li>
+            <li className='gameDayTitle'>Last Game:</li>
+            <li className='offenseTitle'>2 PTS</li>
+            <li className='offenseTitle'>3 PTS</li>
+            <li className='offenseTitle'>FT</li>
+            <li className='offenseTitle'>AST</li>
+            <li className='defenseTitle'>REB</li>
+            <li className='defenseTitle'>STL</li>
+            <li className='defenseTitle'>BLK</li>
+            <li className='pointsTitle'>PTS</li>
           </ul>
         </div>
         {errorMessage}
@@ -86,6 +89,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(Team)
+
 
 /**
  Resources:

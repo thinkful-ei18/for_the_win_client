@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Header from '../Header';
 import Team from './Team';
 import { checkUserAuth } from '../../actions/userActions';
 
@@ -17,6 +18,7 @@ export class Dashboard extends Component {
 
     return(
       <div className='dashboard'>
+        <Header />
         <Team />
       </div>
     );
