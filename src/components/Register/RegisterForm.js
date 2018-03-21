@@ -30,8 +30,11 @@ export class RegisterForm extends Component {
     }
 
     return(
-      <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.register(values))}>
-        <fieldset>
+      <form 
+        className='registerForm' 
+        onSubmit={this.props.handleSubmit(values => this.register(values))}
+        >
+        <fieldset className='fieldset'>
 
           <Field
             component={Input}

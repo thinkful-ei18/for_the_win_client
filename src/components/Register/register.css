@@ -11,3 +11,50 @@
   margin: 0px auto 15px auto;
   display: block;
 }
+
+.fieldset {
+  border: 0;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+  #fullName,
+  #username,
+  #email,
+  #password,
+  #teamName,
+  .regSubmitButton {
+    height: 50px;
+    width: 75%;
+  }
+
+  .registerForm {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+   #fullName,
+   #username,
+   #email,
+   #password,
+   #teamName,
+   .regSubmitButton {
+     height: 50px;
+     width: 100%;
+   }
+
+   .registerForm {
+     display: flex;
+     justify-content: center;
+   }
+
+  .fieldset {
+    width: 750px;
+  }
+
+}
