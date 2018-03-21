@@ -4,7 +4,7 @@ import Spinner from 'react-spinkit';
 
 import { fetchTeam } from '../../actions/team.actions';
 
-import './team.css';
+import './dashboard.css';
 
 
 export class Team extends Component {
@@ -56,7 +56,7 @@ export class Team extends Component {
 
     return (
       <div className='team'>
-        <h1>Team</h1>
+        <p className='scroll'>Scroll to the right for more stats!</p>
         <div>
           <ul className='descriptions'>
             <li className='title'>Player Name</li>
@@ -70,9 +70,9 @@ export class Team extends Component {
             <li className='title'>BLK</li>
             <li className='title'>PTS</li>
           </ul>
-          {errorMessage}
-          {playerStats}
         </div>
+        {errorMessage}
+        {playerStats}
       </div>
     );
   }
@@ -82,7 +82,6 @@ const mapStateToProps = state => ({
   team: state.teamReducer.team,
   stats: state.statsReducer.stats,
   loading: state.statsReducer.loading,
-  loading2: state.teamReducer.loading,
   error: state.statsReducer.error
 })
 

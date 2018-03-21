@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Team from './Team';
-
+import { checkUserAuth } from '../../actions/userActions';
 
 import './dashboard.css';
-import { checkUserAuth } from '../../actions/userActions';
 
 
 export class Dashboard extends Component {
@@ -18,7 +17,6 @@ export class Dashboard extends Component {
 
     return(
       <div className='dashboard'>
-        <h1>Dashboard</h1>
         <Team />
       </div>
     );
