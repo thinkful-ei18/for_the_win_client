@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
+import Header from '../Header';
 import Players from './Players';
 import { checkUserAuth } from '../../actions/userActions';
 
@@ -18,6 +18,7 @@ export class TheDraft extends Component {
 
     return (
         <div className='theDraft'>
+          <Header />
           <p className='info'>Choose 10 players for your fantasy team!</p>
           <Players />
         </div>
