@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class App extends Component {
+import LoginForm from './components/Login/LoginForm';
+import Register from './components/Register/RegisterForm';
+import TheDraft from './components/Draft/TheDraft';
+import Dashboard from './components/Dashboard/Dashboard';
+import LandingPage from './components/LandingPage/LandingPage';
+
+export default class App extends Component {
+  
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div className='appPage'>
+          <main className='main' role='main'>
+            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/login' component={LoginForm} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/team' component={TheDraft} />
+            <Route exact path='/home' component={Dashboard} />
+          </main>
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
