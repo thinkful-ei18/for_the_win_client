@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
   render() {
 
     return (
-        <div className='login'>
+        <div className='landingPage'>
           <div className='navBar'> 
             <Link 
               to='/login' 
@@ -26,10 +26,9 @@ export default class LandingPage extends Component {
               Register
             </Link>
           </div>
-          <main className='main' role='main'>
+          <section className='section' >
             <h1>FOR THE WIN</h1>
-            <h4>Your next fantasy basketball app!</h4>
-          </main>
+          </section>
           <div>
             <Instructions />
           </div>

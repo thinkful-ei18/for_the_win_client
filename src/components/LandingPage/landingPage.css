@@ -1,29 +1,57 @@
+@font-face {
+  font-family: 'edosz';
+  src: local('edosz'),
+    url('../../utils/edosz.ttf') 
+    format('truetype');
+}
+
+.landingPage {
+  background-image:url('../../images/ftw_homepage_bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .navBar {
   background-color: #B1B695;
   height: 50px;
+  text-align: end;
+  padding: 15px;
 }
 
 .loginLink, .registerLink {
-  margin-right: 30px;
+  margin-left: 25px;
 }
 
-.main {
-  height:350px;
+.section {
+  font-family: 'edosz';
+  color: #D85627;
+  font-size: 50px;
+  height: calc(100vh - (50px + 200px));
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.instructionsDiv {
+  background-color: #D85627;
+  height: 200px;
+  color: #E3EBE8;
+  width:100%;
+  padding-top: 5px;
+}
+
+.instructionsHeader {
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px 0;
 }
 
 .instructions {
-  background-color: #D85627;
-  height: 150px;
-  color: #E3EBE8;
-  width:100%;
-  padding-top: 10px;
-}
-
-.instructionsLi {
   width: 80%;
-  margin: 0 auto;
-  list-style: none;
-  
+  margin: 10px auto;
+  font-size: small;
 }
 
 
@@ -31,29 +59,63 @@
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
   .navBar {
     height: 80px;
+    padding: 30px;
   }
   
-  .main {
-    height: 700px;
+  .instructionsDiv {
+    height: 250px;
+  }
+
+  .section {
+    font-size: 120px;
+    height: calc(100vh - (50px + 250px));
+    justify-content: center;
+  }
+
+  .instructionsHeader {
+    font-size: 30px;
   }
 
   .instructions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    font-size: 18px;
+    text-align: center;
   }
 }
 
 
-@media only screen and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .navBar {
-    height: 100px;
+    height: 80px;
+    padding: 40px;
+
   }
   
-  .main {
-    height: 750px;
+  .section {
+    font-size: 120px;
+    height: calc(100vh - (50px + 250px));
+    justify-content: center;
   }
+  
+  .instructionsDiv {
+    height: 250px;
+  }
+
+
+  .instructionsHeader {
+    font-size: 40px;
+  }
+
+  .instructions {
+    font-size: 25px;
+    text-align: center;
+  }
+  
 }
+
+/*
+Resources:
+ - https: //stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
+*/

@@ -8,11 +8,12 @@ export default class LandingPage extends Component {
   render() {
 
     return (
-      <ul className='instructions'>
-        <li className='instructionsLi'>Create a free user account</li>
-        <li className='instructionsLi'>Upon your account creation, pick 10 players for your fantasy league</li>
-        <li className='instructionsLi'>View your teams stats for their most recently played game on your dashboard.</li>
-      </ul>
+      <div className='instructionsDiv'>
+        <h3 className='instructionsHeader'>Welcome to your next fantasy basketball app!</h3>
+        <p className='instructions'>1. Create a free user account</p>
+        <p className='instructions'>2. Pick 10 players for your fantasy league</p>
+        <p className='instructions'>3. Track your teams stats and compete against other leagues.</p>
+      </div>
     );
   }
 }
