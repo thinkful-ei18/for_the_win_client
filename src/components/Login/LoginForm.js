@@ -69,7 +69,7 @@ export class LoginForm extends Component {
           </fieldset>
         </form>
 
-        <p className='registerLink'>Don't have an account? Register <Link to="/register">here</Link>.</p>
+        <p className='registerHere'>Don't have an account? Register <Link to="/register">here</Link>.</p>
       </div>
     );
   }

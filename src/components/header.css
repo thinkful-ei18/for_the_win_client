@@ -1,7 +1,22 @@
-.header {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
 
+@font-face {
+  font-family: 'edosz';
+  src: local('edosz'),
+    url('../utils/edosz.ttf') 
+    format('truetype');
 }
+
+.header {
+  font-family: 'edosz';
+  color: #D85627;
+  font-size: large;
+  text-align: center;
+  margin: 10px 0 25px 0;
+}
+
+
+/*
+Resources:
+ - https: //stackoverflow.com/questions/41676054/how-to-add-fonts-to-create-react-app-based-projects
+- https: //scotch.io/@micwanyoike/how-to-add-fonts-to-a-react-project
+*/

@@ -21,7 +21,12 @@ fieldset {
   display: block;
 }
 
-.registerLink {
+.submitButton {
+  background-color: #D85627;
+  color: #E3EBE8;
+}
+
+.registerHere {
   text-align: center;
   color: #B1B695;
 }
@@ -30,9 +35,16 @@ fieldset {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .login {
-    width: 90%;
     margin: 35px auto 0 auto;
     border-radius: 8px;
+  }
 
+  fieldset {
+    width: 80%;
+  }
+
+  .loginForm {
+    display: flex;
+    justify-content: center;
   }
 }
