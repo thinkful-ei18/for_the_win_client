@@ -6,13 +6,13 @@
   align-items: center;
 }
 
-fieldset {
+.loginFieldset {
   border: 0;
 }
 
-#email, 
-#password,
-.submitButton {
+#loginEmail,
+#loginPassword,
+.loginSubmitButton {
   text-align: center;
   height:40px;
   width:85%;
@@ -21,7 +21,7 @@ fieldset {
   display: block;
 }
 
-.submitButton {
+.loginSubmitButton {
   background-color: #D85627;
   color: #E3EBE8;
 }
@@ -32,14 +32,19 @@ fieldset {
 }
 
 
+/* ============================ 
+MEDIA QUERIES
+============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
   .login {
     margin: 35px auto 0 auto;
     border-radius: 8px;
   }
 
-  fieldset {
+  .loginFieldset {
     width: 80%;
   }
 
@@ -47,4 +52,23 @@ fieldset {
     display: flex;
     justify-content: center;
   }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+     #loginEmail,
+     #loginPassword,
+     .loginSubmitButton {
+       height: 50px;
+       width: 100%;
+     }
+
+     .loginForm {
+       display: flex;
+       justify-content: center;
+     }
+
+     .loginFieldset {
+       width: 750px;
+     }
 }

@@ -31,13 +31,13 @@ export class LoginForm extends Component {
     return (
       <div className='loginFormDiv'>
         <form className='loginForm' onSubmit={this.props.handleSubmit(values => this.login(values))} >
-          <fieldset>
+          <fieldset className='loginFieldset'>
 
             <Field
               component={Input}
               name='email'
               className='email'
-              id='email'
+              id='loginEmail'
               type='text'
               placeholder='email'
               validate={[required, nonEmpty]}
@@ -47,7 +47,7 @@ export class LoginForm extends Component {
               component={Input}
               name='password'
               className='password'
-              id='password'
+              id='loginPassword'
               type='text'
               placeholder='password'
               validate={[required, nonEmpty]}
@@ -60,7 +60,7 @@ export class LoginForm extends Component {
             </br>
             
             <button
-              className='submitButton'
+              className='loginSubmitButton'
               type="submit"
               disabled={this.props.pristine || this.props.submitting}>
               LOG IN
