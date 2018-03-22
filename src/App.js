@@ -18,8 +18,8 @@ export default class App extends Component {
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
-            <Route exact path='/team' component={TheDraft} />
-            <Route exact path='/home' component={Dashboard} />
+            <Route exact path='/draft' component={TheDraft} />
+            <Route exact path='/dashboard' component={Dashboard} />
           </main>
         </div>
       </Router>

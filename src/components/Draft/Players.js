@@ -57,7 +57,7 @@ export class Players extends Component {
           <ul className='myPlayers'>
             {myPlayers}
             {this.props.team.length === 10 &&
-            <Link to='/home'>
+            <Link to='/dashboard'>
               <button className='playersSubmitButton'>
                 Submit
               </button>

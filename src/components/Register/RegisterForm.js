@@ -26,7 +26,7 @@ export class RegisterForm extends Component {
     }
 
     if (this.props.submitSucceeded) {
-      return <Redirect to='/team' />
+      return <Redirect to='/draft' />
     }
 
     return(

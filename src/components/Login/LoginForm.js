@@ -18,7 +18,7 @@ export class LoginForm extends Component {
   render() {
 
     if (this.props.submitSucceeded) {
-      return <Redirect to='/home' />
+      return <Redirect to='/dashboard' />
     }
 
     let errorMessage;
