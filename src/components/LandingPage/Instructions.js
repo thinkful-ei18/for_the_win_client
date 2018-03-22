@@ -9,10 +9,10 @@ export default class LandingPage extends Component {
 
     return (
       <div className='instructionsDiv'>
-        <h3 className='instructionsHeader'>Welcome to your next fantasy basketball app!</h3>
+        <h3 className='instructionsHeader'>Welcome to the #1 basketball stat tracker app!</h3>
         <p className='instructions'>1. Create a free user account</p>
-        <p className='instructions'>2. Pick 10 players for your fantasy league</p>
-        <p className='instructions'>3. Track your teams stats and compete against other leagues.</p>
+        <p className='instructions'>2. Pick the 10 players whose stats you want to keep up with.</p>
+        <p className='instructions'>3. Keep track of each player's offensive and defensive stats daily.</p>
       </div>
     );
   }
