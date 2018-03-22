@@ -22,6 +22,8 @@
 
 .loginLink, .registerLink {
   margin-left: 25px;
+  color: #E3EBE8;
+  text-decoration: none;
 }
 
 .section {

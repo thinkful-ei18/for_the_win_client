@@ -5,6 +5,16 @@
   align-items: center;
 }
 
+.homeLink {
+  color: #E3EBE8;
+  text-decoration: none;
+}
+
+.hereLink {
+  color: #D85627;
+  text-decoration: none;
+}
+
 .loginFieldset {
   border: 0;
 }
