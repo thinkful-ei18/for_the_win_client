@@ -10,22 +10,10 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
 
-  if (action.type === actions.CREATE_USER_REQUEST) {
-    return {
-
-    }
-  }
-
   if (action.type === actions.CREATE_USER_SUCCESS) {
     return {
       ...state,
       user: true
-    }
-  }
-
-  if (action.type === actions.CREATE_USER_ERROR) {
-    return {
-
     }
   }
 
@@ -64,6 +52,17 @@ export const userReducer = (state = initialState, action) => {
     return {
       ...state,
       authToken: action.authToken
+    };
+  }
+
+  if (action.type === actions.DELETE_AUTH_TOKEN_SUCCESS) {
+    return {
+      ...state,
+      loggedIn: false,
+      user: false,
+      authToken: null,
+      loading: false,
+      error: null
     };
   }
 

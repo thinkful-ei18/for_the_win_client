@@ -4,6 +4,15 @@
   align-items: center;
 }
 
+.logoutButton {
+  margin-left: 25px;
+  color: #E3EBE8;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+
 .team {
   width: 100%;
   overflow-x: scroll; 

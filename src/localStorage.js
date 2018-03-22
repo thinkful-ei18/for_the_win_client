@@ -9,6 +9,11 @@ export const saveAuthToken = authToken => {
   } catch (e) { }
 };
 
+export const deleteAuthToken = () => {
+  try {
+    localStorage.removeItem('authToken');
+  } catch (e) { }
+};
 
 /**
  Resources:
