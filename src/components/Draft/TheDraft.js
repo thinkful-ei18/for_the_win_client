@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Header from '../Header';
 import Players from './Players';
@@ -18,6 +19,14 @@ export class TheDraft extends Component {
 
     return (
         <div className='theDraft'>
+          <div className='navBar'>
+            <Link
+              to='/'
+              className='homeLink'
+            >
+              Home
+            </Link>
+          </div>
           <Header />
           <p className='info'>Choose 10 players for your fantasy team!</p>
           <Players />
