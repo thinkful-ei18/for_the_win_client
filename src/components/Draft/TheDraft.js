@@ -28,7 +28,7 @@ export class TheDraft extends Component {
             </Link>
           </div>
           <Header />
-          <p className='info'>Choose 10 players for your fantasy team!</p>
+          <p className='info'>Choose 10 players to see their stats!</p>
           <Players />
         </div>
     );
