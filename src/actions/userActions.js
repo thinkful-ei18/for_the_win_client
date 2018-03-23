@@ -153,10 +153,28 @@ export const checkUserAuthSuccess = authToken => ({
 
 export const logout = () => dispatch => {
   deleteAuthToken();
-  dispatch(deleteAuthTokenSuccess());
+  // dispatch(deleteAuthTokenSuccess());
+  dispatch(logoutSuccess())
 };
 
-export const DELETE_AUTH_TOKEN_SUCCESS = 'DELETE_AUTH_TOKEN_SUCCESS';
-export const deleteAuthTokenSuccess = () => ({
-  type: DELETE_AUTH_TOKEN_SUCCESS
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const logoutRequest = () => ({
+  type: LOGOUT_REQUEST
 });
+
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const logoutSuccess= () => ({
+  type: LOGOUT_SUCCESS
+});
+
+export const LOGOUT_ERROR = 'LOGOUT_ERROR';
+export const logoutError= err => ({
+  type: LOGOUT_ERROR,
+  err
+});
+
+
+// export const DELETE_AUTH_TOKEN_SUCCESS = 'DELETE_AUTH_TOKEN_SUCCESS';
+// export const deleteAuthTokenSuccess = () => ({
+//   type: DELETE_AUTH_TOKEN_SUCCESS
+// });

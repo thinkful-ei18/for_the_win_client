@@ -55,7 +55,7 @@ export const userReducer = (state = initialState, action) => {
     };
   }
 
-  if (action.type === actions.DELETE_AUTH_TOKEN_SUCCESS) {
+  if (action.type === actions.LOGOUT_SUCCESS) {
     return {
       ...state,
       loggedIn: false,

@@ -1,4 +1,6 @@
 import * as actions from '../actions/stats.actions';
+import { LOGOUT_SUCCESS } from '../actions/userActions';
+
 
 const initialState = {
   stats: [],
@@ -29,6 +31,13 @@ export const statsReducer = (state = initialState, action) => {
       ...state,
       loading: false,
       error: action.err
+    }
+  }
+
+  if (action.type === LOGOUT_SUCCESS) {
+    return {
+      ...state,
+      stats: []
     }
   }
 
