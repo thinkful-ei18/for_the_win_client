@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 import Header from '../Header';
@@ -12,9 +12,9 @@ import './dashboard.css';
 
 export class Dashboard extends Component {
 
-  // componentWillMount() {
-  //   this.props.dispatch(checkUserAuth());
-  // }
+  componentWillMount() {
+    this.props.dispatch(checkUserAuth());
+  }
 
   
 
