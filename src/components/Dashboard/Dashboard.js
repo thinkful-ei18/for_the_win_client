@@ -12,9 +12,9 @@ import './dashboard.css';
 
 export class Dashboard extends Component {
 
-  componentWillMount() {
-    this.props.dispatch(checkUserAuth());
-  }
+  // componentWillMount() {
+  //   this.props.dispatch(checkUserAuth());
+  // }
 
   
 
