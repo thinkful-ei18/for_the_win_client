@@ -12,6 +12,11 @@
   display: block;
 }
 
+.regSubmitButton {
+  background-color: #D85627;
+  color: #E3EBE8;
+}
+
 .fieldset {
   border: 0;
 }
