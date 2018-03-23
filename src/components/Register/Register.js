@@ -13,20 +13,14 @@ export default class Register extends Component {
 
     return (
       <div className='register'>
-          <div className='navBar'>
-            <Link
-              to='/login'
-              className='loginLink'
-            >
-              Login
+        <div className='navBar'>
+          <Link
+            to='/'
+            className='homeLink'
+          >
+            Home
             </Link>
-            <Link
-              to='/register'
-              className='registerLink'
-            >
-              Register
-            </Link>
-          </div>
+        </div>
         <Header />
         <RegisterForm />
       </div>
