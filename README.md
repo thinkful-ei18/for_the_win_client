@@ -45,4 +45,4 @@
   - All actions can be found in `./src/actions`.
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
