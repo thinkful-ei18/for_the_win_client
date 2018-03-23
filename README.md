@@ -22,14 +22,20 @@
 
 
 ## Screenshots
-  ![Landing Page 1](https://raw.github.com/alishaevn/for_the_win_client/master/src/images/FTW_Landing_Page.png?raw=true)
+ 
+  #### Landing Page
+  ![Landing Page](src/images/FTW_Landing_Page.png?raw=true "Landing Page")
 
-  ![Landing Page 2](src/images/FTW_Landing_Page.png?raw=true "Landing Page")
-
-
+  #### Login Page
   ![Login Page](src/images/FTW_Login.png?raw=true "Login Page")
+
+  #### Register Page
   ![Register Page](src/images/FTW_Register.png?raw=true "Register Page")
+
+  #### Draft Page
   ![Draft Page](src/images/FTW_Draft.png?raw=true "Draft Page")
+
+  #### Dashboard
   ![Dashboard](src/images/FTW_Dashboard.png?raw=true "Dashboard")
 
 
