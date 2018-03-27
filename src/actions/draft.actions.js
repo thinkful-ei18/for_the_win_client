@@ -74,6 +74,7 @@ export const fetchAddPlayersToTeam = player => (dispatch, getState) => {
         "playerID": player.playerID,
         "firstName": player.firstName,
         "lastName": player.lastName,
+        "playerTeam": player.playerTeam
       })
     })
     .then(res => {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import Select from 'material-ui/Select';
 
 import { fetchNbaPlayers, filterNbaPlayersByTeam, fetchAddPlayersToTeam, fetchRemovePlayersFromTeam } from '../../actions/draft.actions';
 import { makeSymmDiffFunc } from '../../utils/index';
@@ -18,31 +17,29 @@ export class Players extends Component {
   render() {
 
     const getRemainingPlayers = makeSymmDiffFunc((x, y) => x.playerID === y.playerID);
-    const remainingPlayers = getRemainingPlayers(this.props.players, this.props.team);
-    console.log('RP: ', remainingPlayers);
 
-    const availablePlayers = remainingPlayers.map((player, index) => (
-      <li 
-        key={index}  
+    const remainingPlayers = getRemainingPlayers(this.props.players, this.props.team);
+
+    const handleChange = value => {
+      let filteredTeam = remainingPlayers.filter(player => player.playerTeam === value)
+      this.props.dispatch(filterNbaPlayersByTeam(filteredTeam))
+    }
+
+    const availablePlayers = this.props.filteredTeam.map((player, index) => (
+      <li
+        key={index}
         className='playerList'
-        label={player.playerTeam}
       >
         <button
           className='liButton'
           onClick={() => {
+            console.log('PLAYER: ', player);
             this.props.dispatch(fetchAddPlayersToTeam(player))
           }}>
           {player.firstName} {player.lastName}
         </button>
       </li>
     ));
-
-    const handleChange = value => {
-      console.log('value: ', value);
-      let filteredTeam = remainingPlayers.filter(player => player.playerTeam === value)
-      console.log('FT: ', filteredTeam);
-      this.props.dispatch(filterNbaPlayersByTeam(filteredTeam))
-    }
 
     const myPlayers = this.props.team.map((player, index) => (
       <li
@@ -59,8 +56,6 @@ export class Players extends Component {
       </li>
     ));
 
-    
-
 
     return (
         <div className='players'>
@@ -70,16 +65,10 @@ export class Players extends Component {
             type='select'
             onChange={e => handleChange(e.target.value)} 
           >
-            <option
-              value='All Teams'
-            >
-              All Teams
-            </option>
-            <option
-              value='Golden State Warriors'
-            >
-              Golden State Warriors
-            </option>
+            <option value='All Teams' > All Teams </option>
+            {this.props.allNBATeams.map((NBATeam, index) => (
+              <option value={NBATeam} key={index}> {NBATeam} </option>
+            ))}
           </select>
 
           <ul className='myPlayers'>
@@ -103,20 +92,38 @@ export class Players extends Component {
   }
 }
 
+// const mapStateToProps = state => {
+//   let players = []
+
+//   if (state.draftReducer.filteredTeam.length > 0) {
+//     players = state.draftReducer.filteredTeam
+//   } else {
+//     players = state.draftReducer.players
+//   }
+  
+//   return {
+//     players,
+//     team: state.draftReducer.team,
+//     allNBATeams: state.draftReducer.allNBATeams
+//   }
+
+// }
+
 const mapStateToProps = state => {
-  let players = []
+  let filteredTeam = []
 
   if (state.draftReducer.filteredTeam.length > 0) {
-    players = state.draftReducer.filteredTeam
+    filteredTeam = state.draftReducer.filteredTeam
   } else {
-    players = state.draftReducer.players
-  }
-  
-  return {
-    players,
-    team: state.draftReducer.team
+    filteredTeam = state.draftReducer.players
   }
 
+  return {
+    players: state.draftReducer.players,
+    filteredTeam,
+    team: state.draftReducer.team,
+    allNBATeams: state.draftReducer.allNBATeams
+  }
 }
 
 export default connect(mapStateToProps)(Players)
