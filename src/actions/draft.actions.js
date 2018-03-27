@@ -37,6 +37,26 @@ export const fetchNbaPlayersError = err => ({
   err
 })
 
+/* ========================= FILTER NBA PLAYERS BY TEAM ========================= */
+
+export const filterNbaPlayersByTeam = filteredTeam => dispatch => {
+
+  dispatch(filterNbaPlayersByTeamRequest());
+  dispatch(filterNbaPlayersByTeamSuccess(filteredTeam))
+}
+
+export const FILTER_NBA_PLAYERS_BY_TEAM_REQUEST = 'FILTER_NBA_PLAYERS_BY_TEAM_REQUEST'
+export const filterNbaPlayersByTeamRequest = () => ({
+  type: FILTER_NBA_PLAYERS_BY_TEAM_REQUEST
+})
+
+export const FILTER_NBA_PLAYERS_BY_TEAM_SUCCESS = 'FILTER_NBA_PLAYERS_BY_TEAM_SUCCESS'
+export const filterNbaPlayersByTeamSuccess = filteredTeam => ({
+  type: FILTER_NBA_PLAYERS_BY_TEAM_SUCCESS,
+  filteredTeam
+})
+
+
 
 /* ========================= ADD PLAYERS TO A TEAM ========================= */
 

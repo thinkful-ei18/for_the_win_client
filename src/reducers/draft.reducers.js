@@ -3,6 +3,39 @@ import * as actions from '../actions/draft.actions';
 const initialState = {
   players:[],
   team:[],
+  // filter: [
+  //   'Atlanta Hawks',
+  //   'Boston Celtics',
+  //   'Brooklyn Nets',
+  //   'Charlotte Hornets',
+  //   'Chicago Bulls',
+  //   'Cleveland Cavaliers',
+  //   'Dallas Mavericks',
+  //   'Denver Nuggets',
+  //   'Detroit Pistons',
+  //   'Golden State Warriors',
+  //   'Houston Rockets',
+  //   'Indiana Pacers',
+  //   'LA Clippers',
+  //   'Los Angeles Lakers',
+  //   'Memphis Grizzlies',
+  //   'Miami Heat',
+  //   'Milwaukee Bucks',
+  //   'Minnesota Timberwolves',
+  //   'New Orleans Pelicans',
+  //   'New York Knicks',
+  //   'Oklahoma City Thunder',
+  //   'Orlando Magic',
+  //   'Philadelphia 76ers',
+  //   'Phoenix Suns',
+  //   'Portland Trail Blazers',
+  //   'Sacramento Kings',
+  //   'San Antonio Spurs',
+  //   'Toronto Raptors',
+  //   'Utah Jazz',
+  //   'Washington Wizards'
+  // ],
+  filteredTeam: [],
   loading: false,
   error: null
 }
@@ -32,6 +65,15 @@ export const draftReducer = (state=initialState, action) => {
       loading: false,
       error: null,
       team: action.team
+    }
+  } 
+
+  if (action.type === actions.FILTER_NBA_PLAYERS_BY_TEAM_SUCCESS) {
+    return {
+      ...state,
+      filteredTeam: action.filteredTeam,
+      loading: false,
+      error: null,
     }
   } 
 

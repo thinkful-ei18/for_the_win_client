@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header';
+import DropdownMenu from './DropdownMenu';
 import Players from './Players';
 import { checkUserAuth } from '../../actions/userActions';
 
