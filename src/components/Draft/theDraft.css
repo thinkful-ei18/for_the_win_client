@@ -6,10 +6,19 @@
   text-align: center;
 }
 
+.teamFilterSelect {
+  position: relative;
+  float: right;
+  margin: 10px 12px;
+  border: 2px solid #B1B695;
+  background-color: #B1B695;
+  padding: 3px;
+}
+
 .players {
   display: flex;
   width: 95%;
-  margin-top: 15px;
+  margin: 10px auto;
 }
 
 .availablePlayers,
@@ -67,23 +76,16 @@
 }
 
 
-@media only screen and (min-device-width: 500px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
+/* ============================ 
+MEDIA QUERIES
+============================*/
 
-  .myPlayers {
-    width: 25%;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+  .teamFilterSelect {
+    margin: 15px 22px;
+    padding: 8px;
   }
 
-  .availablePlayers {
-    width: 75%;
-  }
-
-  .playerList {
-    width: 30%;
-  }
-}
-
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .myPlayers {
     width: 15%;
   }
@@ -97,7 +99,12 @@
   }
 }
 
-@media only screen and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .teamFilterSelect {
+    margin: 15px 34px;
+    padding: 8px;
+  }
+  
   .myPlayers {
     width: 15%;
   } 

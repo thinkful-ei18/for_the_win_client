@@ -33,7 +33,6 @@ export class Players extends Component {
         <button
           className='liButton'
           onClick={() => {
-            console.log('PLAYER: ', player);
             this.props.dispatch(fetchAddPlayersToTeam(player))
           }}>
           {player.firstName} {player.lastName}
@@ -58,35 +57,35 @@ export class Players extends Component {
 
 
     return (
-        <div className='players'>
+        <div>
           <select
-            {...this.props.input}
+            className='teamFilterSelect'
             id='nbaTeam'
             type='select'
             onChange={e => handleChange(e.target.value)} 
           >
-            <option value='All Teams' > All Teams </option>
+            <option value='All Teams' > Filter by team: All </option>
             {this.props.allNBATeams.map((NBATeam, index) => (
               <option value={NBATeam} key={index}> {NBATeam} </option>
             ))}
           </select>
-
-          <ul className='myPlayers'>
-            {myPlayers}
-            {this.props.team.length === 10 &&
-            <Link to='/dashboard'>
-              <button className='playersSubmitButton'>
-                Submit
-              </button>
-            </Link>
-          }
-          </ul>
-      
-          <ul className='availablePlayers'>
-            {availablePlayers}
-          </ul>
-
           
+          <div className='players'>
+            <ul className='myPlayers'>
+              {myPlayers}
+              {this.props.team.length === 10 &&
+              <Link to='/dashboard'>
+                <button className='playersSubmitButton'>
+                  Submit
+                </button>
+              </Link>
+            }
+            </ul>
+        
+            <ul className='availablePlayers'>
+              {availablePlayers}
+            </ul>
+          </div>
         </div>
     );
   }
