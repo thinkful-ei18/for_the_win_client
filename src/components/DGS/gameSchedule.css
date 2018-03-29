@@ -82,8 +82,9 @@ MEDIA QUERIES
 
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
 .gameDiv {
-  width: 80%;
-  margin: 35px auto;
+  width: 28%;
+  margin: 25px;
+  display: inline-block;
 }
 
 .gameTimeDiv {
@@ -101,12 +102,12 @@ MEDIA QUERIES
 }
 
 .atSymbol {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .awayTeamDiv,
 .homeTeamDiv {
-  font-size: 30px;
+  font-size: 18px;
 }
 
 .todayHeader {
