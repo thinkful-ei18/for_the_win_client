@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 import Header from '../Header';
@@ -16,17 +16,21 @@ export class GameSchedule extends Component {
     this.props.dispatch(checkUserAuth());
   }
 
-
+  componentDidMount() {
+    if (this.props.authToken === null) {
+      return <Redirect to='/' />
+    }
+  }
 
   render() {
-
-    // if (this.props.authToken === null) {
-    //   return <Redirect to='/' />
-    // }
 
     return (
       <div className='gameSchedule'>
         <div className='navBar'>
+          <button
+            className='gameScheduleButton'>
+            <Link to='/dashboard'>My Stats</Link>
+          </button>
           <button
             className='logoutButton'
             onClick={() => this.props.dispatch(logout())} >
