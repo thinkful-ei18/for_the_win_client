@@ -1,0 +1,51 @@
+.gameDiv {
+  margin: 15px;
+}
+
+.todayHeader {
+  text-align: center;
+}
+
+.gameTimeDiv {
+  background-color: #D85627;
+  padding: 5px 15px;
+}
+
+.awayTeamDiv, .homeTeamDiv {
+  display: inline-block;
+  height: 60px;
+  width: 45%;
+  padding: 15px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.awayTeamDiv {
+  background-color: #B1B695;
+}
+
+.homeTeamDiv {
+  background-color: #858988;
+}
+
+.atSymbol {
+  display: inline-block;
+  width: 10%;
+  height: 60px;
+  padding: 5px;
+  background-color: #E3EBE8;
+  vertical-align: top;
+}
+
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+  
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+}
