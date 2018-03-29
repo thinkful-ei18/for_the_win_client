@@ -6,13 +6,16 @@ import { draftReducer } from './reducers/draft.reducers';
 import { statsReducer } from './reducers/statsReducer';
 import { teamReducer } from './reducers/team.reducers';
 import { userReducer } from './reducers/userReducer';
+import { gamesReducer } from './reducers/gamesReducer';
+
 
 const rootReducer = combineReducers({
   form: formReducer,
   draftReducer,
   statsReducer,
   teamReducer,
-  userReducer
+  userReducer,
+  gamesReducer
 });
 
 // export default createStore(

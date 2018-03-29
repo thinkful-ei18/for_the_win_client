@@ -6,6 +6,7 @@ import Register from './components/Register/Register';
 import TheDraft from './components/Draft/TheDraft';
 import Dashboard from './components/Dashboard/Dashboard';
 import LandingPage from './components/LandingPage/LandingPage';
+import GameSchedule from './components/DGS/GameSchedule';
 
 export default class App extends Component {
   
@@ -20,6 +21,7 @@ export default class App extends Component {
             <Route exact path='/register' component={Register} />
             <Route exact path='/draft' component={TheDraft} />
             <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/games' component={GameSchedule} />
           </main>
         </div>
       </Router>
