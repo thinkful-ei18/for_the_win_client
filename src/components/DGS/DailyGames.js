@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
-// import { Redirect } from 'react-router-dom';
-
-
 import { fetchDailyGames } from '../../actions/gameActions';
 
 import './gameSchedule.css';
@@ -13,7 +10,6 @@ import './gameSchedule.css';
 export class DailyGames extends Component {
 
   componentWillMount() {
-    // this.props.dispatch(checkUserAuth());
     this.props.dispatch(fetchDailyGames())
   }
 
@@ -21,11 +17,6 @@ export class DailyGames extends Component {
     if(!this.props.todayGameSchedule[0]) {
       return <Spinner fadeIn='none' className='todayHeader' />
     }
-    // if (this.props.authToken === null) {
-    //   return <Redirect to='/' />
-    // }
-
-    console.log('GS: ', this.props.todayGameSchedule[0]);
 
     const gameList = this.props.todayGameSchedule.map((game, index) => (
       <div 
@@ -51,7 +42,6 @@ export class DailyGames extends Component {
 }
 
 const mapStateToProps = state => ({
-  // authToken: state.userReducer.authToken
   todayGameSchedule: state.gamesReducer.todayGameSchedule
 })
 
