@@ -10,10 +10,13 @@ import './dashboard.css';
 export class Team extends Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchTeam());
+    if (this.props.stats.length <= 0) {
+      this.props.dispatch(fetchTeam());
+    }
   }
 
   render() {
+
     if (this.props.loading) {
       return <Spinner fadeIn='none' />;
     }
