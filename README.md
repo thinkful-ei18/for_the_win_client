@@ -38,6 +38,9 @@
   #### Dashboard
   ![Dashboard](src/images/FTW_Dashboard.png?raw=true "Dashboard")
 
+  #### Upcoming Games
+  ![Dashboard](src/images/FTW_Games.png?raw=true "Games")
+
 
 ## Application Components
   - All components can be found in `./src/components`. They are further divided into folders according to the page they can be found on.
