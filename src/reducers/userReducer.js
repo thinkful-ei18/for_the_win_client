@@ -2,6 +2,7 @@ import * as actions from '../actions/userActions';
 
 const initialState = {
   loggedIn: false,
+  loggedOut: false,
   user: false,
   authToken: null,
   loading: false,
@@ -13,6 +14,7 @@ export const userReducer = (state = initialState, action) => {
   if (action.type === actions.CREATE_USER_SUCCESS) {
     return {
       ...state,
+      loggedOut: false,
       user: true
     }
   }
@@ -20,6 +22,7 @@ export const userReducer = (state = initialState, action) => {
   if (action.type === actions.LOGIN_REQUEST) {
     return {
       ...state,
+      loggedOut: false,
       loading: true,
       error: null
     };
@@ -59,6 +62,7 @@ export const userReducer = (state = initialState, action) => {
     return {
       ...state,
       loggedIn: false,
+      loggedOut: true,
       user: false,
       authToken: null,
       loading: false,

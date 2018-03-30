@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-
 import Header from '../Header';
 import DailyGames from './DailyGames';
 import { checkUserAuth, logout } from '../../actions/userActions';
@@ -16,13 +15,11 @@ export class GameSchedule extends Component {
     this.props.dispatch(checkUserAuth());
   }
 
-  componentDidMount() {
-    if (this.props.authToken === null) {
+  render() {
+
+    if (this.props.loggedOut) {
       return <Redirect to='/' />
     }
-  }
-
-  render() {
 
     return (
       <div className='gameSchedule'>
@@ -33,7 +30,7 @@ export class GameSchedule extends Component {
           </button>
           <button
             className='logoutButton'
-            onClick={() => this.props.dispatch(logout())} >
+            onClick={() => this.props.dispatch(logout()) } >
             Logout
           </button>
         </div>
@@ -45,7 +42,8 @@ export class GameSchedule extends Component {
 }
 
 const mapStateToProps = state => ({
-  authToken: state.userReducer.authToken
+  authToken: state.userReducer.authToken,
+  loggedOut: state.userReducer.loggedOut
 })
 
 export default connect(mapStateToProps)(GameSchedule)
