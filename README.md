@@ -1,15 +1,17 @@
-- [App Description](#app-description)
-- [Link to deployed version](#link-to-deployed-version)
+# For The Win
+The basketball enthusiast's preferred way to track stats for their favorite players.
+
+- [Link to server repo](#server-repo)
+- [Link to deployed version](#deployed-version)
 - [Tech Stack](#tech-stack)
 - [Screenshots](#screenshots)
 - [Components](#components)
 
 
-## App Description
-  For The Win, the #1 basketball stat tracker app!
+## Server repo
+  https://github.com/thinkful-ei18/for_the_win_server
 
-
-## Link to deployed version
+## Deployed version
   https://for-the-win-app.netlify.com/
 
 
@@ -42,10 +44,10 @@
   ![Dashboard](src/images/FTW_Games.png?raw=true "Games")
 
 
-## Application Components
+## Components
   - All components can be found in `./src/components`. They are further divided into folders according to the page they can be found on.
   - All reducers can be found in `./src/reducers`.
   - All actions can be found in `./src/actions`.
 
 
-### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+#### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
