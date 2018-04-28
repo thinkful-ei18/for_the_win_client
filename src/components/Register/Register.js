@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import RegisterForm from './RegisterForm';
 
-import './register.css';
+// import './register.css';
 
 
 export default class Register extends Component {

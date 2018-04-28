@@ -6,7 +6,7 @@ import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
 import { createUser, login } from '../../actions/userActions';
 
-import './register.css';
+// import './register.css';
 
 
 export class RegisterForm extends Component {
