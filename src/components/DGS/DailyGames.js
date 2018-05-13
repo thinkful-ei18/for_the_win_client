@@ -14,23 +14,33 @@ export class DailyGames extends Component {
   }
 
   render() {
-    if(!this.props.todayGameSchedule[0]) {
+    console.log('schedule:', this.props.todayGameSchedule)
+    let gameList;
+    
+    if (!this.props.todayGameSchedule) {
+      gameList = <div className='noGames'>There are no games today.</div>
+    }
+    else if(!this.props.todayGameSchedule[0]) {
       return <Spinner fadeIn='none' className='todayHeader' />
+    } else {
+      gameList = this.props.todayGameSchedule.map((game, index) => (
+        <div 
+          key={index}
+          className='gameDiv' 
+        >
+          <div className='gameTimeDiv' >{game.gameTime} EST</div>
+          <div className='awayTeamDiv' >{game.awayTeam}</div>
+          <div className='atSymbol'>@</div>
+          <div className='homeTeamDiv' >{game.homeTeam}</div>
+        </div>
+      ))
     }
 
-    const gameList = this.props.todayGameSchedule.map((game, index) => (
-      <div 
-        key={index}
-        className='gameDiv' 
-      >
-        <div className='gameTimeDiv' >{game.gameTime} EST</div>
-        <div className='awayTeamDiv' >{game.awayTeam}</div>
-        <div className='atSymbol'>@</div>
-        <div className='homeTeamDiv' >{game.homeTeam}</div>
-      </div>
-    ))
+    console.log('list', gameList)
 
-    const today = this.props.todayGameSchedule[0].gameDate || '';
+    const today = this.props.todayGameSchedule ? this.props.todayGameSchedule[0].gameDate : 'today';
+
+    console.log('today:', today)
 
     return (
       <div className='dailyGames'>
