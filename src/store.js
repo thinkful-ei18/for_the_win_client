@@ -7,6 +7,7 @@ import { statsReducer } from './reducers/statsReducer';
 import { teamReducer } from './reducers/team.reducers';
 import { userReducer } from './reducers/userReducer';
 import { gamesReducer } from './reducers/gamesReducer';
+import { leagueReducer } from './reducers/leagueReducer';
 
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   statsReducer,
   teamReducer,
   userReducer,
-  gamesReducer
+  gamesReducer,
+  leagueReducer
 });
 
 // export default createStore(
