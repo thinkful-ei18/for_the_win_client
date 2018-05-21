@@ -1,13 +1,22 @@
 import * as actions from '../actions/leagueActions';
 
 const initialState = {
-  leagues: [], // array of league objects
+  leagues: null, // array of league objects
   next: false,
   loading: false,
   error: null
 }
 
 export const leagueReducer = (state=initialState, action) => {
+
+  /* =============== RETRIEVE ALL LEAGUES ACTIONS =============== */
+  if(action.type === actions.RETRIEVE_LEAGUES_SUCCESS) {
+    return {
+    ...state,
+    leagues: action.leagues,
+    next: false
+    }
+  }
   
   /* =============== CREATE A LEAGUE ACTIONS =============== */
   if(action.type === actions.CREATE_LEAGUE_REQUEST) {
@@ -18,12 +27,8 @@ export const leagueReducer = (state=initialState, action) => {
   }
   
   if(action.type === actions.CREATE_LEAGUE_SUCCESS) {
-    console.log('SPREAD LEAGUES:', ...state.leagues)
-    console.log('created the league:', action.league)
-
     return {
       ...state, 
-      leagues: [...state.leagues, action.league],
       next: true,
       loading: false,
       error: null
@@ -47,17 +52,8 @@ export const leagueReducer = (state=initialState, action) => {
   }
 
   if(action.type === actions.JOIN_A_LEAGUE_SUCCESS) {
-    const updatedLeague = state.leagues.map(obj => {
-      if(obj.name === action.league.name) {
-        return action.league
-      }
-      else {
-        return obj;
-      }
-    });
-
     return {
-      leagues: updatedLeague,
+      ...state,
       next: true,
       loading: false,
       error: null

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
 import Header from '../Header';
-import { createLeague } from '../../actions/leagueActions';
+import { retrieveLeagues, createLeague, joinALeague } from '../../actions/leagueActions';
 import { checkUserAuth } from '../../actions/userActions';
 
 // import './league.css';
@@ -13,28 +13,47 @@ class League extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      createValue: '',
+      joinValue: ''
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onCreateChange = this.onCreateChange.bind(this);
+    this.onCreateSubmit = this.onCreateSubmit.bind(this);
+    this.onJoinChange = this.onJoinChange.bind(this);
+    this.onJoinSubmit = this.onJoinSubmit.bind(this);
   }
-
+ 
+  /* ======== GET USER'S AUTHTOKEN ON REFRESH ======== */
   componentWillMount() {
     this.props.dispatch(checkUserAuth());
   }
-
-  onChange (event) {
-    // console.log('TYPING:', event.target.value)
-    this.setState({ value: event.target.value })
+  
+  /* ======== GET ALL LEAGUES ON PAGE LOAD ======== */
+  componentDidMount() {
+    this.props.dispatch(retrieveLeagues());
   }
 
-  onSubmit (event) {
+  /* ======== HANDLE THE FORM SUBMISSIONS ======== */
+  onCreateChange(event) {
+    this.setState({ createValue: event.target.value })
+  }
+
+  onCreateSubmit(event) {
     event.preventDefault(); 
-    console.log('FORM VALUE:' ,this.state.value)
-    this.props.dispatch(createLeague(this.state.value));
+    this.props.dispatch(createLeague(this.state.createValue));
   };
 
+  onJoinChange(event) {
+    this.setState({ joinValue: event.currentTarget.value})
+  }
+
+  onJoinSubmit(event) {
+    event.preventDefault();
+    this.props.dispatch(joinALeague(this.state.joinValue))
+  }
+
+
   render() {
+    /* ======== HANDLE THE ERROR MESSAGE ======== */
     let errorMessage;
     if (this.props.error) {
       errorMessage = (
@@ -42,32 +61,37 @@ class League extends Component {
       );
     }
 
+    /* ======== HANDLE A SUCCESSFULLY CREATED/JOINED LEAGUE ======== */
     if (this.props.next) {
-      // return <Redirect to='/draft' />
-      console.log('LEAGUE PROPS:', this.props)
+      return <Redirect to='/draft' />
     }
 
-    const lessThanFive = this.props.leagues.filter( obj => obj.users.length <= 4)
-    console.log('LESS THAN:', lessThanFive);
+    /* ======== FILTER THE LEAGUES IN STATE TO ONES THAT A USER CAN JOIN ======== */
+    const lessThanFive = this.props.leagues.filter( league => league.users.length <= 4)
     
+    /* ======== CREATE AN INPUT & LABEL FOR EACH LEAGUE A USER CAN JOIN ======== */
     const availableLeagues = lessThanFive.map((league, index) => (
-      <div className='available-league'>
+      <div className='available-league' key={ index }>
         <input
-          key={ index }
           type='radio'
-          id={ league.name }
+          name='leagues'
           value={ league.name }
+          id={ league.name }
+          onChange={this.onJoinChange}
         />
         <label
-          for={ league.name }
+          htmlFor={ league.name }
         >
-        { league }
+          { league.name }
         </label>
       </div>
     ))
 
+
+
     return(
       <main role='main' className='league'>
+
         <div className='navBar'>
             <Link
               to='/'
@@ -79,14 +103,15 @@ class League extends Component {
         <Header />
 
         { errorMessage }
+
         <section className='create'>
           <h3>Create a new league!</h3>
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onCreateSubmit}>
             <label>League name:</label>
             <input
               type='text'
-              value={this.state.value}
-              onChange={this.onChange}
+              value={this.state.createValue}
+              onChange={this.onCreateChange}
               placeholder='Your League'
               name='league'
               id='league-name'
@@ -102,10 +127,13 @@ class League extends Component {
         </section>
 
         <section className='join'>
-          <h3>Or join a league with your friends!</h3>
-          <div>
-            { availableLeagues }
-          </div>
+          <form onSubmit={this.onJoinSubmit}>
+            <h3>Or join a league with your friends!</h3>
+            <div>
+              { availableLeagues }
+            </div>
+            <button type='submit'> Submit </button>
+          </form>
         </section>
 
       </main>
@@ -114,7 +142,7 @@ class League extends Component {
 }
 
 const mapStateToProps = state => ({
-  leagues: state.leagueReducer.leagues,
+  leagues: state.leagueReducer.leagues !== null ? state.leagueReducer.leagues : [],
   next: state.leagueReducer.next,
   error: state.leagueReducer.error,
   loading: state.leagueReducer.loading
@@ -125,4 +153,5 @@ export default connect(mapStateToProps)(League);
 /*
 Resources:
  - https://reactjs.org/docs/forms.html
+ - https://stackoverflow.com/questions/20982993/html-radio-buttons-allowing-multiple-selections?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 */
