@@ -28,6 +28,7 @@ export class Team extends Component {
       );
     }
 
+    /* ======== SORT TEAM ALPHABETICALLY ======== */
     function compare(a, b) {
       if (a.firstName < b.firstName)
         return -1;
@@ -36,6 +37,7 @@ export class Team extends Component {
       return 0;
     }
 
+    /* ======== EACH PLAYER'S STATS ======== */
     const playerStats = this.props.stats.map((player, index) => {
       if (player.firstName === 'N/A') {
         let emptyStat = this.props.team.find(teammate => teammate.playerID === player.playerID)
