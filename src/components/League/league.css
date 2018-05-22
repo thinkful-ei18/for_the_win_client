@@ -1,0 +1,100 @@
+.errorMessage {
+  font-weight: bold;
+  text-align: center;
+  color: red;
+  margin-bottom: 15px;
+}
+
+.container {
+  margin: 25px;
+}
+
+.league {}
+
+.create {
+  margin-bottom: 50px;
+}
+
+.league-h4 {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #B1B695;
+}
+
+.create-label {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+#league-name {
+  width: 200px;
+  height: 20px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #D85627;
+  display: block;
+}
+
+.join {}
+
+.join-label {
+  margin-left: 5px;
+}
+
+.available-league {
+  margin-bottom: 10px;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+/* tablet */
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .container {
+    margin: 50px 80px;
+  }
+  .league-h4 {
+    font-size: 25px;
+  }
+  .create-label {
+    font-size: 20px;
+  }
+  #league-name {
+    width: 300px;
+    height: 30px;
+  }
+  .submit-button {
+    font-size: 20px;
+  }
+  .join-label {
+    font-size: 20px;
+  }
+  .create {
+    margin-bottom: 70px;
+  }
+}
+
+/* desktop */
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .create {
+    margin-right: 100px;
+  }
+  .league-h4 {
+    letter-spacing: 1px;
+  }
+  .submit-button {
+    background-color: transparent;
+    border: none;
+  }
+}

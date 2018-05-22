@@ -9,22 +9,24 @@ import './theDraft.css';
 
 
 export class Players extends Component {
-
+  /* ======== GET ACTIVE NBA PLAYERS ======== */
   componentDidMount() {
     this.props.dispatch(fetchNbaPlayers())
   }
 
   render() {
-
+    /* ======== REMOVE/ADD PLAYERS FROM AVAILABLE PLAYERS LIST ======== */
     const getRemainingPlayers = makeSymmDiffFunc((x, y) => x.playerID === y.playerID);
-
+    
     const remainingPlayers = getRemainingPlayers(this.props.players, this.props.team);
 
+    /* ======== USER FILTERING PLAYERS BY TEAM ======== */
     const handleChange = value => {
       let filteredTeam = remainingPlayers.filter(player => player.playerTeam === value)
       this.props.dispatch(filterNbaPlayersByTeam(filteredTeam))
     }
 
+    /* ======== PLAYERS A USER CAN ADD TO THEIR TEAM ======== */
     const availablePlayers = this.props.filteredTeam.map((player, index) => (
       <li
         key={index}
@@ -40,6 +42,7 @@ export class Players extends Component {
       </li>
     ));
 
+    /* ======== USER'S SELECTED TEAM ======== */
     const myPlayers = this.props.team.map((player, index) => (
       <li
         key={index}
@@ -91,38 +94,12 @@ export class Players extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   let players = []
-
-//   if (state.draftReducer.filteredTeam.length > 0) {
-//     players = state.draftReducer.filteredTeam
-//   } else {
-//     players = state.draftReducer.players
-//   }
-  
-//   return {
-//     players,
-//     team: state.draftReducer.team,
-//     allNBATeams: state.draftReducer.allNBATeams
-//   }
-
-// }
-
-const mapStateToProps = state => {
-  let filteredTeam = []
-
-  if (state.draftReducer.filteredTeam.length > 0) {
-    filteredTeam = state.draftReducer.filteredTeam
-  } else {
-    filteredTeam = state.draftReducer.players
-  }
-
-  return {
+const mapStateToProps = state => ({
     players: state.draftReducer.players,
-    filteredTeam,
+    filteredTeam: state.draftReducer.filteredTeam.length > 0 ? state.draftReducer.filteredTeam : state.draftReducer.players,
     team: state.draftReducer.team,
     allNBATeams: state.draftReducer.allNBATeams
-  }
-}
+  })
+
 
 export default connect(mapStateToProps)(Players)
