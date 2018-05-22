@@ -4,6 +4,7 @@ import { Redirect, Link } from 'react-router-dom';
 
 import Header from '../Header';
 import Team from './Team';
+import Score from './Score';
 import { checkUserAuth, logout } from '../../actions/userActions';
 
 import './dashboard.css';
@@ -35,6 +36,7 @@ export class Dashboard extends Component {
           </button>
         </div>
         <Header />
+        <Score />
         <Team />
       </div>
     );
