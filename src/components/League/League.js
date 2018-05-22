@@ -6,7 +6,7 @@ import Header from '../Header';
 import { retrieveLeagues, createLeague, joinALeague } from '../../actions/leagueActions';
 import { checkUserAuth } from '../../actions/userActions';
 
-// import './league.css';
+import './league.css';
 
 
 class League extends Component {
@@ -81,6 +81,7 @@ class League extends Component {
         />
         <label
           htmlFor={ league.name }
+          className='join-label'
         >
           { league.name }
         </label>
@@ -104,37 +105,44 @@ class League extends Component {
 
         { errorMessage }
 
-        <section className='create'>
-          <h3>Create a new league!</h3>
-          <form onSubmit={this.onCreateSubmit}>
-            <label>League name:</label>
-            <input
-              type='text'
-              value={this.state.createValue}
-              onChange={this.onCreateChange}
-              placeholder='Your League'
-              name='league'
-              id='league-name'
-            />
-            <button
-              type='submit'
-              className=''
-              value='submit'
-            >
-            Submit
-            </button>
-          </form>
-        </section>
+        <div className='container'>
+          <section className='create'>
+            <h4 className='league-h4'>Create a new league!</h4>
+            <form onSubmit={this.onCreateSubmit}>
+              <label className='create-label'>Name:</label>
+              <input
+                type='text'
+                value={this.state.createValue}
+                onChange={this.onCreateChange}
+                placeholder='for the win'
+                name='league'
+                id='league-name'
+              />
+              <button
+                type='submit'
+                className='submit-button'
+                value='submit'
+              >
+              Submit
+              </button>
+            </form>
+          </section>
 
-        <section className='join'>
-          <form onSubmit={this.onJoinSubmit}>
-            <h3>Or join a league with your friends!</h3>
-            <div>
-              { availableLeagues }
-            </div>
-            <button type='submit'> Submit </button>
-          </form>
-        </section>
+          <section className='join'>
+            <form onSubmit={this.onJoinSubmit}>
+              <h4 className='league-h4'>Or join a league with your friends!</h4>
+              <div>
+                { availableLeagues }
+              </div>
+              <button 
+                type='submit'
+                className='submit-button'
+              > 
+                Submit
+              </button>
+            </form>
+          </section>
+        </div>
 
       </main>
     );
