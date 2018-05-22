@@ -29,7 +29,7 @@ export const retrieveLeagues = () => (dispatch, getState) => {
   })
   .then(leagues => dispatch(retrieveLeaguesSuccess(leagues)) )
   .catch(err => {
-    const message = 'You are unauthorized.'
+    const message = 'There was an error with your request'
     dispatch(createLeagueError(message))
   })
 }
