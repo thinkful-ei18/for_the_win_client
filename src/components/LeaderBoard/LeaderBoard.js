@@ -18,10 +18,9 @@ class LeaderBoard extends Component {
   }
 
   render() {
-    console.log('PROPS:', this.props);
-    // if(!this.props.authToken) {
-    //   return <Redirect to='/' />
-    // }
+    if (this.props.loggedOut) {
+      return <Redirect to='/' />
+    }
 
     let leagueLeaderboard = this.props.leaderboard.map((user, index) => {
       let key = Object.keys(user);
@@ -69,7 +68,8 @@ class LeaderBoard extends Component {
 }
 
 const mapStateToProps = state => ({
-  leaderboard: state.leagueReducer.leaderboard !== null ? state.leagueReducer.leaderboard : []
+  leaderboard: state.leagueReducer.leaderboard !== null ? state.leagueReducer.leaderboard : [],
+  loggedOut: state.userReducer.loggedOut
 })
 
 export default connect(mapStateToProps)(LeaderBoard);
