@@ -8,6 +8,7 @@ import TheDraft from './components/Draft/TheDraft';
 import Dashboard from './components/Dashboard/Dashboard';
 import LandingPage from './components/LandingPage/LandingPage';
 import GameSchedule from './components/DGS/GameSchedule';
+import LeaderBoard from './components/LeaderBoard/LeaderBoard';
 
 export default class App extends Component {
   
@@ -24,6 +25,7 @@ export default class App extends Component {
             <Route exact path='/draft' component={TheDraft} />
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/games' component={GameSchedule} />
+            <Route exact path='/leaderboard' component={LeaderBoard} />
           </main>
         </div>
       </Router>
