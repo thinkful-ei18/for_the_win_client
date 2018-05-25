@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import Header from '../Header';
 import { checkUserAuth, logout } from '../../actions/userActions';
@@ -32,6 +33,7 @@ class LeaderBoard extends Component {
       errorMessage = <p className='message'> { this.props.error } </p>
     }
     
+    /* ======== SET STYLING FOR THE LINK FROM REACT ROUTER DOM ======== */
     const styles = {
       navlink: {
         textDecoration: 'none',
@@ -39,21 +41,28 @@ class LeaderBoard extends Component {
       }
     }
 
-    let leagueLeaderboard = this.props.leaderboard.map((user, index) => {
-      let key = Object.keys(user);
-
-      return <div 
-        className='team-leader'
-        key={index}
-        >
-          <p className='league-user-name'> 
-            { key[0].toUpperCase() }
-          </p>
-          <p className='league-user-score'> 
-            { user[key[0]] } points so far this season.
-          </p>
-        </div>
-    });
+    /* ======== CREATE THE LEAGUE LEADER BOARD ======== */
+    let leagueLeaderboard;
+    if (this.props.loading) {
+      leagueLeaderboard = <Spinner fadeIn='none' />;
+    }
+    else {
+      leagueLeaderboard = this.props.leaderboard.map((user, index) => {
+        let key = Object.keys(user);
+  
+        return <div 
+          className='team-leader'
+          key={index}
+          >
+            <p className='league-user-name'> 
+              { key[0].toUpperCase() }
+            </p>
+            <p className='league-user-score'> 
+              { user[key[0]] } points so far this season.
+            </p>
+          </div>
+      });
+    }
 
     return(
       <div className='leaderboard'>
@@ -97,7 +106,8 @@ class LeaderBoard extends Component {
 const mapStateToProps = state => ({
   leaderboard: state.leagueReducer.leaderboard !== null ? state.leagueReducer.leaderboard : [],
   loggedOut: state.userReducer.loggedOut,
-  error: state.leagueReducer.error
+  error: state.leagueReducer.error,
+  loading: state.leagueReducer.loading
 })
 
 export default connect(mapStateToProps)(LeaderBoard);
