@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import { fetchNbaPlayers, filterNbaPlayersByTeam, fetchAddPlayersToTeam, fetchRemovePlayersFromTeam } from '../../actions/draft.actions';
 import { makeSymmDiffFunc } from '../../utils/index';
@@ -27,20 +28,26 @@ export class Players extends Component {
     }
 
     /* ======== PLAYERS A USER CAN ADD TO THEIR TEAM ======== */
-    const availablePlayers = this.props.filteredTeam.map((player, index) => (
-      <li
-        key={index}
-        className='playerList'
-      >
-        <button
-          className='liButton'
-          onClick={() => {
-            this.props.dispatch(fetchAddPlayersToTeam(player))
-          }}>
-          {player.firstName} {player.lastName}
-        </button>
-      </li>
-    ));
+    let availablePlayers;
+    if (this.props.loading) {
+      availablePlayers = <Spinner fadeIn='none' />;
+    }
+    else {
+      availablePlayers = this.props.filteredTeam.map((player, index) => (
+        <li
+          key={index}
+          className='playerList'
+        >
+          <button
+            className='liButton'
+            onClick={() => {
+              this.props.dispatch(fetchAddPlayersToTeam(player))
+            }}>
+            {player.firstName} {player.lastName}
+          </button>
+        </li>
+      ));
+    }
 
     /* ======== USER'S SELECTED TEAM ======== */
     const myPlayers = this.props.team.map((player, index) => (
@@ -98,7 +105,8 @@ const mapStateToProps = state => ({
     players: state.draftReducer.players,
     filteredTeam: state.draftReducer.filteredTeam.length > 0 ? state.draftReducer.filteredTeam : state.draftReducer.players,
     team: state.draftReducer.team,
-    allNBATeams: state.draftReducer.allNBATeams
+    allNBATeams: state.draftReducer.allNBATeams,
+    loading: state.draftReducer.loading
   })
 
 
