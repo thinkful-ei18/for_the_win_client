@@ -23,7 +23,8 @@
   font-size: 12px;
 }
 
-.logoutButton:hover {
+.logoutButton:hover,
+.navLink:hover {
   cursor: pointer;
 }
 

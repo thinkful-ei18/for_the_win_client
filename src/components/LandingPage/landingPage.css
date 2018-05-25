@@ -22,24 +22,61 @@
   text-align: center;
 }
 
+.modalContent {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 25%;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  overflow: auto;
+  /* webkit-overflow-scrolling: 'touch'; */
+  border-radius: 6px;
+  /* outline: none; */
+  padding: 20px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.closeModal {
+  font-weight: bold;
+}
+
 .instructionsDiv {
-  background-color: #D85627;
-  height: 200px;
-  color: #E3EBE8;
+  /* background-color: #D85627; */
+  /* height: 200px; */
+  /* color: #E3EBE8; */
+  color: #D85627;
   width: 100%;
   padding-top: 5px;
 }
 
-.instructionsHeader {
+.instructionsHead {}
+
+.instructionsTitle,
+.instructionsDesc {
   text-align: center;
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 0 5px 5px 5px;
+}
+
+.instructionBox {
+  margin-top: 25px;
 }
 
 .instructions {
   width: 80%;
   margin: 10px auto;
   font-size: small;
+  color: #858988;
 }
 
 .photoCred {
@@ -63,12 +100,27 @@ MEDIA QUERIES
     font-size: 80px;
     margin-top: 80px;
   }
-  .instructionsHeader {
-    font-size: 30px;
+  .modalContent {
+    top: 15%;
+    left: 15%;
+    right: 15%;
+  }
+  .closeModal {
+    font-size: 20px;
+  }
+  .instructionsTitle {
+    font-size: 40px;
+  }
+  .instructionsDesc {
+    font-size: 20px;
   }
   .instructions {
     font-size: 18px;
-    text-align: center;
+    margin: 25px auto;
+    /* text-align: center; */
+  }
+  .instructionBox {
+    margin-top: 45px;
   }
 }
 
@@ -82,24 +134,36 @@ MEDIA QUERIES
     font-size: 80px;
     margin-top: 80px;
   }
+  .modalContent {
+    left: 18%;
+    right: 18%;
+    bottom: 10%;
+  }
+  .closeModal {
+    border: none;
+    font-size: 30px;
+  }
   .instructionsDiv {
     height: 300px;
-    text-align: center;
+    /* text-align: center; */
   }
-  .instructionsHeader {
-    font-size: 40px;
+  .instructionsTitle {
+    font-size: 80px;
+  }
+  .instructionsDesc {
+    font-size: 30px;
   }
   .instructions {
     font-size: 25px;
-    text-align: left;
-    display: inline-block;
-    width: 320px;
-    vertical-align: top;
-    padding: 5px 20px;
-    height: 180px;
-    margin: 10px 15px;
-    border: 5px solid #858988;
-    border-radius: 8px;
+    /* text-align: left; */
+    /* display: inline-block; */
+    /* width: 320px; */
+    /* vertical-align: top; */
+    /* padding: 5px 20px; */
+    /* height: 180px; */
+    /* margin: 10px 15px; */
+    /* border: 5px solid #858988; */
+    /* border-radius: 8px; */
   }
 }
 
