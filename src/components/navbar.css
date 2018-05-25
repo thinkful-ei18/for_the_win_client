@@ -13,8 +13,8 @@
   padding-right: 15px;
 }
 
-.logoutButton,
-.navLink {
+.navLink,
+.logoutButton {
   margin-left: 25px;
   color: #E3EBE8;
   text-decoration: none;
@@ -38,7 +38,8 @@ MEDIA QUERIES
     padding-top: 13px;
     padding-right: 25px;
   }
-  .navLink {
+  .navLink,
+  .logoutButton {
     font-size: 17px;
   }
 }
@@ -50,7 +51,8 @@ MEDIA QUERIES
     padding-top: 17px;
     padding-right: 30px;
   }
-  .navLink {
+  .navLink,
+  .logoutButton {
     font-size: 20px;
   }
 }
