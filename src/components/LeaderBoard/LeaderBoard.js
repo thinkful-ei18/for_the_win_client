@@ -42,10 +42,10 @@ class LeaderBoard extends Component {
         key={index}
         >
           <p className='league-user-name'> 
-            { key[0] }
+            { key[0].toUpperCase() }
           </p>
           <p className='league-user-score'> 
-            { user[key[0]] }
+            { user[key[0]] } points so far this season.
           </p>
         </div>
     });
@@ -80,6 +80,14 @@ class LeaderBoard extends Component {
           <Header />
 
           <section className='league-leaderboard'>
+            {/* <div className='leaderboard-descriptions'>
+              <p className='leaderboard-user'> 
+                User
+              </p>
+              <p className='leaderboard-score'> 
+                Current Point Total
+              </p>
+            </div> */}
             { leagueLeaderboard }
           </section>
 

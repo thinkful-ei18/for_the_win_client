@@ -1,0 +1,78 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-B1B695-F7F7FF
+*/
+
+.leaderboard {}
+
+.leaderboard-user {
+  /* padding: 8px; */
+  /* width: 35%; */
+}
+
+.leaderboard-score {
+  /* padding: 8px; */
+}
+
+.league-leaderboard {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+.leaderboard-descriptions {
+  /* flex-direction: row; */
+  margin-bottom: 5px;
+}
+
+.team-leader {
+  /* flex-direction: row; */
+  margin: 15px 15px 20px 15px;
+}
+
+.league-user-name {
+  padding: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  /* width: 35%; */
+  background-color: #E3EBE8;
+}
+
+.league-user-score {
+  padding: 8px;
+  /* width: 55%; */
+  background-color: #B1B695;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .league-leaderboard {
+    width: 80%;
+  }
+  .league-user-name {
+    padding: 15px;
+  }
+  .league-user-score {
+    padding: 15px;
+  }
+  .team-leader {
+    margin: 15px 15px 35px 15px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .league-user-name {
+    padding: 20px;
+    font-size: 20px;
+  }
+  .league-user-score {
+    padding: 20px;
+    font-size: 20px;
+  }
+}
