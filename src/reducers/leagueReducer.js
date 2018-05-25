@@ -2,7 +2,6 @@ import * as actions from '../actions/leagueActions';
 
 const initialState = {
   leagues: null, // array of league objects
-  // leagueName: '',
   leaderboard: null,
   next: false,
   loading: false,
@@ -71,15 +70,6 @@ export const leagueReducer = (state=initialState, action) => {
     }
   }
 
-  /* =============== SAVE LEAGUE NAME ACTION=============== */
-  // if(action.type === actions.SAVE_LEAGUE_NAME) {
-  //   console.log('LEAGUE NAME:', action.leagueName)
-  //   return {
-  //     ...state,
-  //     leagueName: action.leagueName
-  //   }
-  // }
-
   /* =============== LEADERBOARD ACTIONS =============== */
   if(action.type === actions.GET_LEADERBOARD_REQUEST) {
     return {
@@ -90,7 +80,6 @@ export const leagueReducer = (state=initialState, action) => {
   }
 
   if(action.type === actions.GET_LEADERBOARD_SUCCESS) {
-    console.log('ACTION:', action.leaderboard)
     return {
       ...state,
       leaderboard: action.leaderboard,
