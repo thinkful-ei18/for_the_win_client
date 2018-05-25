@@ -10,16 +10,22 @@ class Score extends Component {
     
     /* ======== CALCULATE EACH PLAYERS SCORE ======== */
     let tallyPoints = this.props.stats.map(player => {
-      let playerScore = 
-        parseInt(player.twoPointers, 10) 
-        + parseInt(player.threePointers, 10) 
-        + parseInt(player.freeThrows, 10) 
-        + parseInt(player.assists, 10) 
-        + parseInt(player.rebounds, 10) 
-        + parseInt(player.steals, 10) 
-        + parseInt(player.blocks, 10)
+      if(player.assists !== 'N/A') {
+          let playerScore = 
+          parseInt(player.twoPointers, 10) 
+          + parseInt(player.threePointers, 10) 
+          + parseInt(player.freeThrows, 10) 
+          + parseInt(player.assists, 10) 
+          + parseInt(player.rebounds, 10) 
+          + parseInt(player.steals, 10) 
+          + parseInt(player.blocks, 10)
 
-      return playerScore;
+        return playerScore;
+      }
+      else { 
+        let playerScore = 0;
+        return playerScore;
+      }
     })
 
 
