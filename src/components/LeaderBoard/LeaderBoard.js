@@ -29,7 +29,7 @@ class LeaderBoard extends Component {
 
     let errorMessage;
     if(this.props.error) {
-      errorMessage = <p className='error'> this.props.error </p>
+      errorMessage = <p className='error'> { this.props.error } </p>
     }
     
     const styles = {
