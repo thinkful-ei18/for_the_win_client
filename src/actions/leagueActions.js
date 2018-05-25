@@ -145,7 +145,6 @@ export const joinALeague = name => (dispatch, getState) => {
       else {
       res.json()
         .then( league => {
-          console.log('LEAGUE:', league)
           saveLeagueName(league.name)
         }
       )
@@ -154,7 +153,7 @@ export const joinALeague = name => (dispatch, getState) => {
       return;
     })
     .then(() => dispatch(retrieveLeagues()) )
-    // .then(() => dispatch(joinALeagueSuccess()) )
+    .then(() => dispatch(joinALeagueSuccess()) )
     .catch(err => {
       const { status } = err.error;
       const message = 
