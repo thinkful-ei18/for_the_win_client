@@ -26,6 +26,11 @@ class LeaderBoard extends Component {
     if (this.props.loggedOut) {
       return <Redirect to='/' />
     }
+
+    let errorMessage;
+    if(this.props.error) {
+      errorMessage = <p className='error'> this.props.error </p>
+    }
     
     const styles = {
       navlink: {
@@ -78,16 +83,9 @@ class LeaderBoard extends Component {
           </div>
 
           <Header />
+          { errorMessage }
 
           <section className='league-leaderboard'>
-            {/* <div className='leaderboard-descriptions'>
-              <p className='leaderboard-user'> 
-                User
-              </p>
-              <p className='leaderboard-score'> 
-                Current Point Total
-              </p>
-            </div> */}
             { leagueLeaderboard }
           </section>
 
@@ -98,7 +96,8 @@ class LeaderBoard extends Component {
 
 const mapStateToProps = state => ({
   leaderboard: state.leagueReducer.leaderboard !== null ? state.leagueReducer.leaderboard : [],
-  loggedOut: state.userReducer.loggedOut
+  loggedOut: state.userReducer.loggedOut,
+  error: state.leagueReducer.error
 })
 
 export default connect(mapStateToProps)(LeaderBoard);
