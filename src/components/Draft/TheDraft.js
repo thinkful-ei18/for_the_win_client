@@ -23,7 +23,7 @@ export class TheDraft extends Component {
           <div className='navBar'>
             <Link
               to='/'
-              className='homeLink'
+              className='navLink'
             >
               Home
             </Link>
