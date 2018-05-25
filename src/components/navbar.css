@@ -16,9 +16,7 @@
 }
 
 .logoutButton:hover {
-  /* color: #D85627; */
-  font-weight: bold;
-  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 /* ============================ 

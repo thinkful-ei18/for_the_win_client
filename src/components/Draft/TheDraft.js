@@ -7,6 +7,7 @@ import Players from './Players';
 import { checkUserAuth } from '../../actions/userActions';
 
 import './theDraft.css';
+import '../navbar.css';
 
 
 export class TheDraft extends Component {
