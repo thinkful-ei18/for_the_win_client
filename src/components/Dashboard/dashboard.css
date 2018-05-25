@@ -4,24 +4,10 @@
   align-items: center;
 }
 
-.logoutButton,
-.gameScheduleButton {
-  margin-left: 25px;
-  color: #E3EBE8;
-  text-decoration: none;
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-}
-
-.gameScheduleButton:hover {
-  color: #D85627;
-}
-
 .team {
   width: 100%;
-  overflow-x: scroll; 
-  overflow-y: hidden; 
+  overflow-x: scroll;
+  overflow-y: hidden;
   white-space: nowrap;
 }
 
@@ -34,7 +20,6 @@
 
 .descriptions {
   color: #000000;
-  
 }
 
 .playerStats,
@@ -78,7 +63,7 @@
 .gameDayTitle,
 .offenseTitle,
 .defenseTitle,
-.pointsTitle
+.pointsTitle,
 .gameDay {
   white-space: normal;
 }
@@ -89,7 +74,7 @@
 }
 
 .offense {
-  background-color:#B1B695;
+  background-color: #B1B695;
 }
 
 .defense {
@@ -101,20 +86,15 @@
   color: #F7F7FF;
 }
 
-
-
 /* ============================ 
 MEDIA QUERIES
 ============================*/
 
-
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
-
   .team {
     width: 100%;
     padding: 0 20px;
   }
-
   .offense,
   .defense,
   .points,
@@ -123,26 +103,22 @@ MEDIA QUERIES
   .pointsTitle {
     width: 8.75%;
   }
-
   .playerName,
   .playerNametitle,
   .gameDayTitle,
   .gameDay {
     width: 15%;
   }
-
   .scroll {
     display: none;
   }
 }
 
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-
   .team {
     width: 100%;
     padding: 0 20px;
   }
-
   .offense,
   .defense,
   .points,
@@ -155,7 +131,6 @@ MEDIA QUERIES
   .gameDay {
     width: 10%;
   }
-
   .scroll {
     display: none;
   }

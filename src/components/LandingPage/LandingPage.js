@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Instructions from './Instructions';
 
 import './landingPage.css';
+import '../navbar.css';
 
 
 export default class LandingPage extends Component {

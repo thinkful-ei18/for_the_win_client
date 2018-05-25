@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import Header from '../Header';
-import { checkUserAuth } from '../../actions/userActions';
+import { checkUserAuth, logout } from '../../actions/userActions';
 import { getLeaderboard } from '../../actions/leagueActions';
 import { findLeagueName } from '../../localStorage';
+
+import './leaderBoard.css';
+import '../navbar.css';
+
 
 class LeaderBoard extends Component {
   componentWillMount() {
@@ -17,9 +21,17 @@ class LeaderBoard extends Component {
     this.props.dispatch(getLeaderboard(name))
   }
 
+  
   render() {
     if (this.props.loggedOut) {
       return <Redirect to='/' />
+    }
+    
+    const styles = {
+      navlink: {
+        textDecoration: 'none',
+        color: '#E3EBE8'
+      }
     }
 
     let leagueLeaderboard = this.props.leaderboard.map((user, index) => {
@@ -40,25 +52,34 @@ class LeaderBoard extends Component {
 
     return(
       <div className='leaderboard'>
+
           <div className='navBar'>
             <button
-              className='gameScheduleButton'>
-              <Link to='/games'>Today's Schedule</Link>
+              className='navLink'>
+              <Link 
+                to='/games' 
+                style={styles.navlink} > 
+                Schedule 
+              </Link>
             </button>
             <button
-              className='gameScheduleButton'>
-              <Link to='/dashboard'>Dashboard</Link>
+              className='navLink' >
+              <Link 
+                to='/dashboard' 
+                style={styles.navlink} > 
+                Dashboard 
+              </Link>
             </button>
-            <Link
-              to='/'
-              className='homeLink'
-            >
-              Home
-            </Link>
+            <button
+              className='logoutButton'
+              onClick={() => this.props.dispatch(logout()) } >
+              Logout
+            </button>
           </div>
+
           <Header />
 
-          <section>
+          <section className='league-leaderboard'>
             { leagueLeaderboard }
           </section>
 

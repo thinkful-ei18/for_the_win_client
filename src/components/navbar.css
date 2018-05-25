@@ -1,0 +1,40 @@
+.navBar {
+  background-color: #858988;
+  height: 35px;
+  text-align: end;
+  padding: 5px;
+}
+
+.logoutButton,
+.navLink {
+  margin-left: 25px;
+  color: #E3EBE8;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.logoutButton:hover {
+  /* color: #D85627; */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar {
+    height: 50px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar {
+    height: 60px;
+    padding: 18px;
+  }
+}
