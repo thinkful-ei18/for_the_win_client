@@ -1,5 +1,6 @@
 /*
-https: //coolors.co/858988-D85627-E3EBE8-B1B695-F7F7FF
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
 */
 
 .leaderboard {}
@@ -32,10 +33,10 @@ https: //coolors.co/858988-D85627-E3EBE8-B1B695-F7F7FF
 
 .league-user-score {
   padding: 8px;
-  background-color: #B1B695;
+  background-color: #007e8e;
 }
 
-.error {
+.message {
   text-align: center;
 }
 
