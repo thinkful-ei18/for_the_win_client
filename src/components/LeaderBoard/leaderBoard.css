@@ -4,32 +4,22 @@ https: //coolors.co/858988-D85627-E3EBE8-B1B695-F7F7FF
 
 .leaderboard {}
 
-.leaderboard-user {
-  /* padding: 8px; */
-  /* width: 35%; */
-}
+.leaderboard-user {}
 
-.leaderboard-score {
-  /* padding: 8px; */
-}
+.leaderboard-score {}
 
 .league-leaderboard {
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
 }
 
 .leaderboard-descriptions {
-  /* flex-direction: row; */
   margin-bottom: 5px;
 }
 
 .team-leader {
-  /* flex-direction: row; */
   margin: 15px 15px 20px 15px;
 }
 
@@ -37,14 +27,16 @@ https: //coolors.co/858988-D85627-E3EBE8-B1B695-F7F7FF
   padding: 8px;
   font-weight: bold;
   letter-spacing: 1px;
-  /* width: 35%; */
   background-color: #E3EBE8;
 }
 
 .league-user-score {
   padding: 8px;
-  /* width: 55%; */
   background-color: #B1B695;
+}
+
+.error {
+  text-align: center;
 }
 
 /* ============================ 
