@@ -106,13 +106,6 @@ export const createLeagueError = err => ({
   err
 })
 
-// export const SAVE_LEAGUE_NAME = 'SAVE_LEAGUE_NAME';
-// export const saveLeagueName = leagueName => ({
-//   type: SAVE_LEAGUE_NAME,
-//   leagueName
-// })
-
-
 
 /* ========================= JOIN A LEAGUE ========================= */
 export const joinALeague = name => (dispatch, getState) => {
@@ -216,6 +209,7 @@ export const getLeaderboard = name => (dispatch, getState) => {
   })
   .then(leaderboard => dispatch(getLeaderboardSuccess(leaderboard)))
   .catch(err => {
+    console.log('ERR:', err)
     const message = 'The current season is over, play again this fall!'
     dispatch(getLeaderboardError(message));
   });
