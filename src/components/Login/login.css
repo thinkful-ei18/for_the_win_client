@@ -24,9 +24,9 @@ B1B695- green
 .loginSubmitButton {
   text-align: center;
   height: 40px;
-  width: 85%;
+  width: 75%;
   border-radius: 8px;
-  margin: 0px auto 15px auto;
+  margin: 20px auto 0px auto;
   display: block;
 }
 
@@ -38,6 +38,7 @@ B1B695- green
 .registerHere {
   text-align: center;
   color: #007e8e;
+  margin-top: 15px;
 }
 
 /* ============================ 
