@@ -25,7 +25,7 @@ export default class App extends Component {
             <Route exact path='/draft' component={TheDraft} />
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/games' component={GameSchedule} />
-            <Route exact path='/leaderboard' component={LeaderBoard} />
+            {/* <Route exact path='/leaderboard' component={LeaderBoard} /> */}
           </main>
         </div>
       </Router>

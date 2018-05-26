@@ -33,14 +33,14 @@ class GameSchedule extends Component {
       <div className='gameSchedule'>
         
         <div className='navBar'>
-          <button
+          {/* <button
             className='navLink'>
             <Link 
               to='/leaderboard'
               style={styles.navlink} > 
               Leaderboard 
             </Link>
-          </button>
+          </button> */}
           <button
             className='navLink' >
             <Link 
