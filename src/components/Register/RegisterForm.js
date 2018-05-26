@@ -70,7 +70,7 @@ export class RegisterForm extends Component {
             name='password'
             className='password'
             id='password'
-            type='text'
+            type='password'
             placeholder='password'
             validate={[required, nonEmpty, greaterThan]}
           />
