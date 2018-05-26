@@ -1,3 +1,8 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
 @font-face {
   font-family: 'edosz';
   src: local('edosz'), url('../../utils/edosz.ttf') format('truetype');
@@ -31,9 +36,7 @@
   border: 1px solid #ccc;
   background-color: #ffffff;
   overflow: auto;
-  /* webkit-overflow-scrolling: 'touch'; */
   border-radius: 6px;
-  /* outline: none; */
   padding: 20px;
 }
 
@@ -51,9 +54,6 @@
 }
 
 .instructionsDiv {
-  /* background-color: #D85627; */
-  /* height: 200px; */
-  /* color: #E3EBE8; */
   color: #D85627;
   width: 100%;
   padding-top: 5px;
@@ -117,7 +117,6 @@ MEDIA QUERIES
   .instructions {
     font-size: 18px;
     margin: 25px auto;
-    /* text-align: center; */
   }
   .instructionBox {
     margin-top: 45px;
@@ -145,7 +144,6 @@ MEDIA QUERIES
   }
   .instructionsDiv {
     height: 300px;
-    /* text-align: center; */
   }
   .instructionsTitle {
     font-size: 80px;
@@ -155,15 +153,6 @@ MEDIA QUERIES
   }
   .instructions {
     font-size: 25px;
-    /* text-align: left; */
-    /* display: inline-block; */
-    /* width: 320px; */
-    /* vertical-align: top; */
-    /* padding: 5px 20px; */
-    /* height: 180px; */
-    /* margin: 10px 15px; */
-    /* border: 5px solid #858988; */
-    /* border-radius: 8px; */
   }
 }
 
