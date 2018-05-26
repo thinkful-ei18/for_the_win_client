@@ -48,7 +48,7 @@ export class LoginForm extends Component {
               name='password'
               className='password'
               id='loginPassword'
-              type='text'
+              type='password'
               placeholder='password'
               validate={[required, nonEmpty]}
             />
@@ -62,9 +62,10 @@ export class LoginForm extends Component {
             <button
               className='loginSubmitButton'
               type="submit"
-              disabled={this.props.pristine || this.props.submitting}>
+              disabled={this.props.pristine || this.props.submitting}
+            >
               LOG IN
-              </button>
+            </button>
 
           </fieldset>
         </form>
