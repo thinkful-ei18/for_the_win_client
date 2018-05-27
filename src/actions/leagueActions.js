@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { saveLeagueName } from '../localStorage';
 
 
 /* ========================= RETREIVE ALL OF THE LEAGUES ========================= */
@@ -68,6 +69,10 @@ export const createLeague = name => (dispatch, getState ) => {
         });
       }
     }
+    else {
+      res.json()
+        .then( league => saveLeagueName(league.name) )
+    }
 
     return;
   })
@@ -102,7 +107,6 @@ export const createLeagueError = err => ({
 })
 
 
-
 /* ========================= JOIN A LEAGUE ========================= */
 export const joinALeague = name => (dispatch, getState) => {
   const authToken = getState().userReducer.authToken;
@@ -131,6 +135,13 @@ export const joinALeague = name => (dispatch, getState) => {
           })
         }
       }
+      else {
+      res.json()
+        .then( league => {
+          saveLeagueName(league.name)
+        }
+      )
+    }
       
       return;
     })
@@ -162,3 +173,61 @@ export const joinALeagueError = err => ({
   type: JOIN_A_LEAGUE_ERROR,
   err
 })
+
+
+/* ========================= RETREIVE USER'S LEADERBOARD ========================= */
+export const getLeaderboard = name => (dispatch, getState) => {
+  dispatch(getLeaderboardRequest());
+  const authToken = getState().userReducer.authToken;
+
+  fetch(`${API_BASE_URL}/api/league`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify({
+      name
+    })
+  })
+  .then(res => {
+    if(!res.ok) {
+      if(res.body) {
+        return res.json()
+          .then(err => Promise.reject(err))
+      }
+      else {
+        return Promise.reject({
+          status: res.status,
+          message: res.statusText
+        })
+      }
+    }
+    else {
+      return res.json()
+    }
+  })
+  .then(leaderboard => dispatch(getLeaderboardSuccess(leaderboard)))
+  .catch(err => {
+    console.log('ERR:', err)
+    const message = 'The current season is over, play again this fall!'
+    dispatch(getLeaderboardError(message));
+  });
+}
+
+export const GET_LEADERBOARD_REQUEST = 'GET_LEADERBOARD_REQUEST';
+export const getLeaderboardRequest = () => ({
+  type: GET_LEADERBOARD_REQUEST
+});
+
+export const GET_LEADERBOARD_SUCCESS = 'GET_LEADERBOARD_SUCCESS';
+export const getLeaderboardSuccess = leaderboard => ({
+  type: GET_LEADERBOARD_SUCCESS,
+  leaderboard
+});
+
+export const GET_LEADERBOARD_ERROR = 'GET_LEADERBOARD_ERROR';
+export const getLeaderboardError = err => ({
+  type: GET_LEADERBOARD_ERROR,
+  err
+});

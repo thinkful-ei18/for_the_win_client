@@ -14,7 +14,6 @@ export class DailyGames extends Component {
   }
 
   render() {
-    console.log('schedule:', this.props.todayGameSchedule)
     let gameList;
     
     if (!this.props.todayGameSchedule) {
@@ -36,16 +35,12 @@ export class DailyGames extends Component {
       ))
     }
 
-    console.log('list', gameList)
-
     const today = this.props.todayGameSchedule ? this.props.todayGameSchedule[0].gameDate : 'today';
-
-    console.log('today:', today)
 
     return (
       <div className='dailyGames'>
-        <h4 className='todayHeader'>Games for {today}:</h4>
-        {gameList}
+        <h4 className='todayHeader'>Games for { today }:</h4>
+        { gameList }
       </div>
     );
   }

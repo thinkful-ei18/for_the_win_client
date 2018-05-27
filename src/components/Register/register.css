@@ -1,3 +1,8 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
 #fullName,
 #username,
 #email,
@@ -6,7 +11,7 @@
 .regSubmitButton {
   text-align: center;
   height: 40px;
-  width: 85%;
+  width: 75%;
   border-radius: 8px;
   margin: 0px auto 15px auto;
   display: block;
@@ -35,27 +40,23 @@ MEDIA QUERIES
     height: 50px;
     width: 75%;
   }
-
 }
 
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-   #fullName,
-   #username,
-   #email,
-   #password,
-   #teamName,
-   .regSubmitButton {
-     height: 50px;
-     width: 100%;
-   }
-
-   .registerForm {
-     display: flex;
-     justify-content: center;
-   }
-
+  #fullName,
+  #username,
+  #email,
+  #password,
+  #teamName,
+  .regSubmitButton {
+    height: 50px;
+    width: 100%;
+  }
+  .registerForm {
+    display: flex;
+    justify-content: center;
+  }
   .fieldset {
     width: 750px;
   }
-
 }

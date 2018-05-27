@@ -2,9 +2,10 @@ import * as actions from '../actions/leagueActions';
 
 const initialState = {
   leagues: null, // array of league objects
+  leaderboard: null,
   next: false,
   loading: false,
-  error: null
+  error: false
 }
 
 export const leagueReducer = (state=initialState, action) => {
@@ -31,14 +32,15 @@ export const leagueReducer = (state=initialState, action) => {
       ...state, 
       next: true,
       loading: false,
-      error: null
+      error: false
     }
   }
 
   if(action.type === actions.CREATE_LEAGUE_ERROR) {
     return {
       ...state,
-      error: action.err
+      error: action.err,
+      loading: false
     }
   }
 
@@ -56,14 +58,41 @@ export const leagueReducer = (state=initialState, action) => {
       ...state,
       next: true,
       loading: false,
-      error: null
+      error: false
     }
   }
 
   if(action.type === actions.JOIN_A_LEAGUE_ERROR) {
     return {
       ...state,
-      error: action.err
+      error: action.err,
+      loading: false
+    }
+  }
+
+  /* =============== LEADERBOARD ACTIONS =============== */
+  if(action.type === actions.GET_LEADERBOARD_REQUEST) {
+    return {
+      ...state,
+      loading: true,
+      next: false
+    }
+  }
+
+  if(action.type === actions.GET_LEADERBOARD_SUCCESS) {
+    return {
+      ...state,
+      leaderboard: action.leaderboard,
+      loading: false,
+      error: false
+    }
+  }
+
+  if(action.type === actions.GET_LEADERBOARD_ERROR) {
+    return {
+      ...state,
+      error: action.err,
+      loading: false
     }
   }
 

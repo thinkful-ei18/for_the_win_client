@@ -7,9 +7,10 @@ import DailyGames from './DailyGames';
 import { checkUserAuth, logout } from '../../actions/userActions';
 
 import './gameSchedule.css';
+import '../navbar.css';
 
 
-export class GameSchedule extends Component {
+class GameSchedule extends Component {
 
   componentWillMount() {
     this.props.dispatch(checkUserAuth());
@@ -21,12 +22,32 @@ export class GameSchedule extends Component {
       return <Redirect to='/' />
     }
 
+    const styles = {
+      navlink: {
+        textDecoration: 'none',
+        color: '#E3EBE8'
+      }
+    }
+
     return (
       <div className='gameSchedule'>
+        
         <div className='navBar'>
+          {/* <button
+            className='navLink'>
+            <Link 
+              to='/leaderboard'
+              style={styles.navlink} > 
+              Leaderboard 
+            </Link>
+          </button> */}
           <button
-            className='gameScheduleButton'>
-            <Link to='/dashboard'>My Stats</Link>
+            className='navLink' >
+            <Link 
+              to='/dashboard'
+              style={styles.navlink} > 
+              Dashboard 
+            </Link>
           </button>
           <button
             className='logoutButton'
@@ -34,8 +55,10 @@ export class GameSchedule extends Component {
             Logout
           </button>
         </div>
+
         <Header />
         <DailyGames />
+        
       </div>
     );
   }

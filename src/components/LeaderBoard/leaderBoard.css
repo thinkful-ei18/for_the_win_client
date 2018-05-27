@@ -1,0 +1,71 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
+.leaderboard {}
+
+.leaderboard-user {}
+
+.leaderboard-score {}
+
+.league-leaderboard {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.leaderboard-descriptions {
+  margin-bottom: 5px;
+}
+
+.team-leader {
+  margin: 15px 15px 20px 15px;
+}
+
+.league-user-name {
+  padding: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: #E3EBE8;
+}
+
+.league-user-score {
+  padding: 8px;
+  background-color: #007e8e;
+}
+
+.message {
+  text-align: center;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .league-leaderboard {
+    width: 80%;
+  }
+  .league-user-name {
+    padding: 15px;
+  }
+  .league-user-score {
+    padding: 15px;
+  }
+  .team-leader {
+    margin: 15px 15px 35px 15px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .league-user-name {
+    padding: 20px;
+    font-size: 20px;
+  }
+  .league-user-score {
+    padding: 20px;
+    font-size: 20px;
+  }
+}

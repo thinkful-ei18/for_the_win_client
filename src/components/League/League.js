@@ -7,6 +7,7 @@ import { retrieveLeagues, createLeague, joinALeague } from '../../actions/league
 import { checkUserAuth } from '../../actions/userActions';
 
 import './league.css';
+import '../navbar.css';
 
 
 class League extends Component {
@@ -96,7 +97,7 @@ class League extends Component {
         <div className='navBar'>
             <Link
               to='/'
-              className='homeLink'
+              className='navLink'
             >
               Home
             </Link>

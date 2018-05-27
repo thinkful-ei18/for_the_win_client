@@ -5,6 +5,7 @@ import Header from '../Header';
 import RegisterForm from './RegisterForm';
 
 import './register.css';
+import '../navbar.css';
 
 
 export default class Register extends Component {
@@ -16,7 +17,7 @@ export default class Register extends Component {
         <div className='navBar'>
           <Link
             to='/'
-            className='homeLink'
+            className='navLink'
           >
             Home
             </Link>

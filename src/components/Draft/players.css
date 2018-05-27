@@ -1,3 +1,8 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
 .players {
   border: solid #000000 1px;
 }
@@ -7,6 +12,6 @@
   display: inline-block;
   padding: 15px;
   width: 100px;
-  height:50px;
+  height: 50px;
   text-align: center;
 }

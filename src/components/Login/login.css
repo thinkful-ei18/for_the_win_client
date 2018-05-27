@@ -1,13 +1,13 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
 .login {
   background-color: #F7F7FF;
   width: 100%;
   justify-content: center;
   align-items: center;
-}
-
-.homeLink {
-  color: #E3EBE8;
-  text-decoration: none;
 }
 
 .hereLink {
@@ -23,10 +23,10 @@
 #loginPassword,
 .loginSubmitButton {
   text-align: center;
-  height:40px;
-  width:85%;
+  height: 40px;
+  width: 75%;
   border-radius: 8px;
-  margin: 0px auto 15px auto;
+  margin: 20px auto 0px auto;
   display: block;
 }
 
@@ -37,25 +37,21 @@
 
 .registerHere {
   text-align: center;
-  color: #B1B695;
+  color: #007e8e;
+  margin-top: 15px;
 }
-
 
 /* ============================ 
 MEDIA QUERIES
 ============================*/
 
-
-
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
   .login {
     border-radius: 8px;
   }
-
   .loginFieldset {
     width: 80%;
   }
-
   .loginForm {
     display: flex;
     justify-content: center;
@@ -63,20 +59,17 @@ MEDIA QUERIES
 }
 
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-
-     #loginEmail,
-     #loginPassword,
-     .loginSubmitButton {
-       height: 50px;
-       width: 100%;
-     }
-
-     .loginForm {
-       display: flex;
-       justify-content: center;
-     }
-
-     .loginFieldset {
-       width: 750px;
-     }
+  #loginEmail,
+  #loginPassword,
+  .loginSubmitButton {
+    height: 50px;
+    width: 100%;
+  }
+  .loginForm {
+    display: flex;
+    justify-content: center;
+  }
+  .loginFieldset {
+    width: 750px;
+  }
 }

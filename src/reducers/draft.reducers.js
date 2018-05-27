@@ -41,6 +41,15 @@ const initialState = {
 }
 
 export const draftReducer = (state=initialState, action) => {
+
+  if(action.type === actions.FETCH_NBA_PLAYERS_REQUEST) {
+    return {
+      ...state,
+      loading: true,
+      error: false
+    }
+  }
+
   if (action.type === actions.FETCH_NBA_PLAYERS_SUCCESS) {
     return{
       ...state,

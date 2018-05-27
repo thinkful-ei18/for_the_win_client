@@ -1,0 +1,64 @@
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
+.navBar {
+  background-color: #858988;
+  height: 35px;
+  text-align: end;
+  padding-top: 6px;
+  padding-right: 15px;
+}
+
+.homepageNavBar {
+  height: 35px;
+  text-align: end;
+  padding-top: 6px;
+  padding-right: 15px;
+}
+
+.navLink,
+.logoutButton {
+  margin-left: 25px;
+  color: #E3EBE8;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+}
+
+.logoutButton:hover,
+.navLink:hover {
+  cursor: pointer;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar,
+  .homepageNavBar {
+    height: 50px;
+    padding-top: 13px;
+    padding-right: 25px;
+  }
+  .navLink,
+  .logoutButton {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navBar,
+  .homepageNavBar {
+    height: 60px;
+    padding-top: 17px;
+    padding-right: 30px;
+  }
+  .navLink,
+  .logoutButton {
+    font-size: 20px;
+  }
+}

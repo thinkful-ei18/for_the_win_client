@@ -1,3 +1,42 @@
-.score {
-  border: solid #000000 1px;
+/*
+https: //coolors.co/858988-D85627-E3EBE8-007e8e-F7F7FF
+B1B695- green
+*/
+
+.team-score {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 40px;
+}
+
+.score-p {}
+
+.total-points {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+  padding: 8px 0;
+  background-color: #D85627;
+  color: #ffffff;
+}
+
+/* ============================ 
+MEDIA QUERIES
+============================*/
+
+/* tablet */
+
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {}
+
+/* desktop */
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .total-points {
+    padding: 15px 0;
+    width: 130px;
+    font-size: 18px;
+  }
+  .score-p {
+    font-size: 20px;
+  }
 }

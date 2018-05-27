@@ -1,39 +1,83 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactModal from 'react-modal';
 
 import Instructions from './Instructions';
 
 import './landingPage.css';
+import '../navbar.css';
 
 
 export default class LandingPage extends Component {
+  constructor() {
+      super();
+      this.state = {
+        showModal: false
+      };
+      
+      this.handleOpenModal = this.handleOpenModal.bind(this);
+      this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+    
+    handleOpenModal () {
+      this.setState({ showModal: true });
+    }
+    
+    handleCloseModal () {
+      this.setState({ showModal: false });
+    }
 
   render() {
 
     return (
         <div className='landingPage'>
-          <div className='navBar'> 
+          <div className='homepageNavBar'> 
             <Link 
               to='/login' 
-              className='loginLink'
+              className='navLink'
             >
               Login
             </Link>
             <Link
               to='/register'
-              className='registerLink'
+              className='navLink'
             >
               Register
             </Link>
+            <button 
+              className='navLink'
+              onClick={this.handleOpenModal}>
+              About
+            </button>
           </div>
+
           <section className='section' >
             <h1>FOR THE WIN</h1>
           </section>
-          <div>
+
+          <ReactModal 
+            isOpen={this.state.showModal}
+            contentLabel="About For The Win"
+            className='modalContent'
+            overlayClassName='modalOverlay'
+            shouldReturnFocusAfterClose={false}
+          >
+            <button 
+              onClick={this.handleCloseModal}
+              className='closeModal'
+            >
+              X
+            </button>
             <Instructions />
-          </div>
+          </ReactModal>
+
+          {/* <p className='photoCred'>Photo by Alex Perez on Unsplash</p> */}
         </div>
     );
   }
 }
 
+/*
+Resources:
+ - http://reactcommunity.org/react-modal/
+*/
