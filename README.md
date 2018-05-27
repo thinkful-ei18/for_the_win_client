@@ -1,8 +1,8 @@
 # For The Win
-TThe basketball enthusiast's preferred fantasy basketball league and stat tracker. 
+The basketball enthusiast's preferred fantasy basketball league and stat tracker. 
 
 ### Demo Account
-username: demo@gmail.com
+username: demo@gmail.com <br>
 password: demoaccount
 
 ### Deployed version
@@ -25,7 +25,7 @@ https://www.mysportsfeeds.com/data-feeds/api-docs#
   - All reducers can be found in `./src/reducers`.
   - All actions can be found in `./src/actions`.
 
-
-
+<br>
+<br>
 
 ##### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
