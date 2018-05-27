@@ -17,8 +17,10 @@ password: demo12345
 ### Server repo
   https://github.com/thinkful-ei18/for_the_win_server
   
-### API
-https://www.mysportsfeeds.com/data-feeds/api-docs#
+### API Documentation
+https://www.mysportsfeeds.com/data-feeds/api-docs# <br>
+The NBA feeds used were: Cumulative Player Stats, Player Game Logs, Roster Players and Daily Game Schedule. <br>
+The code where these feeds were used can be found in the server repo at './routes/proxyRouter.js'.
 
 ### Client Tech Stack
   ![Client Tech Stack](src/images/client_tech_stack.jpg?raw=true "Client Tech Stack")
