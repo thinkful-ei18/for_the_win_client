@@ -3,7 +3,7 @@ The basketball enthusiast's preferred fantasy basketball league and stat tracker
 
 ### Demo Account
 username: demo@gmail.com <br>
-password: demoaccount
+password: demo12345
 
 ### Deployed version
   https://for-the-win-app.netlify.com/
