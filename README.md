@@ -18,9 +18,9 @@ password: demo12345
   https://github.com/thinkful-ei18/for_the_win_server
   
 ### API Documentation
-https://www.mysportsfeeds.com/data-feeds/api-docs# <br>
-The NBA feeds used were: Cumulative Player Stats, Player Game Logs, Roster Players and Daily Game Schedule. <br>
-The code where these feeds were used can be found in the server repo at './routes/proxyRouter.js'.
+A RESTful API, created by myself, as well as a third party API hosted by <a href='https://www.mysportsfeeds.com/data-feeds/api-docs#'>MySportsFeed</a> were used to handle the requests from the client portion of For The Win. <br> 
+Please refer to the server repo for further details.
+ <br>
 
 ### Client Tech Stack
   ![Client Tech Stack](src/images/client_tech_stack.jpg?raw=true "Client Tech Stack")
