@@ -180,15 +180,11 @@ export const getLeaderboard = name => (dispatch, getState) => {
   dispatch(getLeaderboardRequest());
   const authToken = getState().userReducer.authToken;
 
-  fetch(`${API_BASE_URL}/api/league`, {
-    method: 'POST',
+  fetch(`${API_BASE_URL}/api/league/${name}`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}`
-    },
-    body: JSON.stringify({
-      name
-    })
+    }
   })
   .then(res => {
     if(!res.ok) {
@@ -209,8 +205,8 @@ export const getLeaderboard = name => (dispatch, getState) => {
   })
   .then(leaderboard => dispatch(getLeaderboardSuccess(leaderboard)))
   .catch(err => {
-    console.log('ERR:', err)
-    const message = 'The current season is over, play again this fall!'
+    let message = err.message === 'Bad Request' ? 'There was an error with the request.' : 'The current season is over, play again this fall!'
+
     dispatch(getLeaderboardError(message));
   });
 }
