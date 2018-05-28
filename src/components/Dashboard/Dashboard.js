@@ -42,14 +42,14 @@ export class Dashboard extends Component {
               Schedule
             </Link>
           </button>
-          {/* <button
+          <button
             className='navLink'>
             <Link 
               to='/leaderboard'
               style={styles.navlink} >
               Leaderboard
             </Link>
-          </button> */}
+          </button>
           <button
             className='logoutButton'
             onClick={() => this.props.dispatch(logout()) } >
