@@ -20,7 +20,7 @@ export const statsReducer = (state = initialState, action) => {
   if (action.type === actions.FETCH_ROSTER_STATS_SUCCESS) {
     return {
       ...state,
-      stats: [...state.stats, action.stats],
+      stats: action.stats,
       loading: false,
       error: null
     }

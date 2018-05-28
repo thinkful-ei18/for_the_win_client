@@ -8,28 +8,41 @@ export const fetchRosterStats = team => dispatch => {
 
   let playerIDs = team.map(player => player.playerID)
 
-  return playerIDs.forEach(playerID => {
-    dispatch(fetchIndividualStats(playerID))
-  })
+  let idString = playerIDs.toString();
 
-}
-
-export const fetchIndividualStats = playerID => dispatch => {
-  
-  return fetch(`${API_BASE_URL}/api/stats?player=${playerID}`, {
+  return fetch(`${API_BASE_URL}/api/stats?idString=${idString}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
-    })
+  })
     .then(res => res.json() )
-    .then(logs => {
-      let stats = logs.slice(-1)[0];
+    .then(data => {
+      let stats = playerIDs.map( id => {
+        if (data.find( stat => stat.playerID === id)) {
+          return data.find( stat => stat.playerID === id);
+        }
+        else {
+          return {
+            firstName: 'N/A',
+            lastName: 'N/A',
+            dateOfGame: 'N/A',
+            playerID: id,
+            twoPointers: 'N/A',
+            threePointers: 'N/A',
+            freeThrows: 'N/A',
+            totalPoints: 'N/A',
+            rebounds: 'N/A',
+            assists: 'N/A',
+            steals: 'N/A',
+            blocks: 'N/A'
+          }
+        }
+      })
       dispatch(fetchRosterStatsSuccess(stats))
     })
     .catch(err => dispatch(fetchRosterStatsError(err)) );
-
-};
+}
 
 
 export const FETCH_ROSTER_STATS_REQUEST = 'FETCH_ROSTER_STATS_REQUEST'
