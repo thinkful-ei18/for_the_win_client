@@ -42,6 +42,15 @@ class LeaderBoard extends Component {
       }
     }
 
+    /* ======== SORT LEADERBOARD BY SCORE ======== */
+    function compare(a, b) {
+      if (a.props.children[1].props.children[0] > b.props.children[1].props.children[0])
+        return -1;
+      if (a.props.children[1].props.children[0] < b.props.children[1].props.children[0])
+        return 1;
+      return 0;
+    }
+
     /* ======== CREATE THE LEAGUE LEADER BOARD ======== */
     let leagueLeaderboard;
     if (this.props.loading) {
@@ -62,7 +71,7 @@ class LeaderBoard extends Component {
               { user[key[0]] } points so far this season.
             </p>
           </div>
-      });
+      }).sort(compare);
     }
 
     return(
