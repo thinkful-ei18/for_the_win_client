@@ -1,7 +1,7 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import jwtDecode from 'jwt-decode';
-import { saveAuthToken, findAuthToken, deleteAuthToken } from '../localStorage';
+import { saveAuthToken, findAuthToken, deleteAuthToken, saveLeagueName, deleteLeagueName } from '../localStorage';
 
 
 /* ========================= CREATE A NEW USER ========================= */
@@ -81,7 +81,7 @@ export const login = (email, password) => dispatch => {
       }
       return res.json();
     })
-    .then(({ authToken }) => storeAuthToken(authToken, dispatch))
+    .then(({ authToken }) => storeAuthTokenAndLeague(authToken, dispatch))
     .catch(err => {
       const { status } = err.error;
       const message =
@@ -98,10 +98,11 @@ export const login = (email, password) => dispatch => {
   );
 };
 
-const storeAuthToken = (authToken, dispatch) => {
+const storeAuthTokenAndLeague = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(loginSuccess(decodedToken.user));
+  saveLeagueName(decodedToken.user.leagueName)
   saveAuthToken(authToken);
 };
 
@@ -153,7 +154,8 @@ export const checkUserAuthSuccess = authToken => ({
 
 export const logout = () => dispatch => {
   deleteAuthToken();
-  // dispatch(deleteAuthTokenSuccess());
+  deleteLeagueName();
+
   dispatch(logoutSuccess())
 };
 
@@ -172,9 +174,3 @@ export const logoutError= err => ({
   type: LOGOUT_ERROR,
   err
 });
-
-
-// export const DELETE_AUTH_TOKEN_SUCCESS = 'DELETE_AUTH_TOKEN_SUCCESS';
-// export const deleteAuthTokenSuccess = () => ({
-//   type: DELETE_AUTH_TOKEN_SUCCESS
-// });
