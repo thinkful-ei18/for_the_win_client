@@ -19,6 +19,7 @@ class LeaderBoard extends Component {
 
   componentDidMount() {
     const name = findLeagueName();
+    console.log('NAME:', name);
     this.props.dispatch(getLeaderboard(name))
   }
 
