@@ -91,13 +91,19 @@ B1B695- green
   color: #F7F7FF;
 }
 
+.NA {
+  font-style: italic;
+  margin: 10px 0 15px 10px;
+  font-size: 12px;
+}
+
 /* ============================ 
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
   .team {
-    width: 100%;
+    /* width: 100%; */
     padding: 0 20px;
   }
   .offense,
@@ -117,11 +123,13 @@ MEDIA QUERIES
   .scroll {
     display: none;
   }
+  .NA {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .team {
-    width: 100%;
     padding: 0 20px;
   }
   .offense,
@@ -138,5 +146,8 @@ MEDIA QUERIES
   }
   .scroll {
     display: none;
+  }
+  .NA {
+    font-size: 15px;
   }
 }

@@ -65,6 +65,7 @@ export class Team extends Component {
     return (
       <div className='team'>
         <p className='scroll'>Scroll to the right for more stats!</p>
+        
         <div className='statsDiv'>
           <ul className='descriptions'>
             <li className='playerNametitle'>Player Name</li>
@@ -79,8 +80,11 @@ export class Team extends Component {
             <li className='pointsTitle'>PTS</li>
           </ul>
         </div>
+
         {errorMessage}
         {playerStats}
+        
+        <p className='NA'>N/A denotes that the player has not played in the last 7 days.</p>
       </div>
     );
   }
