@@ -33,6 +33,12 @@ export const saveLeagueName = leagueName => {
   catch (e) {}
 }
 
+export const deleteLeagueName = () => {
+  try {
+    localStorage.removeItem('leagueName');
+  }
+  catch (e) {}
+}
 
 /*
  Resources:
