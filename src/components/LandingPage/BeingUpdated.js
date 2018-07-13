@@ -54,14 +54,14 @@ export default class BeingUpdated extends Component {
             </button>
             <p className='updating'>
               Hello there! <br /><br />
-              Thanks for visiting <span className='ftw'>For The Win</span>! Unfortunately, the API powering this site is undergoing at least one month of updates. Upon their completion I should have this app back online.<br /><br />
+              Thanks for visiting <span className='ftw'>For The Win</span>! Unfortunately, the API powering this site is undergoing at least one month of updates. Therefore, the app is not functioning as intended. When the API update is completed I should have this app back online.<br /><br />
               In the meantime, be sure to check out some of my other projects at
               <span className='space'>
                 <a href='http://www.alishaantoinette.com/' 
                   target='_blank' 
                   rel='noopener noreferrer'> 
                     www.alishaantoinette.com
-                </a>. 
+                </a>! 
               </span>
             </p>
           </ReactModal>
