@@ -51,7 +51,7 @@ export default class LandingPage extends Component {
             </button>
           </div>
 
-          <section className='section' >
+          <section className='section ftw' >
             <h1>FOR THE WIN</h1>
           </section>
 
@@ -77,7 +77,10 @@ export default class LandingPage extends Component {
   }
 }
 
+ReactModal.setAppElement('body');
+
 /*
 Resources:
  - http://reactcommunity.org/react-modal/
+ - https://github.com/reactjs/react-modal/issues/576
 */
