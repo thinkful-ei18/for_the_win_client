@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// import LandingPage from './components/LandingPage/LandingPage';
-import BeingUpdated from './components/LandingPage/BeingUpdated';
+import LandingPage from './components/LandingPage/LandingPage';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import League from './components/League/League';
@@ -19,8 +18,7 @@ export default class App extends Component {
       <Router>
         <div className='appPage'>
           <main className='main' role='main'>
-            {/* <Route exact path='/' component={LandingPage} /> */}
-            <Route exact path='/' component={BeingUpdated} />
+            <Route exact path='/' component={LandingPage} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/league' component={League} />
