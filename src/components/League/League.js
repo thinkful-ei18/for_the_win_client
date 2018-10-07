@@ -108,7 +108,7 @@ class League extends Component {
 
         <div className='container'>
           <section className='create'>
-            <h4 className='league-h4'>Create a new league!</h4>
+            <h4 className='league-h4'>Commission a new league!</h4>
             <form onSubmit={this.onCreateSubmit}>
               <label className='create-label'>Name:</label>
               <input
