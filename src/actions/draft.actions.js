@@ -71,10 +71,11 @@ export const fetchAddPlayersToTeam = player => (dispatch, getState) => {
         'Authorization': `Bearer ${authToken}` 
       },
       body: JSON.stringify({
+        "playerPic": player.playerPic,
         "playerID": player.playerID,
-        "firstName": player.firstName,
-        "lastName": player.lastName,
-        "playerTeam": player.playerTeam
+        "playerName": player.playerName,
+        "playerTeam": player.playerTeam,
+        "playerPosition": player.playerPosition
       })
     })
     .then(res => {
