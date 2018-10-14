@@ -7,6 +7,7 @@ import { fetchNbaPlayers, filterNbaPlayersByTeam, fetchAddPlayersToTeam, fetchRe
 import { makeSymmDiffFunc } from '../../utils/index';
 
 import './theDraft.css';
+import genericProfilePic from '../../images/nba_player_bust.png';
 
 
 export class Players extends Component {
@@ -16,6 +17,8 @@ export class Players extends Component {
   }
 
   render() {
+    console.log('PLAYER PICS:', this.props.filteredTeam);
+
     /* ======== REMOVE/ADD PLAYERS FROM AVAILABLE PLAYERS LIST ======== */
     const getRemainingPlayers = makeSymmDiffFunc((x, y) => x.playerID === y.playerID);
     
@@ -43,7 +46,9 @@ export class Players extends Component {
             onClick={() => {
               this.props.dispatch(fetchAddPlayersToTeam(player))
             }}>
-            {player.firstName} {player.lastName}
+            <img src={player.playerPic !== null ? player.playerPic : genericProfilePic} alt={player.playerName} className='playerPic'/>
+            <span className='playerPosition'>{player.playerPosition}</span>
+            <span>{player.playerName}</span>
           </button>
         </li>
       ));
