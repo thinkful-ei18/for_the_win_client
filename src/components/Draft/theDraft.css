@@ -64,11 +64,23 @@ B1B695- green
 .playerList {
   border: solid #D85627 2px;
   width: 45%;
+  height: auto;
 }
 
 .liButton {
   border: none;
   background-color: transparent;
+}
+
+.playerPic {
+  width: 60%;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.playerPosition {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 .playersSubmitButton {
@@ -91,12 +103,15 @@ MEDIA QUERIES
     margin: 15px 22px;
     padding: 8px;
   }
+
   .myPlayers {
     width: 15%;
   }
+
   .availablePlayers {
     width: 85%;
   }
+
   .playerList {
     width: 22%;
   }
@@ -107,12 +122,15 @@ MEDIA QUERIES
     margin: 15px 34px;
     padding: 8px;
   }
+
   .myPlayers {
     width: 15%;
   }
+
   .availablePlayers {
     width: 85%;
   }
+
   .playerList {
     width: 15%;
   }
