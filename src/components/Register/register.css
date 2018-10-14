@@ -30,7 +30,8 @@ B1B695- green
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
+
   #fullName,
   #username,
   #email,
@@ -42,7 +43,8 @@ MEDIA QUERIES
   }
 }
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
+
   #fullName,
   #username,
   #email,
@@ -52,10 +54,12 @@ MEDIA QUERIES
     height: 50px;
     width: 100%;
   }
+
   .registerForm {
     display: flex;
     justify-content: center;
   }
+
   .fieldset {
     width: 750px;
   }

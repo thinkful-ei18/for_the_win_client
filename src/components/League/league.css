@@ -60,26 +60,32 @@ MEDIA QUERIES
 
 /* tablet */
 
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .container {
     margin: 50px 80px;
   }
+
   .league-h4 {
     font-size: 25px;
   }
+
   .create-label {
     font-size: 20px;
   }
+
   #league-name {
     width: 300px;
     height: 30px;
   }
+
   .submit-button {
     font-size: 20px;
   }
+
   .join-label {
     font-size: 20px;
   }
+
   .create {
     margin-bottom: 70px;
   }
@@ -87,17 +93,20 @@ MEDIA QUERIES
 
 /* desktop */
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .container {
     display: flex;
     justify-content: center;
   }
+
   .create {
     margin-right: 100px;
   }
+
   .league-h4 {
     letter-spacing: 1px;
   }
+
   .submit-button {
     background-color: transparent;
     border: none;

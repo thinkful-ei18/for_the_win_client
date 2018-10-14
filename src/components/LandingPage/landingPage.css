@@ -106,42 +106,51 @@ MEDIA QUERIES
 
 /* tablet */
 
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .landingPage {
     background-image: url('../../images/splash_tablet.png');
   }
+
   .instructionsDiv {
     height: 250px;
   }
+
   .section {
     font-size: 80px;
     margin-top: 80px;
   }
+
   /* ======================== delete this when the API finishes updating ======================== */
   .updating {
     font-size: 25px;
     margin-right: 25px;
     margin-left: 25px;
   }
+
   /* ======================== */
   .modalContent {
     top: 15%;
     left: 15%;
     right: 15%;
   }
+
   .closeModal {
     font-size: 20px;
   }
+
   .instructionsTitle {
     font-size: 40px;
   }
+
   .instructionsDesc {
     font-size: 20px;
   }
+
   .instructions {
     font-size: 18px;
     margin: 25px auto;
   }
+
   .instructionBox {
     margin-top: 45px;
   }
@@ -149,33 +158,40 @@ MEDIA QUERIES
 
 /* desktop */
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .landingPage {
     background-image: url('../../images/splash_desktop.png');
   }
+
   .modalContent {
     left: 18%;
     right: 18%;
     bottom: 10%;
   }
+
   .closeModal {
     border: none;
     font-size: 30px;
   }
+
   /* ======================== delete this when the API finishes updating ======================== */
   .updating {
     margin-left: 40px;
   }
+
   /* ======================== */
   .instructionsDiv {
     height: 300px;
   }
+
   .instructionsTitle {
     font-size: 80px;
   }
+
   .instructionsDesc {
     font-size: 30px;
   }
+
   .instructions {
     font-size: 25px;
   }

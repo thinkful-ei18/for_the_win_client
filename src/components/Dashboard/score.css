@@ -26,16 +26,17 @@ MEDIA QUERIES
 
 /* tablet */
 
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {}
+@media screen and (min-width: 768px) {}
 
 /* desktop */
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .total-points {
     padding: 15px 0;
     width: 130px;
     font-size: 18px;
   }
+
   .score-p {
     font-size: 20px;
   }

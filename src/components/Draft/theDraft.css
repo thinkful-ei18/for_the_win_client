@@ -54,6 +54,7 @@ B1B695- green
   font-size: 12px;
   text-align: center;
   display: inline-block;
+  padding: 10px;
 }
 
 .teammate {
@@ -98,7 +99,7 @@ B1B695- green
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .teamFilterSelect {
     margin: 15px 22px;
     padding: 8px;
@@ -117,7 +118,7 @@ MEDIA QUERIES
   }
 }
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .teamFilterSelect {
     margin: 15px 34px;
     padding: 8px;

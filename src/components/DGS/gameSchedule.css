@@ -59,66 +59,78 @@ B1B695- green
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .gameDiv {
     width: 80%;
     margin: 35px auto;
   }
+
   .gameTimeDiv {
     padding: 10px 15px;
     height: 50px;
     font-size: 20px;
     font-weight: 1000;
   }
+
   .awayTeamDiv,
   .atSymbol,
   .homeTeamDiv {
     height: 80px;
     padding-top: 25px;
   }
+
   .atSymbol {
     font-size: 30px;
   }
+
   .awayTeamDiv,
   .homeTeamDiv {
     font-size: 20px;
   }
+
   .todayHeader {
     font-size: 25px
   }
+
   .noGames {
     font-size: 25px;
   }
 }
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .gameDiv {
     width: 28%;
     margin: 25px;
     display: inline-block;
   }
+
   .gameTimeDiv {
     padding: 10px 15px;
     height: 50px;
     font-size: 20px;
     font-weight: 1000;
   }
+
   .awayTeamDiv,
   .atSymbol,
   .homeTeamDiv {
     height: 100px;
     padding-top: 25px;
   }
+
   .atSymbol {
     font-size: 20px;
   }
+
   .awayTeamDiv,
   .homeTeamDiv {
     font-size: 18px;
   }
+
   .todayHeader {
     font-size: 25px
   }
+
   .noGames {
     font-size: 30px;
   }

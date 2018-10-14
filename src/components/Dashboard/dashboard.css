@@ -101,11 +101,12 @@ B1B695- green
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .team {
     /* width: 100%; */
     padding: 0 20px;
   }
+
   .offense,
   .defense,
   .points,
@@ -114,24 +115,28 @@ MEDIA QUERIES
   .pointsTitle {
     width: 8.75%;
   }
+
   .playerName,
   .playerNametitle,
   .gameDayTitle,
   .gameDay {
     width: 15%;
   }
+
   .scroll {
     display: none;
   }
+
   .NA {
     font-size: 14px;
   }
 }
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
   .team {
     padding: 0 20px;
   }
+
   .offense,
   .defense,
   .points,
@@ -144,9 +149,11 @@ MEDIA QUERIES
   .gameDay {
     width: 10%;
   }
+
   .scroll {
     display: none;
   }
+
   .NA {
     font-size: 15px;
   }

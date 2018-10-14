@@ -45,30 +45,35 @@ B1B695- green
 MEDIA QUERIES
 ============================*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 768px) {
   .login {
     border-radius: 8px;
   }
+
   .loginFieldset {
     width: 80%;
   }
+
   .loginForm {
     display: flex;
     justify-content: center;
   }
 }
 
-@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1024px) {
+
   #loginEmail,
   #loginPassword,
   .loginSubmitButton {
     height: 50px;
     width: 100%;
   }
+
   .loginForm {
     display: flex;
     justify-content: center;
   }
+
   .loginFieldset {
     width: 750px;
   }
