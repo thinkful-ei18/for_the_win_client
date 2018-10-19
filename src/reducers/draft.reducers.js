@@ -11,7 +11,7 @@ const initialState = {
     'CHA Charlotte Hornets',
     'CHI Chicago Bulls',
     'CLE Cleveland Cavaliers',
-    'Dallas Mavericks',
+    'DAL Dallas Mavericks',
     'DEN Denver Nuggets',
     'DET Detroit Pistons',
     'GSW Golden State Warriors',

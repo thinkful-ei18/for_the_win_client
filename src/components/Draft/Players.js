@@ -17,7 +17,6 @@ export class Players extends Component {
   }
 
   render() {
-    console.log('PLAYER PICS:', this.props.filteredTeam);
 
     /* ======== REMOVE/ADD PLAYERS FROM AVAILABLE PLAYERS LIST ======== */
     const getRemainingPlayers = makeSymmDiffFunc((x, y) => x.playerID === y.playerID);
@@ -65,7 +64,7 @@ export class Players extends Component {
           onClick={() => {
             this.props.dispatch(fetchRemovePlayersFromTeam(player.playerID))
           }}>
-          {player.firstName} {player.lastName}
+          {player.playerName}
         </button>
       </li>
     ));
@@ -81,7 +80,7 @@ export class Players extends Component {
           >
             <option value='All Teams' > Filter by team: All </option>
             {this.props.allNBATeams.map((NBATeam, index) => (
-              <option value={NBATeam} key={index}> {NBATeam} </option>
+              <option value={NBATeam.substring(0,3)} key={index}> {NBATeam.substring(4)} </option>
             ))}
           </select>
           
