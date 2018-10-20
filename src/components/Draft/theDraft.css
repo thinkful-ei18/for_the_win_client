@@ -11,7 +11,7 @@ B1B695- green
   text-align: center;
 }
 
-.teamFilterSelect {
+.filterBySelect {
   position: relative;
   float: right;
   margin: 10px 12px;
@@ -100,7 +100,7 @@ MEDIA QUERIES
 ============================*/
 
 @media screen and (min-width: 768px) {
-  .teamFilterSelect {
+  .filterBySelect {
     margin: 15px 22px;
     padding: 8px;
   }
@@ -119,7 +119,7 @@ MEDIA QUERIES
 }
 
 @media screen and (min-width: 1024px) {
-  .teamFilterSelect {
+  .filterBySelect {
     margin: 15px 34px;
     padding: 8px;
   }

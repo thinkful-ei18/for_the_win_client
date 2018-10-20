@@ -24,12 +24,22 @@ export class Players extends Component {
     const remainingPlayers = getRemainingPlayers(this.props.players, this.props.team);
 
     /* ======== USER FILTERING PLAYERS BY TEAM ======== */
-    const handleChange = value => {
+    const handleTeamChange = value => {
+      console.log('value:', value)
       let filteredTeam = remainingPlayers.filter(player => player.playerTeam === value)
+      console.log('team:', filteredTeam)
+      this.props.dispatch(filterNbaPlayersByTeam(filteredTeam))
+    }
+
+    /* ======== USER FILTERING PLAYERS BY POSITION ======== */
+    const handlePositionChange = value => {
+      console.log('value:', value)
+      let filteredTeam = remainingPlayers.filter(player => player.playerPosition === value)
       this.props.dispatch(filterNbaPlayersByTeam(filteredTeam))
     }
 
     /* ======== PLAYERS A USER CAN ADD TO THEIR TEAM ======== */
+    console.log(this.props.filteredTeam)
     let availablePlayers;
     if (this.props.loading) {
       availablePlayers = <Spinner fadeIn='none' />;
@@ -45,7 +55,7 @@ export class Players extends Component {
             onClick={() => {
               this.props.dispatch(fetchAddPlayersToTeam(player))
             }}>
-            <img src={player.playerPic !== null ? player.playerPic : genericProfilePic} alt={player.playerName} className='playerPic'/>
+            <img src={ player.playerPic !== null ? player.playerPic : genericProfilePic} alt={player.playerName} className='playerPic'/>
             <span className='playerPosition'>{player.playerPosition}</span>
             <span>{player.playerName}</span>
           </button>
@@ -73,14 +83,26 @@ export class Players extends Component {
     return (
         <div>
           <select
-            className='teamFilterSelect'
+            className='filterBySelect'
             id='nbaTeam'
             type='select'
-            onChange={e => handleChange(e.target.value)} 
+            onChange={e => handleTeamChange(e.target.value)} 
           >
             <option value='All Teams' > Filter by team: All </option>
             {this.props.allNBATeams.map((NBATeam, index) => (
               <option value={NBATeam.substring(0,3)} key={index}> {NBATeam.substring(4)} </option>
+            ))}
+          </select>
+
+          <select
+            className='filterBySelect'
+            id='position'
+            type='select'
+            onChange={e => handlePositionChange(e.target.value)} 
+          >
+            <option value='All Positions' > Filter by Position: All </option>
+            {this.props.allNBAPositions.map((NBAPosition, index) => (
+              <option value={NBAPosition} key={index}> {NBAPosition} </option>
             ))}
           </select>
           
@@ -110,6 +132,7 @@ const mapStateToProps = state => ({
     filteredTeam: state.draftReducer.filteredTeam.length > 0 ? state.draftReducer.filteredTeam : state.draftReducer.players,
     team: state.draftReducer.team,
     allNBATeams: state.draftReducer.allNBATeams,
+    allNBAPositions: state.draftReducer.allNBAPositions,
     loading: state.draftReducer.loading
   })
 

@@ -36,6 +36,15 @@ const initialState = {
     'UTA Utah Jazz',
     'WAS Washington Wizards'
   ],
+  allNBAPositions: [
+    'PG',
+    'SG',
+    'PF',
+    'SF',
+    'C',
+    'G',
+    'F'
+  ],
   loading: false,
   error: null
 }
