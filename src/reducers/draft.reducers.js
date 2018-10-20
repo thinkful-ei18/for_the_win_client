@@ -39,11 +39,11 @@ const initialState = {
   allNBAPositions: [
     'PG',
     'SG',
+    'G',
     'PF',
     'SF',
-    'C',
-    'G',
-    'F'
+    'F',
+    'C'
   ],
   loading: false,
   error: null
