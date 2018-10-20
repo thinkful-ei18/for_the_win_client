@@ -88,7 +88,7 @@ export class Players extends Component {
             type='select'
             onChange={e => handleTeamChange(e.target.value)} 
           >
-            <option value='All Teams' > Filter by team: All </option>
+            <option value='All Teams'> Filter by team: All </option>
             {this.props.allNBATeams.map((NBATeam, index) => (
               <option value={NBATeam.substring(0,3)} key={index}> {NBATeam.substring(4)} </option>
             ))}
@@ -100,7 +100,7 @@ export class Players extends Component {
             type='select'
             onChange={e => handlePositionChange(e.target.value)} 
           >
-            <option value='All Positions' > Filter by Position: All </option>
+            <option value='All Positions'> Filter by Position: All </option>
             {this.props.allNBAPositions.map((NBAPosition, index) => (
               <option value={NBAPosition} key={index}> {NBAPosition} </option>
             ))}
