@@ -40,8 +40,8 @@ const initialState = {
     'PG',
     'SG',
     'G',
-    'PF',
     'SF',
+    'PF',
     'F',
     'C'
   ],
