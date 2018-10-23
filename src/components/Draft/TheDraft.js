@@ -29,7 +29,9 @@ export class TheDraft extends Component {
             </Link>
           </div>
           <Header />
-          <p className='info'>Choose 10 players to track stats for!</p>
+          <p className='info'>The draft will begin according to your drafting order.</p>
+          <p className='info'>Each manager has 10 roster spots on their team: 2 Point Guards(PG), 1 Shooting Guard(SG), 1 Guard(G), 2 Small Forward's(SF), 1 Power Forward(PF), 1 Forward(F) and 2 Center's(C). </p>
+          <p className='info'>Each player can only be chosen once amongst your league.</p>
           <Players />
         </div>
     );
