@@ -8,6 +8,7 @@
     "input-moment": "^0.4.0",
     "jwt-decode": "^2.2.0",
     "material-ui": "^0.20.0",
+    "moment": "^2.22.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-modal": "^3.4.4",
