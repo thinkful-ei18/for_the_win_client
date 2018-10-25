@@ -107,6 +107,15 @@ export const createLeagueError = err => ({
 })
 
 
+
+/* ========================= UPDATE DATE/TIME FOR A COMMISSIONER SETTING A DRAFT DAY ========================= */
+
+export const UPDATE_DATE_AND_TIME_FOR_DRAFT_DAY = 'UPDATE_DATE_AND_TIME_FOR_DRAFT_DAY'
+export const updateDateAndTimeForDraftDay = m => ({
+  type: UPDATE_DATE_AND_TIME_FOR_DRAFT_DAY,
+  m
+})
+
 /* ========================= JOIN A LEAGUE ========================= */
 export const joinALeague = name => (dispatch, getState) => {
   const authToken = getState().userReducer.authToken;
