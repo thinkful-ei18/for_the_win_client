@@ -38,3 +38,8 @@ export default class InputMomentPicker extends Component {
   }
 
 };
+
+/*
+Resources:
+ - https://github.com/wangzuo/input-moment
+*/
