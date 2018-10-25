@@ -1,10 +1,8 @@
 import * as actions from '../actions/leagueActions';
-import moment from 'moment';
 
 const initialState = {
   leagues: null, // array of league objects
   leaderboard: null,
-  m: moment(),
   next: false,
   loading: false,
   error: false
@@ -43,13 +41,6 @@ export const leagueReducer = (state=initialState, action) => {
       ...state,
       error: action.err,
       loading: false
-    }
-  }
-
-  if (action.type === actions.UPDATE_DATE_AND_TIME_FOR_DRAFT_DAY) {
-    return {
-      ...state,
-      m: action.m
     }
   }
 
