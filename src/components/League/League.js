@@ -4,7 +4,6 @@ import { Redirect, Link } from 'react-router-dom';
 
 
 import Header from '../Header';
-import InputMomentPicker from './InputMomentPicker';
 import { retrieveLeagues, createLeague, joinALeague } from '../../actions/leagueActions';
 import { checkUserAuth } from '../../actions/userActions';
 
@@ -129,7 +128,6 @@ class League extends Component {
               Submit
               </button>
             </form>
-            <InputMomentPicker />
           </section>
 
           <section className='join'>
