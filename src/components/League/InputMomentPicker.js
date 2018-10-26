@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import InputMoment from 'input-moment';
 
-import './inputMomentPicker.css';
+import 'input-moment/dist/input-moment.css';
 
 export default class InputMomentPicker extends Component {
   constructor(props) {
@@ -30,8 +30,8 @@ export default class InputMomentPicker extends Component {
           <InputMoment
             moment={this.state.m}
             onChange={this.handleChange}
-            minStep={5}
             onSave={this.handleSave}
+            minStep={5}
           />
       </form>
     )
