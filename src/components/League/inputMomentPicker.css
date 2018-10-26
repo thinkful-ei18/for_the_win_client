@@ -4,37 +4,37 @@
   display: inline-block;
 }
 
-.m-calendar>table {
+.m-calendar table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
 }
 
-.m-calendar>td {
+.m-calendar td {
   padding: 8px 0;
   text-align: center;
   cursor: pointer;
   color: #dfe0e4;
-  ;
   border: 1px solid #dfe0e4;
-  ;
 }
 
-thead>td {
+.m-calendar thead td {
   color: #1385e5;
-  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 12px;
 }
 
-
-thead>tbody td {
-  color: #666666;
+.m-calendar tbody td {
+  color: #666;
 }
 
-thead>tbody td:hover {
+/* thead tbody td {
+  color: #666666;
+} */
+
+.m-calendar tbody td:hover {
   background: #1385e5;
   border-color: #1385e5;
   color: #ffffff;
@@ -46,10 +46,14 @@ thead>tbody td:hover {
   font-weight: bold;
 }
 
-.prev-month,
-.next-month {
-  color: #999999;
+.m-calendar .prev-month,
+.m-calendar .next-month {
+  color: #999;
 }
+
+/* .next-month {
+  color: #999999;
+} */
 
 .toolbar {
   line-height: 30px;
@@ -58,7 +62,7 @@ thead>tbody td:hover {
   margin-bottom: 13px;
 }
 
-.toolbar>button {
+.toolbar button {
   position: relative;
   width: 30px;
   height: 30px;
@@ -75,15 +79,15 @@ thead>tbody td:hover {
   cursor: pointer;
 }
 
-.toolbar>.prev-month {
+.toolbar .prev-month {
   float: left;
 }
 
-.toolbar>.next-month {
+.toolbar .next-month {
   float: right;
 }
 
-.toolbar>.current-date {
+.toolbar .current-date {
   color: #1385e5;
 }
 
@@ -94,11 +98,11 @@ thead>tbody td:hover {
   padding-top: 50px;
 }
 
-.m-time>.showtime {
+.showtime {
   text-align: center;
 }
 
-.m-time>.separater {
+.separater {
   display: inline-block;
   font-size: 32px;
   font-weight: bold;
@@ -109,7 +113,7 @@ thead>tbody td:hover {
   text-align: center;
 }
 
-.m-time>.time-text {
+.time-text {
   position: relative;
   left: -10px;
   font-size: 15px;
@@ -118,11 +122,11 @@ thead>tbody td:hover {
   margin-bottom: 10px;
 }
 
-.m-time>.sliders {
+.sliders {
   padding: 0 10px;
 }
 
-.m-time>.time {
+.time {
   width: 65px;
   height: 65px;
   display: inline-block;
@@ -145,7 +149,7 @@ thead>tbody td:hover {
   cursor: pointer;
 }
 
-.u-slider-time>.value {
+.value {
   position: absolute;
   background-color: #1385e5;
   border-radius: 3px;
@@ -153,20 +157,20 @@ thead>tbody td:hover {
   height: 100%;
 }
 
-.u-slider-time>.handle {
+.handle {
   position: absolute;
   width: 4px;
   height: 4px;
 }
 
-.u-slider-time>.handle:after {
+.u-slider-time .handle:after {
   position: relative;
   display: block;
-  content: '';
-  top: -20px/2;
-  left: -(4px+20px)/2;
-  width: 4px + 20px;
-  height: 4px + 20px;
+  content: "";
+  top: -10px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
   background-color: #fff;
   border: 3px solid #1385e5;
   border-radius: 50%;
@@ -183,7 +187,7 @@ im-btn {
   line-height: 1;
 }
 
-im-btn:before {
+.im-btn:before {
   margin-right: 6px;
 }
 
@@ -195,13 +199,13 @@ im-btn:before {
   border: 1px solid #dfe0e4;
 }
 
-.m-input-moment>.options {
+.m-input-moment .options {
   width: 100%;
   display: inline-block;
   margin-bottom: 4px;
 }
 
-.m-input-moment>.options>button {
+.m-input-moment .options button {
   float: left;
   width: 50%;
   color: #1385e5;
@@ -212,28 +216,27 @@ im-btn:before {
   border-radius: 3px;
 }
 
-.m-input-moment>.options>button:first-child {
+.m-input-moment .options button:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.m-input-moment>.options>button:last-child {
+.m-input-moment .options button:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.m-input-moment>.options>button.is-active {
+.m-input-moment .options button.is-active {
   color: #ffffff;
   background-color: #1385e5;
 }
-
 
 .tab {
   display: none;
   height: 310px;
 }
 
-.tab>.is-active {
+.is-active {
   display: block;
 }
 
@@ -241,7 +244,7 @@ im-btn:before {
   margin-bottom: 11px;
 }
 
-.btn-save {
+.m-input-moment .btn-save {
   display: block;
   margin-top: 10px;
   width: 100%;
@@ -252,3 +255,35 @@ im-btn:before {
   font-size: 16px;
   border-radius: 3px;
 }
+
+.input {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* IONICONS */
+
+/* .ion-calendar:before {
+  content: "\f117";
+}
+
+.ion-clock:before {
+  content: "\f26e";
+}
+
+.ion-ios-arrow-back:before {
+  content: "\f3d2";
+}
+
+.ion-ios-arrow-right:before {
+  content: "\f3d3";
+}
+
+.ion-checkmark:before {
+  content: "\f122";
+} */
