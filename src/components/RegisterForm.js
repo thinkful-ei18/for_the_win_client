@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 
-import Input from '../Login/Input';
-import { required, nonEmpty, greaterThan } from '../Login/validators';
+import Input from './Input';
+import { required, nonEmpty, greaterThan } from './validators';
 import { createUser, login } from '../actions/userActions';
 
 import '../styles/register.css';

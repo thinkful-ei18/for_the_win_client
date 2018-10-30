@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 
 import Instructions from './Instructions';
 
-import './landingPage.css';
-import '../navbar.css';
+import '../styles/landingPage.css';
+import '../styles/navbar.css';
 
 
 export default class LandingPage extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './score.css';
+import '../styles/score.css';
 
 
 class Score extends Component {

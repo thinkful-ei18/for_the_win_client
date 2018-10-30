@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
-import { fetchTeam } from '../../actions/team.actions';
+import { fetchTeam } from '../actions/team.actions';
 
-import './dashboard.css';
+import '../styles/dashboard.css';
 
 
 export class Team extends Component {

@@ -5,11 +5,11 @@ B1B695- green
 
 @font-face {
   font-family: 'edosz';
-  src: local('edosz'), url('../../utils/edosz.ttf') format('truetype');
+  src: local('edosz'), url('../utils/edosz.ttf') format('truetype');
 }
 
 .landingPage {
-  background-image: url('../../images/splash_mobile.png');
+  background-image: url('../images/splash_mobile.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -108,7 +108,7 @@ MEDIA QUERIES
 
 @media screen and (min-width: 768px) {
   .landingPage {
-    background-image: url('../../images/splash_tablet.png');
+    background-image: url('../images/splash_tablet.png');
   }
 
   .instructionsDiv {
@@ -160,7 +160,7 @@ MEDIA QUERIES
 
 @media screen and (min-width: 1024px) {
   .landingPage {
-    background-image: url('../../images/splash_desktop.png');
+    background-image: url('../images/splash_desktop.png');
   }
 
   .modalContent {
