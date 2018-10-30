@@ -5,6 +5,7 @@ import { Redirect, Link } from 'react-router-dom';
 import Header from '../Header';
 import Team from './Team';
 import Score from './Score';
+import InputMomentPicker from '../InputMomentPicker';
 import { checkUserAuth, logout } from '../../actions/userActions';
 
 import './dashboard.css';
@@ -18,6 +19,7 @@ export class Dashboard extends Component {
   }
 
   render() {
+    console.log('user:', this.props.user)
 
     if (this.props.loggedOut) {
       return <Redirect to='/' />
@@ -59,6 +61,7 @@ export class Dashboard extends Component {
 
         <Header />
         <Score />
+        <InputMomentPicker />
         <Team />
 
       </div>
@@ -68,7 +71,8 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => ({
   authToken: state.userReducer.authToken,
-  loggedOut: state.userReducer.loggedOut
+  loggedOut: state.userReducer.loggedOut,
+  user: state.userReducer.user
 })
 
 export default connect(mapStateToProps)(Dashboard)
