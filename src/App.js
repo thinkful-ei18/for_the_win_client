@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import LandingPage from './components/LandingPage/LandingPage';
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
-import League from './components/League/League';
-import TheDraft from './components/Draft/TheDraft';
-import Dashboard from './components/Dashboard/Dashboard';
-import GameSchedule from './components/DGS/GameSchedule';
-import LeaderBoard from './components/LeaderBoard/LeaderBoard';
+import LandingPage from './components/LandingPage';
+import Register from './components/Register';
+import Login from './components/Login';
+import League from './components/League';
+import TheDraft from './components/TheDraft';
+import Dashboard from './components/Dashboard';
+import GameSchedule from './components/GameSchedule';
+import LeaderBoard from './components/LeaderBoard';
 
 export default class App extends Component {
   
