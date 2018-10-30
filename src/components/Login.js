@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from 'react-spinkit';
 
-import Header from '../Header';
+import Header from './Header';
 import LoginForm from './LoginForm';
 
-import './login.css';
-import '../navbar.css';
+import '../styles/login.css';
+import '../styles/navbar.css';
 
 
 export class Login extends Component {

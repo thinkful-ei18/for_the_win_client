@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import InputMoment from 'input-moment';
 
-import './inputMomentPicker.css';
+import '../styles/inputMomentPicker.css';
 
 export default class InputMomentPicker extends Component {
   constructor(props) {
@@ -17,10 +17,12 @@ export default class InputMomentPicker extends Component {
   };
 
   handleSave = () => {
-    console.log('saved', this.state.m.format('llll'));
+    console.log('drafting date:', new Date(this.state.m.format('llll')));
   };  
 
   render() {
+
+    console.log('props:', this.props);
 
     return(
       <form>

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from 'react-spinkit';
 
-import { fetchNbaPlayers, filterNbaPlayersByTeam, fetchAddPlayersToTeam, fetchRemovePlayersFromTeam } from '../../actions/draft.actions';
-import { makeSymmDiffFunc } from '../../utils/index';
+import { fetchNbaPlayers, filterNbaPlayersByTeam, fetchAddPlayersToTeam, fetchRemovePlayersFromTeam } from '../actions/draft.actions';
+import { makeSymmDiffFunc } from '../utils/index';
 
-import './theDraft.css';
-import genericProfilePic from '../../images/nba_player_bust.png';
+import '../styles/theDraft.css';
+import genericProfilePic from '../images/nba_player_bust.png';
 
 
 export class Players extends Component {

@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import Spinner from 'react-spinkit';
 
-import Header from '../Header';
-import { checkUserAuth, logout } from '../../actions/userActions';
-import { getLeaderboard } from '../../actions/leagueActions';
-import { findLeagueName } from '../../localStorage';
+import Header from './Header';
+import { checkUserAuth, logout } from '../actions/userActions';
+import { getLeaderboard } from '../actions/leagueActions';
+import { findLeagueName } from '../localStorage';
 
-import './leaderBoard.css';
-import '../navbar.css';
+import '../styles/leaderBoard.css';
+import '../styles/navbar.css';
 
 
 class LeaderBoard extends Component {

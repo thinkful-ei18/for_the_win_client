@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Header from '../Header';
+import Header from './Header';
 import Players from './Players';
-import { checkUserAuth } from '../../actions/userActions';
+import { checkUserAuth } from '../actions/userActions';
 
-import './theDraft.css';
-import '../navbar.css';
+import '../styles/theDraft.css';
+import '../styles/navbar.css';
 
 
 export class TheDraft extends Component {

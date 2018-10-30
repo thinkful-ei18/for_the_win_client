@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-import Header from '../Header';
+import Header from './Header';
 import Team from './Team';
 import Score from './Score';
-import InputMomentPicker from '../InputMomentPicker';
-import { checkUserAuth, logout } from '../../actions/userActions';
+import InputMomentPicker from './InputMomentPicker';
+import { checkUserAuth, logout } from '../actions/userActions';
 
-import './dashboard.css';
-import '../navbar.css';
+import '../styles/dashboard.css';
+import '../styles/navbar.css';
 
 
 export class Dashboard extends Component {

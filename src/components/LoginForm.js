@@ -4,9 +4,9 @@ import { Link, Redirect } from 'react-router-dom';
 
 import Input from './Input';
 import { required, nonEmpty } from './validators';
-import { login } from '../../actions/userActions';
+import { login } from '../actions/userActions';
 
-import './login.css';
+import '../styles/login.css';
 
 
 export class LoginForm extends Component {

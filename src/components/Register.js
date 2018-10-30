@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../Header';
+import Header from './Header';
 import RegisterForm from './RegisterForm';
 
-import './register.css';
-import '../navbar.css';
+import '../styles/register.css';
+import '../styles/navbar.css';
 
 
 export default class Register extends Component {

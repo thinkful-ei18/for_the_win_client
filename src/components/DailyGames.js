@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
-import { fetchDailyGames } from '../../actions/gameActions';
+import { fetchDailyGames } from '../actions/gameActions';
 
-import './gameSchedule.css';
+import '../styles/gameSchedule.css';
 
 
 export class DailyGames extends Component {

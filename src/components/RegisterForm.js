@@ -4,9 +4,9 @@ import { Redirect } from 'react-router-dom';
 
 import Input from '../Login/Input';
 import { required, nonEmpty, greaterThan } from '../Login/validators';
-import { createUser, login } from '../../actions/userActions';
+import { createUser, login } from '../actions/userActions';
 
-import './register.css';
+import '../styles/register.css';
 
 
 export class RegisterForm extends Component {

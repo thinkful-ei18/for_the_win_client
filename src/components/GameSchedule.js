@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-import Header from '../Header';
+import Header from './Header';
 import DailyGames from './DailyGames';
-import { checkUserAuth, logout } from '../../actions/userActions';
+import { checkUserAuth, logout } from '../actions/userActions';
 
-import './gameSchedule.css';
-import '../navbar.css';
+import '../styles/gameSchedule.css';
+import '../styles/navbar.css';
 
 
 class GameSchedule extends Component {

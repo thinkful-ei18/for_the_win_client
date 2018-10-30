@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
 
-import Header from '../Header';
-import { retrieveLeagues, createLeague, joinALeague } from '../../actions/leagueActions';
-import { checkUserAuth } from '../../actions/userActions';
+import Header from './Header';
+import { retrieveLeagues, createLeague, joinALeague } from '../actions/leagueActions';
+import { checkUserAuth } from '../actions/userActions';
 
-import './league.css';
-import '../navbar.css';
+import '../styles/league.css';
+import '../styles/navbar.css';
 
 
 class League extends Component {
