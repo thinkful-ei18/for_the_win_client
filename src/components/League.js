@@ -65,11 +65,11 @@ class League extends Component {
 
     /* ======== HANDLE A SUCCESSFULLY CREATED/JOINED LEAGUE ======== */
     if (this.props.next) {
-      return <Redirect to='/draft' />
+      return <Redirect to='/dashboard' />
     }
 
     /* ======== FILTER THE LEAGUES IN STATE TO ONES THAT A USER CAN JOIN ======== */
-    const lessThanFive = this.props.leagues.filter( league => league.users.length <= 4)
+    const lessThanFive = this.props.leagues.filter( league => league.managers.length <= 4)
     
     /* ======== CREATE AN INPUT & LABEL FOR EACH LEAGUE A USER CAN JOIN ======== */
     const availableLeagues = lessThanFive.map((league, index) => (
