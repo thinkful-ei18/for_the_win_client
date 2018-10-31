@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import InputMoment from 'input-moment';
 import { setDraftSchedule } from '../actions/leagueActions';
-import { findLeagueName } from '../localStorage';
+import { findUsersLeague } from '../localStorage';
 
 import '../styles/inputMomentPicker.css';
 
@@ -21,7 +21,7 @@ export class InputMomentPicker extends Component {
   };
 
   handleSave = () => {
-    const leagueName = findLeagueName();
+    const leagueName = (findUsersLeague()).leagueName;
     this.props.dispatch(setDraftSchedule(leagueName, new Date(this.state.m.format('llll'))))
   };
 
