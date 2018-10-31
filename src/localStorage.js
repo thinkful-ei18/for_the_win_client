@@ -26,7 +26,7 @@ export const findUsersLeague = () => {
   catch (e) {}
 }
 
-export const saveUsersLeague = (leagueName, draftSchedule) => {
+export const saveUsersLeague = (leagueName='', draftSchedule=null) => {
   try {
     localStorage.setItem('UsersLeague', JSON.stringify({leagueName, draftSchedule}));
   }
