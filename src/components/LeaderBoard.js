@@ -6,7 +6,7 @@ import Spinner from 'react-spinkit';
 import Header from './Header';
 import { checkUserAuth, logout } from '../actions/userActions';
 import { getLeaderboard } from '../actions/leagueActions';
-import { findLeagueName } from '../localStorage';
+import { findUsersLeague } from '../localStorage';
 
 import '../styles/leaderBoard.css';
 import '../styles/navbar.css';
@@ -18,7 +18,7 @@ class LeaderBoard extends Component {
   }
 
   componentDidMount() {
-    const name = findLeagueName();
+    const name = (findUsersLeague()).leagueName;
     this.props.dispatch(getLeaderboard(name))
   }
 
