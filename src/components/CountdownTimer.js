@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Countdown from 'react-countdown-now';
 
+import { findUsersLeague } from '../localStorage';
+
 import '../styles/countdownTimer.css';
 
 export class CountdownTimer extends Component {
 
   render(){
+    const usersDraftSchedule = (JSON.parse(findUsersLeague())).draftSchedule;
+
     const CountdownCommpleted = () => <Redirect to='/draft' />;
     
     return(
@@ -15,7 +19,7 @@ export class CountdownTimer extends Component {
         <h1 className='countdown-header'>Prepare to draft your team in:</h1>
         <p className='countdown-details'>(days: hours: minutes: seconds)</p>
         <section className='countdown-timer'>
-          <Countdown date={this.props.draftSchedule}>
+          <Countdown date={`${usersDraftSchedule}`}>
             <CountdownCommpleted />
           </Countdown>
         </section>
