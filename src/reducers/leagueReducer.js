@@ -1,7 +1,8 @@
 import * as actions from '../actions/leagueActions';
 
 const initialState = {
-  leagues: null, // array of league objects
+  leagues: null, // array of league objects,
+  draftSchedule: null,
   leaderboard: null,
   next: false,
   loading: false,
@@ -56,6 +57,7 @@ export const leagueReducer = (state=initialState, action) => {
   if(action.type === actions.JOIN_A_LEAGUE_SUCCESS) {
     return {
       ...state,
+      draftSchedule: action.draftSchedule,
       next: true,
       loading: false,
       error: false
@@ -63,6 +65,33 @@ export const leagueReducer = (state=initialState, action) => {
   }
 
   if(action.type === actions.JOIN_A_LEAGUE_ERROR) {
+    return {
+      ...state,
+      error: action.err,
+      loading: false
+    }
+  }
+
+  /* =============== SET DRAFT SCHEDULE ACTIONS =============== */
+
+  if(action.type === actions.SET_DRAFT_SCHEDULE_REQUEST) {
+    return {
+      ...state,
+      loading: true
+    }
+  }
+
+  if(action.type === actions.SET_DRAFT_SCHEDULE_SUCCESS) {
+    return {
+      ...state,
+      draftSchedule: action.draftSchedule,
+      next: true,
+      loading: false,
+      error: false
+    }
+  }
+
+  if(action.type === actions.SET_DRAFT_SCHEDULE_ERROR) {
     return {
       ...state,
       error: action.err,
