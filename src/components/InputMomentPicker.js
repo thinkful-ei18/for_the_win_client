@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
+
 import InputMoment from 'input-moment';
+import { setDraftSchedule } from '../actions/leagueActions';
+import { findLeagueName } from '../localStorage';
 
 import '../styles/inputMomentPicker.css';
 
-export default class InputMomentPicker extends Component {
+export class InputMomentPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,12 +21,12 @@ export default class InputMomentPicker extends Component {
   };
 
   handleSave = () => {
-    console.log('drafting date:', new Date(this.state.m.format('llll')));
-  };  
+    const leagueName = findLeagueName();
+    this.props.dispatch(setDraftSchedule(leagueName, new Date(this.state.m.format('llll'))))
+  };
+
 
   render() {
-
-    console.log('props:', this.props);
 
     return(
       <form>
@@ -33,13 +37,16 @@ export default class InputMomentPicker extends Component {
             moment={this.state.m}
             onChange={this.handleChange}
             onSave={this.handleSave}
-            minStep={5}
+            minStep={1}
           />
       </form>
     )
   }
 
 };
+
+
+export default connect()(InputMomentPicker)
 
 /*
 Resources:
