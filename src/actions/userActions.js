@@ -1,7 +1,7 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import jwtDecode from 'jwt-decode';
-import { saveAuthToken, findAuthToken, deleteAuthToken, saveLeagueName, deleteLeagueName } from '../localStorage';
+import { saveAuthToken, findAuthToken, deleteAuthToken, saveUsersLeague, deleteUsersLeague } from '../localStorage';
 
 
 /* ========================= CREATE A NEW USER ========================= */
@@ -102,7 +102,7 @@ const storeAuthTokenAndLeague = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(loginSuccess(decodedToken.user));
-  saveLeagueName(decodedToken.user.leagueName)
+  saveUsersLeague(decodedToken.user.leagueName, null)
   saveAuthToken(authToken);
 };
 
@@ -154,7 +154,7 @@ export const checkUserAuthSuccess = authToken => ({
 
 export const logout = () => dispatch => {
   deleteAuthToken();
-  deleteLeagueName();
+  deleteUsersLeague();
 
   dispatch(logoutSuccess())
 };
