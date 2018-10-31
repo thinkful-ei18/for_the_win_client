@@ -19,23 +19,23 @@ export const deleteAuthToken = () => {
 
 
 /* ========================= LEAGUE NAME ========================= */
-export const findLeagueName = () => {
+export const findUsersLeague = () => {
   try {
-    return localStorage.getItem('leagueName')
+    return localStorage.getItem('UsersLeague')
   }
   catch (e) {}
 }
 
-export const saveLeagueName = leagueName => {
+export const saveUsersLeague = (leagueName, draftSchedule) => {
   try {
-    localStorage.setItem('leagueName', leagueName);
+    localStorage.setItem('UsersLeague', JSON.stringify({leagueName, draftSchedule}));
   }
   catch (e) {}
 }
 
-export const deleteLeagueName = () => {
+export const deleteUsersLeague = () => {
   try {
-    localStorage.removeItem('leagueName');
+    localStorage.removeItem('UsersLeague');
   }
   catch (e) {}
 }
