@@ -205,8 +205,11 @@ export const joinALeagueError = err => ({
 
 /* ========================= SET DRAFT SCHEDULE ========================= */
 export const setDraftSchedule = (name, draftSchedule) => (dispatch, getState) => {
-
+  dispatch(setDraftScheduleRequest())
   const authToken = getState().userReducer.authToken;
+
+  console.log('LA SENT NAME:', name)
+  console.log('LA SENT SCH:', draftSchedule)
 
   fetch(`${API_BASE_URL}/league/schedule`, {
     method: 'POST',
@@ -239,28 +242,39 @@ export const setDraftSchedule = (name, draftSchedule) => (dispatch, getState) =>
   .then(leagueWithDraftSchedule => {
     console.log({leagueWithDraftSchedule})
     /*
-{
-    "managers": [
-        {
-            "userId": "5bd8d5b3a7da35283eb0c1a0",
-            "username": "stephen30",
-            "team": "three-peat"
-        }
-    ],
-    "players": [],
-    "draftSchedule": "2018-11-01T06:15:00.000Z",
-    "name": "we them boys",
-    "id": "5bd8d674a7da35283eb0c1a1"
-}
-*/
-    dispatch(setDraftScheduleSuccess(leagueWithDraftSchedule.draftSchedule))
+    {
+        "managers": [
+            {
+                "userId": "5bd8d5b3a7da35283eb0c1a0",
+                "username": "stephen30",
+                "team": "three-peat"
+            }
+        ],
+        "players": [],
+        "draftSchedule": "2018-11-01T06:15:00.000Z",
+        "name": "we them boys",
+        "id": "5bd8d674a7da35283eb0c1a1"
+    }
+    */
+   console.log('LA RETURNED NAME:', leagueWithDraftSchedule.name)
+   console.log('LA RETURNED SCH:', leagueWithDraftSchedule.draftSchedule)
+   
+  //  saveDraftScheduletoStateAndLocalStorage(leagueWithDraftSchedule.name, leagueWithDraftSchedule.draftSchedule, dispatch)
+  console.log('about to dispatch the draft schedule from helper function...')
+  saveUsersLeague(name, draftSchedule);
+  console.log('after saving to local storage');
+  dispatch(setDraftScheduleSuccess(draftSchedule));
+  console.log('after schedule action');
+   
   })
   .catch(err => {
-    let message = err.message === 'Bad Request' ? 'There was an error with the request.' : 'The current season is over, play again this fall!'
-
-    dispatch(getLeaderboardError(message));
+    console.log('LA ERR:', err)
+    let message = 'There was an error with the request.';
+    
+    dispatch(setDraftScheduleError(message));
   })
 }
+
 
 export const SET_DRAFT_SCHEDULE_REQUEST = 'SET_DRAFT_SCHEDULE_REQUEST';
 export const setDraftScheduleRequest = () => ({
