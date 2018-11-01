@@ -21,7 +21,8 @@ export class InputMomentPicker extends Component {
   };
 
   handleSave = () => {
-    const leagueName = (findUsersLeague()).leagueName;
+    const leagueName = (JSON.parse(findUsersLeague())).leagueName;
+    console.log('IMPLN:', leagueName)
     this.props.dispatch(setDraftSchedule(leagueName, new Date(this.state.m.format('llll'))))
   };
 
