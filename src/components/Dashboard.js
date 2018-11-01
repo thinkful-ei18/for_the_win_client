@@ -8,7 +8,7 @@ import Score from './Score';
 import InputMomentPicker from './InputMomentPicker';
 import CountdownTimer from './CountdownTimer';
 import { checkUserAuth, logout } from '../actions/userActions';
-import { retrieveLeagues } from '../actions/leagueActions';
+import { retrieveLeagues, setDraftScheduleSuccess } from '../actions/leagueActions';
 import { findUsersLeague } from '../localStorage';
 
 import '../styles/dashboard.css';
@@ -20,17 +20,21 @@ export class Dashboard extends Component {
   componentWillMount() {
     this.props.dispatch(checkUserAuth());
     this.props.dispatch(retrieveLeagues());
+    
+    // if((JSON.parse(findUsersLeague())).draftSchedule) {
+    //   this.props.dispatch(setDraftScheduleSuccess((JSON.parse(findUsersLeague())).draftSchedule))
+    // }
   }
 
   render() {
-    console.log('dash user:', this.props.user)
+    console.log('loading the dashboard')
 
     if (this.props.loggedOut) {
       return <Redirect to='/' />
     }
 
     const usersDraftSchedule = (JSON.parse(findUsersLeague())).draftSchedule;
-    console.log('ULN:', usersDraftSchedule)
+    console.log('Dash UDS:', usersDraftSchedule)
     
     // const usersLeague = this.props.leagues.filter( league => league.name === usersLeagueName);
     // console.log('UL:', usersLeague)
@@ -39,8 +43,9 @@ export class Dashboard extends Component {
     // if (usersLeague.length && !usersLeague[0].draftSchedule) {
     //   renderedDashboard = <InputMomentPicker />
     // }
-    // else if(usersLeague.length && usersLeague[0].draftSchedule > new Date()){
+    // else if(usersLeague.length && `${usersLeague[0].draftSchedule}` > `${new Date()}`){
     //   // show the countdown
+    //   renderedDashboard = <CountdownTimer />
     // }
     // else {
     //   renderedDashboard = <Team />
@@ -48,13 +53,13 @@ export class Dashboard extends Component {
 
     // console.log('ds prop:', this.props.draftSchedule)
     // console.log('ds prop string:', `${this.props.draftSchedule}`)
-    console.log('date:', new Date())
-    console.log('date string:', `${new Date()}`)
+    // console.log('date:', new Date())
+    // console.log('date string:', `${new Date()}`)
 
     if (usersDraftSchedule === null) {
       renderedDashboard = <InputMomentPicker />
     }
-    else if(`${usersDraftSchedule}` < `${new Date()}`){
+    else if(Date.parse(`${usersDraftSchedule}`) > Date.parse(`${new Date()}`)) {
       // show the countdown
       renderedDashboard = <CountdownTimer />
     }
