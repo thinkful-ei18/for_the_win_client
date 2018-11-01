@@ -20,47 +20,22 @@ export class Dashboard extends Component {
   componentWillMount() {
     this.props.dispatch(checkUserAuth());
     this.props.dispatch(retrieveLeagues());
-    
-    // if((JSON.parse(findUsersLeague())).draftSchedule) {
-    //   this.props.dispatch(setDraftScheduleSuccess((JSON.parse(findUsersLeague())).draftSchedule))
-    // }
   }
 
   render() {
-    console.log('loading the dashboard')
 
     if (this.props.loggedOut) {
       return <Redirect to='/' />
     }
 
+
     const usersDraftSchedule = (JSON.parse(findUsersLeague())).draftSchedule;
-    console.log('Dash UDS:', usersDraftSchedule)
-    
-    // const usersLeague = this.props.leagues.filter( league => league.name === usersLeagueName);
-    // console.log('UL:', usersLeague)
-
     let renderedDashboard;
-    // if (usersLeague.length && !usersLeague[0].draftSchedule) {
-    //   renderedDashboard = <InputMomentPicker />
-    // }
-    // else if(usersLeague.length && `${usersLeague[0].draftSchedule}` > `${new Date()}`){
-    //   // show the countdown
-    //   renderedDashboard = <CountdownTimer />
-    // }
-    // else {
-    //   renderedDashboard = <Team />
-    // }
-
-    // console.log('ds prop:', this.props.draftSchedule)
-    // console.log('ds prop string:', `${this.props.draftSchedule}`)
-    // console.log('date:', new Date())
-    // console.log('date string:', `${new Date()}`)
 
     if (usersDraftSchedule === null) {
       renderedDashboard = <InputMomentPicker />
     }
     else if(Date.parse(`${usersDraftSchedule}`) > Date.parse(`${new Date()}`)) {
-      // show the countdown
       renderedDashboard = <CountdownTimer />
     }
     else {
